@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>空谷幽兰</title>
+  <subtitle>小隐于野，大隐于市，神隐于网络</subtitle>
+  <link href="//atom.xml" rel="self"/>
+  
+  <link href="http://blog.whyoop.com/"/>
+  <updated>2017-06-07T11:30:24.000Z</updated>
+  <id>http://blog.whyoop.com/</id>
+  
+  <author>
+    <name>cnwhy</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo开启置顶功能</title>
+    <link href="http://blog.whyoop.com/2017/06/07/Hexo%E5%BC%80%E5%90%AF%E7%BD%AE%E9%A1%B6%E5%8A%9F%E8%83%BD/"/>
+    <id>http://blog.whyoop.com/2017/06/07/Hexo开启置顶功能/</id>
+    <published>2017-06-07T11:23:39.000Z</published>
+    <updated>2017-06-07T11:30:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attr">index_generator:</span></div><div class="line">  <span class="comment"># path: ''</span></div><div class="line">  <span class="comment"># per_page: 10</span></div><div class="line"><span class="attr">  order_by:</span> <span class="bullet">-top</span> <span class="bullet">-date</span></div></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>在文章的<code>front-matter</code>中增加<code>top</code>值, <code>top</code>值越大越靠前;</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: 置顶文章</div><div class="line">date: 2017-06-07 19:23:39</div><div class="line">tags:</div><div class="line">categories:</div><div class="line"><span class="section">top: 100</span></div><div class="line">---</div><div class="line"><span class="section">## 置顶文章</span></div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;配置&quot;&gt;&lt;a href=&quot;#配置&quot; class=&quot;headerlink&quot; title=&quot;配置&quot;&gt;&lt;/a&gt;配置&lt;/h2&gt;&lt;figure class=&quot;highlight yml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div cla
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://blog.whyoop.com/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="http://blog.whyoop.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo开启RSS</title>
+    <link href="http://blog.whyoop.com/2017/06/07/Hexo%E5%BC%80%E5%90%AFRSS/"/>
+    <id>http://blog.whyoop.com/2017/06/07/Hexo开启RSS/</id>
+    <published>2017-06-07T11:15:05.000Z</published>
+    <updated>2017-06-08T02:18:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>开启Hexo可以用插件<code>hexo-generator-feed</code></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-feed --save</div></pre></td></tr></table></figure>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>hexo的_config.yml文件中，添加feed配置</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="attr">feed:</span> </div><div class="line">  <span class="comment">#feed 类型 (atom/rss2)</span></div><div class="line"><span class="attr">  type:</span> <span class="string">atom</span>   </div><div class="line">  <span class="comment">#rss 路径</span></div><div class="line"><span class="attr">  path:</span> <span class="string">/atom.xml</span>  </div><div class="line">  <span class="comment">#在 rss 中最多生成的文章数(0显示所有)</span></div><div class="line"><span class="attr">  limit:</span> <span class="number">10</span></div></pre></td></tr></table></figure>
+<p>在主题目的_config.yml文件中，添加RSS配置<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">rss:</span> <span class="string">/atom.xml</span></div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;开启Hexo可以用插件&lt;code&gt;hexo-generator-feed&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;figure class=&quot;highlig
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://blog.whyoop.com/categories/Hexo/"/>
+    
+    
+      <category term="Hexo RSS" scheme="http://blog.whyoop.com/tags/Hexo-RSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hello word</title>
+    <link href="http://blog.whyoop.com/2017/06/02/hello-word/"/>
+    <id>http://blog.whyoop.com/2017/06/02/hello-word/</id>
+    <published>2017-06-02T08:51:02.000Z</published>
+    <updated>2017-06-07T11:29:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>&lt;!--more--&gt;</code>之前的内容,里的内容会在首页显示, 如果设置了 <code>description</code> 则会优先使用 description<br><a id="more"></a></p>
+<h1 id="H1"><a href="#H1" class="headerlink" title="H1"></a>H1</h1><h2 id="H2"><a href="#H2" class="headerlink" title="H2"></a>H2</h2><h3 id="H3"><a href="#H3" class="headerlink" title="H3"></a>H3</h3><h4 id="H4"><a href="#H4" class="headerlink" title="H4"></a>H4</h4><p>普通文本 , <em>斜体</em> , <strong>加粗</strong> , <code>行内代码</code> , <a href="#">连接</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//代码块</span></div><div class="line"><span class="keyword">var</span> abc = <span class="number">123</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">x</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> x;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>!引用</p>
+</blockquote>
+<blockquote class="blockquote-center"><p>居中引用</p>
+</blockquote>
+<div class="note class_name"><p>Content (md partial supported) </p>
+</div>
+<ul>
+<li>列表1</li>
+<li>列表2</li>
+<li>列表3<ul>
+<li>列表3-1</li>
+<li>列表3-2</li>
+</ul>
+</li>
+<li>列表4</li>
+</ul>
+<ol>
+<li>列表1</li>
+<li>列表2</li>
+<li>列表3<ol>
+<li>列表3-1</li>
+<li>列表3-2</li>
+</ol>
+</li>
+<li>列表4</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;&amp;lt;!--more--&amp;gt;&lt;/code&gt;之前的内容,里的内容会在首页显示, 如果设置了 &lt;code&gt;description&lt;/code&gt; 则会优先使用 description&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://blog.whyoop.com/categories/Hexo/"/>
+    
+    
+      <category term="hext test" scheme="http://blog.whyoop.com/tags/hext-test/"/>
+    
+  </entry>
+  
+</feed>
