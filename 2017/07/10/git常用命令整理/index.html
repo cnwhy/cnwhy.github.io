@@ -1,0 +1,961 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="git," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="空谷幽兰" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="记录一些git的常用操作">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git常用命令整理">
+<meta property="og:url" content="http://blog.whyoop.com/2017/07/10/git常用命令整理/index.html">
+<meta property="og:site_name" content="空谷幽兰">
+<meta property="og:description" content="记录一些git的常用操作">
+<meta property="og:updated_time" content="2017-07-21T07:56:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git常用命令整理">
+<meta name="twitter:description" content="记录一些git的常用操作">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.whyoop.com/2017/07/10/git常用命令整理/"/>
+
+
+
+
+
+  <title>git常用命令整理 | 空谷幽兰</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9f953560a0945bb25688fc7e81dc8a34";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">空谷幽兰</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">小隐于野，大隐于市，神隐于网络</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.whyoop.com/2017/07/10/git常用命令整理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="cnwhy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://s.gravatar.com/avatar/0ce29bbbd3c6d01441a493be87e04bc8?s=200">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="空谷幽兰">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">git常用命令整理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-10T19:12:41+08:00">
+                2017-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/常用整理/" itemprop="url" rel="index">
+                    <span itemprop="name">常用整理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2017/07/10/git常用命令整理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  记录一些git的常用操作
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="初始化-克隆"><a href="#初始化-克隆" class="headerlink" title="初始化/克隆"></a>初始化/克隆</h2><ul>
+<li><code>git init</code> 初始化仓库</li>
+<li><code>git clone &lt;git仓库地址/路径&gt;</code> 克隆<ul>
+<li>ssh: <code>git clone ssh://git.qida.com:11223/clm.git</code></li>
+<li>http: <code>git clone https://github.com/cnwhy/lib-qqwry.git</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="修改和提交"><a href="#修改和提交" class="headerlink" title="修改和提交"></a>修改和提交</h2><h3 id="查看文件状态-比较差异-加入缓存区"><a href="#查看文件状态-比较差异-加入缓存区" class="headerlink" title="查看文件状态/比较差异/加入缓存区"></a>查看文件状态/比较差异/加入缓存区</h3><ul>
+<li><code>git status</code> 显示工作区文件状态</li>
+<li><p><code>git diff</code> 比较当前分支变动</p>
+<ul>
+<li><code>git diff &lt;branch1&gt; &lt;branch2&gt;</code> 比较两个分支</li>
+<li><code>git diff &lt;hash1&gt; &lt;hash2&gt;</code>     比较两个指定hash</li>
+</ul>
+</li>
+<li><p><code>git rm &lt;file&gt;</code> 删除文件,并添加到暂存区</p>
+</li>
+<li><code>git rm -r &lt;folder&gt;</code> 删除文件夹,并添加到暂存区</li>
+<li><p><code>git rm --cached &lt;file&gt;</code> 把文件删除添加到暂存区,但不删除文件.</p>
+</li>
+<li><p><code>git add</code> 将变动添加到暂存区</p>
+<ul>
+<li><code>git add &lt;path&gt;</code> 添加指定路径的所有变动到暂存区, 在仓库根路径下执行<code>git add .</code> == <code>git add --all</code> </li>
+<li><code>git add --all/-A</code> 添加所有变动到暂存区</li>
+<li><code>git add -u</code> 添加修改(modified)和删除(deleted)文件,不包括新(new)的文件</li>
+<li><code>git add -i</code> 交互式操作暂存区</li>
+</ul>
+</li>
+</ul>
+<h3 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h3><ul>
+<li><code>git commit -m &#39;log&#39;</code> 提交缓存区的变动<ul>
+<li><code>git commit -am &#39;log&#39;</code> 添加已经在版本库控制的文件变动到缓存区,并提交</li>
+<li><code>git commit --amend</code> 提交到最后一次commit (不会增加新的commit信息)</li>
+</ul>
+</li>
+</ul>
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><h3 id="分支基本操作"><a href="#分支基本操作" class="headerlink" title="分支基本操作"></a>分支基本操作</h3><ul>
+<li><code>git branch</code> 查看本地分支<ul>
+<li><code>-r</code> 查看远程分支</li>
+<li><code>-a</code> 查看所有分支</li>
+<li><code>-m &lt;新分支名&gt;</code> 修改分支名</li>
+<li><code>-d/-D &lt;分支名&gt;</code> 删除/强制删除 本地分支</li>
+</ul>
+</li>
+<li><code>git branch &lt;分支名&gt;</code> 创建新分支 </li>
+<li><code>git checkout &lt;分支名|Tag名&gt;</code> 切换到分支|Tag<ul>
+<li><code>-b &lt;新分支名&gt;</code> 创建并切换到新分支  </li>
+</ul>
+</li>
+</ul>
+<h3 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h3><ul>
+<li><code>git merge &lt;分支名&gt;</code> //把分支合并到本分支<ul>
+<li><code>--squash</code>  不自动提交,用把分支的多个提交合成一个。</li>
+</ul>
+</li>
+<li><code>git rebase &lt;分支名&gt;</code> 衍和分支(分支衍合不会保留合并的日志，不留痕迹),相当于本地修改</li>
+</ul>
+<h3 id="提取commit"><a href="#提取commit" class="headerlink" title="提取commit"></a>提取commit</h3><ul>
+<li><code>git cherry-pick &lt;commit hash&gt;</code> 将别的分去的一个commit拉到本分支</li>
+</ul>
+<h2 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h2><h2 id="源操作"><a href="#源操作" class="headerlink" title="源操作"></a>源操作</h2><ul>
+<li><code>git remote add origin1 &lt;GIT URL&gt;</code> //增加一个名为origin1的源</li>
+<li><code>git remote set-url origin &lt;GIT URL&gt;</code> //修改origin的源地址</li>
+<li><code>git remote remove origin</code> //删除源origin</li>
+</ul>
+<h3 id="关联"><a href="#关联" class="headerlink" title="关联"></a>关联</h3><p>关联分支后 <code>pull</code> , <code>push</code> 等命令操作当前分去可省略 <code>&lt;主机名&gt;/&lt;分支名&gt;</code>.</p>
+<ul>
+<li><code>git branch --set-upstream-to &lt;分支名&gt; &lt;源名&gt;/&lt;分支名&gt;</code> 关联 本地与远程 分支  </li>
+<li><code>git push -u &lt;源名&gt; &lt;分支名&gt;</code> 提交关把当前分支和元程分支关联</li>
+</ul>
+<h3 id="覆盖远程分支"><a href="#覆盖远程分支" class="headerlink" title="覆盖远程分支"></a>覆盖远程分支</h3><ul>
+<li><code>git push -f</code> 强制用本地分去覆盖远程分支</li>
+</ul>
+<h3 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h3><ul>
+<li><code>git push origin :&lt;分支名&gt;</code> 删除本地分支后, 把空分支推送到远程分支，以删除远程端分支</li>
+<li><code>git push origin --delete &lt;分支名&gt;</code> 删除远程分支 1.7版本后支持</li>
+</ul>
+<h3 id="更新-同步"><a href="#更新-同步" class="headerlink" title="更新/同步"></a>更新/同步</h3><ul>
+<li><code>git fetch</code> 更新更程所有分支的信息,但不影响本地代码<ul>
+<li><code>git fetch -all</code> 同步所有分支信息</li>
+<li><code>git fetch -p</code> 同步分支信息,分同步远程仓库分支,tag删除情况</li>
+</ul>
+</li>
+<li><code>git pull</code> 更新分支 <code>git pull == git fetch + git merge</code></li>
+<li><code>git pull --rebase</code> rebase方式同更新</li>
+<li><code>git pull origin master -f</code> </li>
+</ul>
+<h2 id="Tag"><a href="#Tag" class="headerlink" title="Tag"></a>Tag</h2><ul>
+<li><code>git tag &lt;tagname&gt;</code> 新建tag</li>
+<li><code>git tag -a &lt;tagname&gt; -m &#39;说明&#39;</code> 新建带说明的完整tag</li>
+<li><code>git tag -d &lt;tagname&gt;</code> 删除tag</li>
+<li><code>git push --tags</code> 推送所有本地tag到远程仓库</li>
+<li><code>git push origin --delete tag &lt;tagname&gt;</code> 删除远程端的tag 1.7</li>
+<li><code>git tag --sort=&quot;version:refname&quot;</code> 按版本号排序显示tag</li>
+<li><code>git tag --sort=&quot;version:refname&quot; -l &#39;*.*.*&#39;</code> 增加筛选</li>
+</ul>
+<hr>
+<h2 id="常规提交流程"><a href="#常规提交流程" class="headerlink" title="常规提交流程"></a>常规提交流程</h2><ul>
+<li><code>git status</code></li>
+<li><code>git diff</code> 比较差异</li>
+<li><code>git add 1.txt</code> 把文件添加到git的仓库管理系统中</li>
+<li><code>git add &lt;文件夹&gt;</code> 把文件夹添加到git的仓库管理系统中</li>
+<li><code>git add --all</code> 提交所有修改到暂存</li>
+<li><code>git rm 1.txt</code> 把文件从git的仓库管理系统中移除</li>
+<li><code>git rm -r myFolder</code> 把文件夹从git的仓库管理系统中移除</li>
+<li><code>git commit -m &#39;说明&#39;</code> 提交到仓库(本地)</li>
+<li><code>git push</code> 推送到仓库</li>
+<li><code>git push &lt;主机名&gt; &lt;分支名&gt;</code> //推送到指定远程分支</li>
+<li><code>git push -u &lt;主机名&gt; &lt;分支名&gt;</code> 推送并关联远程分支</li>
+</ul>
+<h2 id="简单提交流程"><a href="#简单提交流程" class="headerlink" title="简单提交流程"></a>简单提交流程</h2><ol>
+<li><code>git pull</code> 同步远程仓库到本地(非必须,如果远程有更新)</li>
+<li><code>git add --all &amp;&amp; git commit -m &#39;提交说明&#39;</code> //添加所有修改并提交,</li>
+<li><code>git push</code> (推送到远程)</li>
+</ol>
+<h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><ul>
+<li><code>git log</code><ul>
+<li><code>-p</code> 提交的祥细内容</li>
+<li><code>-p &lt;file&gt;</code> 指定文件的提交日志</li>
+<li><code>-n</code> 查看最后n次提交的信息</li>
+<li><code>--oneline</code> 简要列出commit记录 </li>
+</ul>
+</li>
+<li><code>git blame &lt;file&gt;</code> 以列表方式查看提交历史</li>
+</ul>
+<h3 id="撤消"><a href="#撤消" class="headerlink" title="撤消"></a>撤消</h3><p>一般 git clean都是配合git reset 使用的  </p>
+<ul>
+<li><code>git checkout .</code>   //还原未提交的修改<ul>
+<li><code>-f</code> 不会删除新增的文件</li>
+</ul>
+</li>
+<li><code>git clean</code> 删除新增,还未add的文件<ul>
+<li><code>-n</code>  显示 将要 删除的 文件 和  目录</li>
+<li><code>-f</code>  删除 文件，</li>
+<li><code>-df</code> 删除 文件 和 目录</li>
+</ul>
+</li>
+<li><code>git reset HEAD 1.text</code> 还原1.text加入的修改</li>
+<li><code>git reset --hard</code> 放弃本地所有修改</li>
+<li><code>git reset --hard &lt;哈希值&gt;</code> 回退到指定版本</li>
+<li><code>git reset --hard HEAD^</code> 放弃本地所有修改，回退到上一个版本</li>
+<li><code>git reset --hard HEAD~2</code> 放弃本地所有修改，回退到上上个版本</li>
+<li><code>git revert</code>  是撤销某一次操作，此次操作之前的commit都会被保留</li>
+</ul>
+<h2 id="本地跟踪忽略"><a href="#本地跟踪忽略" class="headerlink" title="本地跟踪忽略"></a>本地跟踪忽略</h2><ul>
+<li><code>git update-index --assume-unchanged &lt;path&gt;</code>  忽略跟踪</li>
+<li><code>git update-index --no-assume-unchanged &lt;path&gt;</code>  恢复跟踪</li>
+</ul>
+<h2 id="列出文件状态"><a href="#列出文件状态" class="headerlink" title="列出文件状态"></a>列出文件状态</h2><ul>
+<li><code>git ls-files</code> 列出所有已缓存的文件<ul>
+<li><code>-v</code> 用小写显示被<code>assume-unchanged</code>的文件</li>
+</ul>
+</li>
+</ul>
+<h2 id="嵌套仓库"><a href="#嵌套仓库" class="headerlink" title="嵌套仓库"></a>嵌套仓库</h2><ul>
+<li><code>git submodule add &lt;仓库地址&gt; &lt;路径&gt;</code> 添加嵌套仓库</li>
+<li><code>git submodule init</code> 初始化嵌套仓库</li>
+<li><code>git submodule update</code> 更新嵌套仓库</li>
+</ul>
+<hr>
+<h2 id="保存当前状态"><a href="#保存当前状态" class="headerlink" title="保存当前状态"></a>保存当前状态</h2><ul>
+<li><code>git stash</code> 备份当前的工作区的内容，从最近的一次提交中读取相关内容，让工作区保证和上次提交的内容一致。同时，将当前的工作区内容保存到Git栈中。 可多次git stash</li>
+<li><code>git stash pop</code> 从Git栈中读取最近一次保存的内容，恢复工作区的相关内容。</li>
+<li><code>git stash pop stash@{num}</code> 如果有多个工作现场，num是工作现场的编号。使用pop命令恢复的工作现场，其对应的stash 在队列中删除。</li>
+<li><code>git stash apply stash@{num}</code> 除了不在stash队列中删除外其他和<code>git stash pop</code>完全一样。</li>
+<li><code>git stash list</code> 显示Git栈内的所有备份，可以利用这个列表来决定从那个地方恢复。</li>
+<li><code>git stash clear</code> 清空Git栈。 </li>
+</ul>
+<h2 id="取消版本控制"><a href="#取消版本控制" class="headerlink" title="取消版本控制"></a>取消版本控制</h2><ul>
+<li><code>git rm -r -n --cached &lt;path&gt;</code></li>
+</ul>
+<h2 id="git设置"><a href="#git设置" class="headerlink" title="git设置"></a>git设置</h2><ul>
+<li><code>git config --global push.default current</code></li>
+<li><code>git config --global pull.default current</code></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/10/mysql常用命令整理/" rel="next" title="mysql常用命令整理">
+                <i class="fa fa-chevron-left"></i> mysql常用命令整理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://s.gravatar.com/avatar/0ce29bbbd3c6d01441a493be87e04bc8?s=200"
+               alt="cnwhy" />
+          <p class="site-author-name" itemprop="name">cnwhy</p>
+           
+              <p class="site-description motion-element" itemprop="description">小学文化，中学思想，大学流氓<br/>误入码界，浑噩多年</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/cnwhy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:w.why@163.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-envelope-o"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化-克隆"><span class="nav-number">1.</span> <span class="nav-text">初始化/克隆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改和提交"><span class="nav-number">2.</span> <span class="nav-text">修改和提交</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看文件状态-比较差异-加入缓存区"><span class="nav-number">2.1.</span> <span class="nav-text">查看文件状态/比较差异/加入缓存区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提交"><span class="nav-number">2.2.</span> <span class="nav-text">提交</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支"><span class="nav-number">3.</span> <span class="nav-text">分支</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分支基本操作"><span class="nav-number">3.1.</span> <span class="nav-text">分支基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并分支"><span class="nav-number">3.2.</span> <span class="nav-text">合并分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提取commit"><span class="nav-number">3.3.</span> <span class="nav-text">提取commit</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程操作"><span class="nav-number">4.</span> <span class="nav-text">远程操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源操作"><span class="nav-number">5.</span> <span class="nav-text">源操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关联"><span class="nav-number">5.1.</span> <span class="nav-text">关联</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#覆盖远程分支"><span class="nav-number">5.2.</span> <span class="nav-text">覆盖远程分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除远程分支"><span class="nav-number">5.3.</span> <span class="nav-text">删除远程分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新-同步"><span class="nav-number">5.4.</span> <span class="nav-text">更新/同步</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tag"><span class="nav-number">6.</span> <span class="nav-text">Tag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常规提交流程"><span class="nav-number">7.</span> <span class="nav-text">常规提交流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单提交流程"><span class="nav-number">8.</span> <span class="nav-text">简单提交流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志"><span class="nav-number">9.</span> <span class="nav-text">日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#撤消"><span class="nav-number">9.1.</span> <span class="nav-text">撤消</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地跟踪忽略"><span class="nav-number">10.</span> <span class="nav-text">本地跟踪忽略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列出文件状态"><span class="nav-number">11.</span> <span class="nav-text">列出文件状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌套仓库"><span class="nav-number">12.</span> <span class="nav-text">嵌套仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保存当前状态"><span class="nav-number">13.</span> <span class="nav-text">保存当前状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取消版本控制"><span class="nav-number">14.</span> <span class="nav-text">取消版本控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git设置"><span class="nav-number">15.</span> <span class="nav-text">git设置</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cnwhy</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "19b3304b82bf4c2387dc7ac5f5ecaa5e",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

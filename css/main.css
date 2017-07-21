@@ -519,7 +519,7 @@ pre code {
   font-size: 1em;
   color: #ccc;
   line-height: 1em;
-  margin-bottom: 1em;
+  padding: 0.5em;
 }
 .highlight figcaption:before,
 .highlight figcaption:after {
@@ -1677,7 +1677,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9e5efa;
+  background: #ff16fe;
 }
 .links-of-blogroll {
   font-size: 13px;
