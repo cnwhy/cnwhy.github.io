@@ -82,7 +82,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo,test," />
+  <meta name="keywords" content="nodejs," />
 
 
 
@@ -100,17 +100,17 @@
 
 
 
-<meta name="description" content="&amp;lt;!--more--&amp;gt;之前的内容,里的内容会在首页显示, 如果设置了 description 则会优先使用 description">
-<meta name="keywords" content="Hexo,test">
+<meta name="description" content="fs-extra 是一个nodejs便捷操作文件的模块，集成了很多常用操作.">
+<meta name="keywords" content="nodejs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hello word">
-<meta property="og:url" content="http://blog.whyoop.com/2017/06/02/hello-word/index.html">
+<meta property="og:title" content="fs-extra模块简要使用说明">
+<meta property="og:url" content="http://blog.whyoop.com/2017/09/01/fs-extra简要使用说明/index.html">
 <meta property="og:site_name" content="空谷幽兰">
-<meta property="og:description" content="&amp;lt;!--more--&amp;gt;之前的内容,里的内容会在首页显示, 如果设置了 description 则会优先使用 description">
-<meta property="og:updated_time" content="2017-07-21T07:54:21.000Z">
+<meta property="og:description" content="fs-extra 是一个nodejs便捷操作文件的模块，集成了很多常用操作.">
+<meta property="og:updated_time" content="2017-09-01T17:21:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hello word">
-<meta name="twitter:description" content="&amp;lt;!--more--&amp;gt;之前的内容,里的内容会在首页显示, 如果设置了 description 则会优先使用 description">
+<meta name="twitter:title" content="fs-extra模块简要使用说明">
+<meta name="twitter:description" content="fs-extra 是一个nodejs便捷操作文件的模块，集成了很多常用操作.">
 
 
 
@@ -138,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.whyoop.com/2017/06/02/hello-word/"/>
+  <link rel="canonical" href="http://blog.whyoop.com/2017/09/01/fs-extra简要使用说明/"/>
 
 
 
 
 
-  <title>hello word | 空谷幽兰</title>
+  <title>fs-extra模块简要使用说明 | 空谷幽兰</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -284,7 +284,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.whyoop.com/2017/06/02/hello-word/">
+    <link itemprop="mainEntityOfPage" href="http://blog.whyoop.com/2017/09/01/fs-extra简要使用说明/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="cnwhy">
@@ -301,7 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hello word</h1>
+          <h1 class="post-title" itemprop="name headline">fs-extra模块简要使用说明</h1>
         
 
         <div class="post-meta">
@@ -313,8 +313,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-02T16:51:02+08:00">
-                2017-06-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-01T15:47:19+08:00">
+                2017-09-01
               </time>
             
 
@@ -336,8 +336,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/api/" itemprop="url" rel="index">
+                    <span itemprop="name">api</span>
                   </a>
                 </span>
 
@@ -354,9 +354,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/02/hello-word/#comments" itemprop="discussionUrl">
+                <a href="/2017/09/01/fs-extra简要使用说明/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/02/hello-word/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/09/01/fs-extra简要使用说明/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -381,36 +381,55 @@
       
 
       
-        <p><code>&lt;!--more--&gt;</code>之前的内容,里的内容会在首页显示, 如果设置了 <code>description</code> 则会优先使用 description<br><a id="more"></a></p>
-<h1 id="H1"><a href="#H1" class="headerlink" title="H1"></a>H1</h1><h2 id="H2"><a href="#H2" class="headerlink" title="H2"></a>H2</h2><h3 id="H3"><a href="#H3" class="headerlink" title="H3"></a>H3</h3><h4 id="H4"><a href="#H4" class="headerlink" title="H4"></a>H4</h4><p>普通文本 , <em>斜体</em> , <strong>加粗</strong> , <code>行内代码</code> , <a href="#">连接</a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//代码块</span></div><div class="line"><span class="keyword">var</span> abc = <span class="number">123</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">x</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> x;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p><code>fs-extra</code> 是一个nodejs便捷操作文件的模块，集成了很多常用操作.<br><a id="more"></a></p>
+<h2 id="fs-extra-v4-x"><a href="#fs-extra-v4-x" class="headerlink" title="fs-extra v4.x"></a>fs-extra v4.x</h2><h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><p>异步方法不传<code>callback</code>,都将返回Promises对像；</p>
+<h4 id="copy"><a href="#copy" class="headerlink" title="copy"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/copy.md" target="_blank" rel="external">copy</a></h4><p><code>copy(src, dest, [options, callback])</code> 复制文件/文件夹</p>
+<h4 id="emptyDir"><a href="#emptyDir" class="headerlink" title="emptyDir"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/emptyDir.md" target="_blank" rel="external">emptyDir</a></h4><p><code>emptyDir(dir, [callback])</code> 清空一个目录(删除目录中的所有文件), 如果目录结构不存在则创建它</p>
 <blockquote>
-<p>!引用</p>
+<p>别名: <code>emptydir()</code></p>
 </blockquote>
-<blockquote class="blockquote-center"><p>居中引用</p>
+<h4 id="ensureFile"><a href="#ensureFile" class="headerlink" title="ensureFile"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureFile.md" target="_blank" rel="external">ensureFile</a></h4><p><code>ensureFile(file, [callback])</code> 确保文件存在。 如果文件不存在，则创建目录结构及文件</p>
+<blockquote>
+<p>别名: <code>createFile()</code></p>
 </blockquote>
-<div class="note class_name"><p>Content (md partial supported) </p>
-</div>
-<ul>
-<li>列表1</li>
-<li>列表2</li>
-<li>列表3<ul>
-<li>列表3-1</li>
-<li>列表3-2</li>
-</ul>
+<h4 id="ensureDir"><a href="#ensureDir" class="headerlink" title="ensureDir"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureDir.md" target="_blank" rel="external">ensureDir</a></h4><ul>
+<li><code>ensureDir(dir, [callback])</code> 确保目录存在。 如果目录结构不存在，则创建它<blockquote>
+<p>别名: <code>mkdirs()</code>, <code>mkdirp()</code></p>
+</blockquote>
 </li>
-<li>列表4</li>
 </ul>
-<ol>
-<li>列表1</li>
-<li>列表2</li>
-<li>列表3<ol>
-<li>列表3-1</li>
-<li>列表3-2</li>
-</ol>
-</li>
-<li>列表4</li>
-</ol>
+<h4 id="ensureLink"><a href="#ensureLink" class="headerlink" title="ensureLink"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureLink.md" target="_blank" rel="external">ensureLink</a></h4><p><code>ensureLink(srcpath, dstpath, [callback])</code> 确保链接(dstpath)存在。如果不存在，则创建它 (硬键)</p>
+<h4 id="ensureSymlink"><a href="#ensureSymlink" class="headerlink" title="ensureSymlink"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureSymlink.md" target="_blank" rel="external">ensureSymlink</a></h4><p><code>ensureSymlink(srcpath, dstpath, [type, callback])</code> 确保符号链接(dstpath)存在。如果不存在，则创建它 (硬键)</p>
+<h4 id="mkdirs"><a href="#mkdirs" class="headerlink" title="mkdirs"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureDir.md" target="_blank" rel="external">mkdirs</a></h4><p>同 <code>ensureDir</code></p>
+<h4 id="move"><a href="#move" class="headerlink" title="move"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/move.md" target="_blank" rel="external">move</a></h4><p><code>move(src, dest, [options, callback])</code> 移动文件或目录，甚至跨设备。</p>
+<h4 id="outputFile"><a href="#outputFile" class="headerlink" title="outputFile"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputFile.md" target="_blank" rel="external">outputFile</a></h4><p><code>outputFile(file, data, [options, callback])</code> 相当 <code>fs.writeFile</code> 方法的增强版，会自动创建目录结构</p>
+<h4 id="outputJson"><a href="#outputJson" class="headerlink" title="outputJson"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputJson.md" target="_blank" rel="external">outputJson</a></h4><p><code>outputJson(file, object, [options, callback])</code> 类似 <code>outputFile</code> 但会自动把object转成JSON字符串输出到文件</p>
+<blockquote>
+<p>别名: <code>outputJSON()</code></p>
+</blockquote>
+<h4 id="pathExists"><a href="#pathExists" class="headerlink" title="pathExists"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/pathExists.md" target="_blank" rel="external">pathExists</a></h4><p><code>pathExists(file[, callback])</code> 检查文件是否存在</p>
+<h4 id="readJson"><a href="#readJson" class="headerlink" title="readJson"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/readJson.md" target="_blank" rel="external">readJson</a></h4><p><code>readJson(file, [options, callback])</code> 读取一个JSON文件，并解析成对像。</p>
+<blockquote>
+<p>别名: <code>readJSON()</code></p>
+</blockquote>
+<h4 id="remove"><a href="#remove" class="headerlink" title="remove"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/remove.md" target="_blank" rel="external">remove</a></h4><p><code>remove(path, [callback])</code> 删除一个文件或目录，会自动递归删除目录内的文件。</p>
+<h4 id="writeJson"><a href="#writeJson" class="headerlink" title="writeJson"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/writeJson.md" target="_blank" rel="external">writeJson</a></h4><p><code>writeJson(file, object, [options, callback])</code> 将对像序列化为JSON字符串写入文件。</p>
+<h3 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h3><ul>
+<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/copy-sync.md" target="_blank" rel="external">copySync</a></li>
+<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/emptyDir-sync.md" target="_blank" rel="external">emptyDirSync</a></li>
+<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureFile-sync.md" target="_blank" rel="external">ensureFileSync</a></li>
+<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureDir-sync.md" target="_blank" rel="external">ensureDirSync</a></li>
+<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureLink-sync.md" target="_blank" rel="external">ensureLinkSync</a></li>
+<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureSymlink-sync.md" target="_blank" rel="external">ensureSymlinkSync</a></li>
+<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureDir-sync.md" target="_blank" rel="external">mkdirsSync</a></li>
+<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/move-sync.md" target="_blank" rel="external">moveSync</a></li>
+<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputFile-sync.md" target="_blank" rel="external">outputFileSync</a></li>
+<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputJson-sync.md" target="_blank" rel="external">outputJsonSync</a></li>
+<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/pathExists-sync.md" target="_blank" rel="external">pathExistsSync</a></li>
+<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/readJson-sync.md" target="_blank" rel="external">readJsonSync</a></li>
+<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/remove-sync.md" target="_blank" rel="external">removeSync</a></li>
+<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/writeJson-sync.md" target="_blank" rel="external">writeJsonSync</a></li>
+</ul>
 
       
     </div>
@@ -440,9 +459,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
-          
-            <a href="/tags/test/" rel="tag"># test</a>
+            <a href="/tags/nodejs/" rel="tag"># nodejs</a>
           
         </div>
       
@@ -455,15 +472,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/07/10/git常用命令整理/" rel="next" title="git常用命令整理">
+                <i class="fa fa-chevron-left"></i> git常用命令整理
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/07/Hexo开启RSS/" rel="prev" title="Hexo开启RSS">
-                Hexo开启RSS <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -632,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#H1"><span class="nav-number">1.</span> <span class="nav-text">H1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#H2"><span class="nav-number">1.1.</span> <span class="nav-text">H2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#H3"><span class="nav-number">1.1.1.</span> <span class="nav-text">H3</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#H4"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">H4</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#fs-extra-v4-x"><span class="nav-number">1.</span> <span class="nav-text">fs-extra v4.x</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#异步"><span class="nav-number">1.1.</span> <span class="nav-text">异步</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#copy"><span class="nav-number">1.1.1.</span> <span class="nav-text">copy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emptyDir"><span class="nav-number">1.1.2.</span> <span class="nav-text">emptyDir</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ensureFile"><span class="nav-number">1.1.3.</span> <span class="nav-text">ensureFile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ensureDir"><span class="nav-number">1.1.4.</span> <span class="nav-text">ensureDir</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ensureLink"><span class="nav-number">1.1.5.</span> <span class="nav-text">ensureLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ensureSymlink"><span class="nav-number">1.1.6.</span> <span class="nav-text">ensureSymlink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mkdirs"><span class="nav-number">1.1.7.</span> <span class="nav-text">mkdirs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#move"><span class="nav-number">1.1.8.</span> <span class="nav-text">move</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#outputFile"><span class="nav-number">1.1.9.</span> <span class="nav-text">outputFile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#outputJson"><span class="nav-number">1.1.10.</span> <span class="nav-text">outputJson</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pathExists"><span class="nav-number">1.1.11.</span> <span class="nav-text">pathExists</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#readJson"><span class="nav-number">1.1.12.</span> <span class="nav-text">readJson</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#remove"><span class="nav-number">1.1.13.</span> <span class="nav-text">remove</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#writeJson"><span class="nav-number">1.1.14.</span> <span class="nav-text">writeJson</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同步"><span class="nav-number">1.2.</span> <span class="nav-text">同步</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -773,9 +790,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://blog.whyoop.com/2017/06/02/hello-word/';
-          this.page.identifier = '2017/06/02/hello-word/';
-          this.page.title = 'hello word';
+          this.page.url = 'http://blog.whyoop.com/2017/09/01/fs-extra简要使用说明/';
+          this.page.identifier = '2017/09/01/fs-extra简要使用说明/';
+          this.page.title = 'fs-extra模块简要使用说明';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://cnwhy.disqus.com/embed.js';
