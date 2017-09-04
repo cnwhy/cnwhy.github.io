@@ -5,7 +5,7 @@
   <link href="//atom.xml" rel="self"/>
   
   <link href="http://blog.whyoop.com/"/>
-  <updated>2017-09-01T17:21:55.000Z</updated>
+  <updated>2017-09-04T08:27:20.000Z</updated>
   <id>http://blog.whyoop.com/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="http://blog.whyoop.com/2017/09/01/fs-extra%E7%AE%80%E8%A6%81%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/"/>
     <id>http://blog.whyoop.com/2017/09/01/fs-extra简要使用说明/</id>
     <published>2017-09-01T07:47:19.000Z</published>
-    <updated>2017-09-01T17:21:55.000Z</updated>
+    <updated>2017-09-04T08:27:20.000Z</updated>
     
     <content type="html"><![CDATA[<p><code>fs-extra</code> 是一个nodejs便捷操作文件的模块，集成了很多常用操作.<br><a id="more"></a></p>
-<h2 id="fs-extra-v4-x"><a href="#fs-extra-v4-x" class="headerlink" title="fs-extra v4.x"></a>fs-extra v4.x</h2><h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><p>异步方法不传<code>callback</code>,都将返回Promises对像；</p>
+<h2 id="fs-extra-v4-x"><a href="#fs-extra-v4-x" class="headerlink" title="fs-extra v4.x"></a>fs-extra v4.x</h2><h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><p>异步方法不传<code>callback</code>,都将返回Promises对像；</p>
 <h4 id="copy"><a href="#copy" class="headerlink" title="copy"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/copy.md" target="_blank" rel="external">copy</a></h4><p><code>copy(src, dest, [options, callback])</code> 复制文件/文件夹</p>
 <h4 id="emptyDir"><a href="#emptyDir" class="headerlink" title="emptyDir"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/emptyDir.md" target="_blank" rel="external">emptyDir</a></h4><p><code>emptyDir(dir, [callback])</code> 清空一个目录(删除目录中的所有文件), 如果目录结构不存在则创建它</p>
 <blockquote>
@@ -39,22 +39,22 @@
 </blockquote>
 </li>
 </ul>
-<h4 id="ensureLink"><a href="#ensureLink" class="headerlink" title="ensureLink"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureLink.md" target="_blank" rel="external">ensureLink</a></h4><p><code>ensureLink(srcpath, dstpath, [callback])</code> 确保链接(dstpath)存在。如果不存在，则创建它 (硬键)</p>
-<h4 id="ensureSymlink"><a href="#ensureSymlink" class="headerlink" title="ensureSymlink"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureSymlink.md" target="_blank" rel="external">ensureSymlink</a></h4><p><code>ensureSymlink(srcpath, dstpath, [type, callback])</code> 确保符号链接(dstpath)存在。如果不存在，则创建它 (硬键)</p>
+<h4 id="ensureLink"><a href="#ensureLink" class="headerlink" title="ensureLink"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureLink.md" target="_blank" rel="external">ensureLink</a></h4><p><code>ensureLink(srcpath, dstpath, [callback])</code> 确保链接(dstpath)存在。如果不存在，则创建它 (硬链)</p>
+<h4 id="ensureSymlink"><a href="#ensureSymlink" class="headerlink" title="ensureSymlink"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureSymlink.md" target="_blank" rel="external">ensureSymlink</a></h4><p><code>ensureSymlink(srcpath, dstpath, [type, callback])</code> 确保符号链接(dstpath)存在。如果不存在，则创建它 (硬键)</p>
 <h4 id="mkdirs"><a href="#mkdirs" class="headerlink" title="mkdirs"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureDir.md" target="_blank" rel="external">mkdirs</a></h4><p>同 <code>ensureDir</code></p>
 <h4 id="move"><a href="#move" class="headerlink" title="move"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/move.md" target="_blank" rel="external">move</a></h4><p><code>move(src, dest, [options, callback])</code> 移动文件或目录，甚至跨设备。</p>
-<h4 id="outputFile"><a href="#outputFile" class="headerlink" title="outputFile"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputFile.md" target="_blank" rel="external">outputFile</a></h4><p><code>outputFile(file, data, [options, callback])</code> 相当 <code>fs.writeFile</code> 方法的增强版，会自动创建目录结构</p>
+<h4 id="outputFile"><a href="#outputFile" class="headerlink" title="outputFile"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputFile.md" target="_blank" rel="external">outputFile</a></h4><p><code>outputFile(file, data, [options, callback])</code> 相当 <code>fs.writeFile</code> 方法的增强版，会自动创建目录结构</p>
 <h4 id="outputJson"><a href="#outputJson" class="headerlink" title="outputJson"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputJson.md" target="_blank" rel="external">outputJson</a></h4><p><code>outputJson(file, object, [options, callback])</code> 类似 <code>outputFile</code> 但会自动把object转成JSON字符串输出到文件</p>
 <blockquote>
 <p>别名: <code>outputJSON()</code></p>
 </blockquote>
 <h4 id="pathExists"><a href="#pathExists" class="headerlink" title="pathExists"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/pathExists.md" target="_blank" rel="external">pathExists</a></h4><p><code>pathExists(file[, callback])</code> 检查文件是否存在</p>
-<h4 id="readJson"><a href="#readJson" class="headerlink" title="readJson"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/readJson.md" target="_blank" rel="external">readJson</a></h4><p><code>readJson(file, [options, callback])</code> 读取一个JSON文件，并解析成对像。</p>
+<h4 id="readJson"><a href="#readJson" class="headerlink" title="readJson"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/readJson.md" target="_blank" rel="external">readJson</a></h4><p><code>readJson(file, [options, callback])</code> 读取一个JSON文件，并解析成对像。</p>
 <blockquote>
 <p>别名: <code>readJSON()</code></p>
 </blockquote>
 <h4 id="remove"><a href="#remove" class="headerlink" title="remove"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/remove.md" target="_blank" rel="external">remove</a></h4><p><code>remove(path, [callback])</code> 删除一个文件或目录，会自动递归删除目录内的文件。</p>
-<h4 id="writeJson"><a href="#writeJson" class="headerlink" title="writeJson"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/writeJson.md" target="_blank" rel="external">writeJson</a></h4><p><code>writeJson(file, object, [options, callback])</code> 将对像序列化为JSON字符串写入文件。</p>
+<h4 id="writeJson"><a href="#writeJson" class="headerlink" title="writeJson"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/writeJson.md" target="_blank" rel="external">writeJson</a></h4><p><code>writeJson(file, object, [options, callback])</code> 将对像序列化为JSON字符串写入文件。</p>
 <h3 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h3><ul>
 <li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/copy-sync.md" target="_blank" rel="external">copySync</a></li>
 <li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/emptyDir-sync.md" target="_blank" rel="external">emptyDirSync</a></li>
