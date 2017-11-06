@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>空谷幽兰</title>
+  
   <subtitle>小隐于野，大隐于市，神隐于网络</subtitle>
   <link href="//atom.xml" rel="self"/>
   
   <link href="http://blog.whyoop.com/"/>
-  <updated>2017-09-28T08:58:18.000Z</updated>
+  <updated>2017-11-06T10:39:00.000Z</updated>
   <id>http://blog.whyoop.com/</id>
   
   <author>
@@ -16,48 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>垂直居中方法汇总</title>
+    <link href="http://blog.whyoop.com/2017/11/02/%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/"/>
+    <id>http://blog.whyoop.com/2017/11/02/垂直居中方法汇总/</id>
+    <published>2017-11-01T16:34:43.000Z</published>
+    <updated>2017-11-06T10:39:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>为了方便代演示，容器 <code>.box</code> 的样式如下：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#999</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.box</span>&gt;<span class="selector-tag">div</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">90px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">90px</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#000</span>;</div><div class="line">    <span class="attribute">transition</span>: all <span class="number">0.3s</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.box</span>&gt;<span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">150px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">150px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure><style>    .box {        border: 1px solid #999;        height: 200px;        width: 300px;        position: relative;    }    .box>div {        width: 90px;        height: 90px;        border: 1px solid #000;        transition: all 0.3s;    }    .box>div:hover {        width: 150px;        height: 150px;    }    .line-height {        height: 100px;        line-height: 100px;        text-align: center;    }    .table {        display: table-cell;        text-align: center;        vertical-align: middle;    }    .table>div {        display: inline-block;        vertical-align: middle;    }    .vertical-align {        text-align: center;    }    .vertical-align::before {        content: "";        display: inline-block;        height: 100%;        width: 0;        vertical-align: middle;    }    .vertical-align>div {        display: inline-block;        vertical-align: middle;    }    .absolute-margin>div {        position: absolute;        left: 50%;        top: 50%;        margin-left: -51px;        margin-top: -51px;    }    .absolute-translate>div {        position: absolute;        left: 50%;        top: 50%;        transform: translate(-50%, -50%);    }    .absolute-auto>div {        position: absolute;        left: 0;        right: 0;        top: 0;        bottom: 0;        margin: auto;    }    .fixed-auto>div {        position: fixed;        left: 0;        right: 0;        top: 0;        bottom: 0;        margin: auto;    }    .flex {        display: flex;        flex-wrap: wrap;        justify-content: center;        align-items: center;        align-content: center;    }    .flex>div {        width: 50px;        height: 50px;        margin: 5px;        display: inline-flex;    }    .flex>div:hover {        width: 60px;        height: 60px;    }    .grid {        display: grid;        grid-template-columns: auto;        grid-template-rows: auto;        justify-items: center;        align-items: center;    }    .grid>div {        /* display: inline-block; */    }</style><h1 id="不脱离文档流"><a href="#不脱离文档流" class="headerlink" title="不脱离文档流"></a>不脱离文档流</h1><h2 id="利用line-height"><a href="#利用line-height" class="headerlink" title="利用line-height"></a>利用line-height</h2><p>此方法关键是把<strong>行高设置成和容器高度相同</strong></p><div class="box line-height">aaaaa</div><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="css"><span class="selector-class">.line-height</span> &#123;</span></div><div class="line"><span class="undefined">    text-align: center;</span></div><div class="line"><span class="undefined">    height: 100px;</span></div><div class="line"><span class="undefined">    line-height: 100px;</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box line-height"</span>&gt;</span>aaaaa<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure><blockquote><p>优点：简单，方便，兼容所有浏览器。<br>缺点：只能是单行文本，主要适用于单行文本</p></blockquote><h2 id="table-方式"><a href="#table-方式" class="headerlink" title="table 方式"></a>table 方式</h2><p><code>table</code> 的单元格是天生支持垂直居中的容器，其它标签可以设置 <code>display</code> 达到相同效果</p><div class="box table">sdfsdfd1111111111111s<br>sdfsdfds<br>sdfsdfds<br><div></div><br></div><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="css"><span class="selector-class">.table</span> &#123;</span></div><div class="line"><span class="undefined">    display: table-cell;</span></div><div class="line"><span class="undefined">    text-align: center;</span></div><div class="line"><span class="undefined">    vertical-align: middle;</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="css"><span class="selector-class">.table</span>&gt;<span class="selector-tag">div</span> &#123;</span></div><div class="line"><span class="undefined">    display: inline-block;</span></div><div class="line"><span class="undefined">    vertical-align: middle;</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box table"</span>&gt;</span>sdfsdfd1111111111111s<span class="tag">&lt;<span class="name">br</span>&gt;</span>sdfsdfds<span class="tag">&lt;<span class="name">br</span>&gt;</span>sdfsdfds<span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure><blockquote><p>优点：支持多行，兼容所有浏览器。<br>缺点：IE7以下要用 <code>table</code> 标签,嵌套太多; 单元格属性与普通容器行为有差异。</p></blockquote><h2 id="vertical-align"><a href="#vertical-align" class="headerlink" title="vertical-align"></a>vertical-align</h2><div class="box vertical-align"><div></div>1212</div><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="css"><span class="selector-class">.vertical-align</span> &#123;</span></div><div class="line"><span class="undefined">    text-align: center;</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="css"><span class="selector-class">.vertical-align</span><span class="selector-pseudo">::before</span> &#123; </span></div><div class="line"><span class="undefined">    content: "";</span></div><div class="line"><span class="undefined">    display: inline-block;</span></div><div class="line"><span class="undefined">    height: 100%;</span></div><div class="line"><span class="undefined">    width: 0;</span></div><div class="line"><span class="undefined">    vertical-align: middle;</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="css"><span class="selector-class">.vertical-align</span>&gt;<span class="selector-tag">div</span> &#123;</span></div><div class="line"><span class="undefined">    display: inline-block;</span></div><div class="line"><span class="undefined">    vertical-align: middle;</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box vertical-align"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>1212</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure><blockquote><p>优点：文本和其它内联元素混排时，垂直居中效果好；兼容所有浏览器;<br>缺点：不支持多行；IE8以下需要添加一个额外的空标签（替代伪元素）才能达到最好效果；</p></blockquote><h2 id="flex-box-布局"><a href="#flex-box-布局" class="headerlink" title="flex-box 布局"></a>flex-box 布局</h2><p>css3 中新增的布局方式, 解决了很多css2布局中的痛点, 垂直居中只是小意思</p><div class="box flex"><br>    1111<br>    <div></div><br>    <div style="height:80px;"></div><br>    aaaaaaa<br>    <div></div><br>    <div></div><br></div><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="css"><span class="selector-class">.flex</span> &#123;</span></div><div class="line"><span class="undefined">    display: flex;</span></div><div class="line"><span class="undefined">    flex-wrap: wrap;</span></div><div class="line"><span class="undefined">    justify-content: center;</span></div><div class="line"><span class="undefined">    align-items: center;</span></div><div class="line"><span class="undefined">    align-content: center;</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="css"><span class="selector-class">.flex</span>&gt;<span class="selector-tag">div</span> &#123;</span></div><div class="line"><span class="undefined">    width: 50px;</span></div><div class="line"><span class="undefined">    height: 50px;</span></div><div class="line"><span class="undefined">    margin: 5px;</span></div><div class="line"><span class="undefined">    display: inline-flex;</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="css"><span class="selector-class">.flex</span>&gt;<span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span></div><div class="line"><span class="undefined">    width: 60px;</span></div><div class="line"><span class="undefined">    height: 60px;</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box flex"</span>&gt;</span></div><div class="line">    1111</div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"height:80px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure><blockquote><p>优点：支持多行；<br>缺点：兼容IE10才支持flex布局</p></blockquote><h2 id="grid-布局"><a href="#grid-布局" class="headerlink" title="grid 布局"></a>grid 布局</h2><p>一种网格思维的新布局方式, 垂直居中同样没问题</p><div class="box grid"><div></div></div><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="css"><span class="selector-class">.grid</span> &#123;</span></div><div class="line"><span class="undefined">    display: grid;</span></div><div class="line"><span class="undefined">    grid-template-columns: auto;</span></div><div class="line"><span class="undefined">    grid-template-rows: auto;</span></div><div class="line"><span class="undefined">    justify-items: center;</span></div><div class="line"><span class="undefined">    align-items: center;</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box grid"</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure><blockquote><p>优点：支持多行；<br>缺点：兼容IE10才支持flex布局</p></blockquote><h1 id="脱离文档流"><a href="#脱离文档流" class="headerlink" title="脱离文档流"></a>脱离文档流</h1><p>这里只演示 <code>absolute</code> 定位的元素，同样适用 <code>fixed</code> 定位的元素  </p><h2 id="margin负值"><a href="#margin负值" class="headerlink" title="margin负值"></a>margin负值</h2><div class="box absolute-margin"><div></div></div><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="css"><span class="selector-class">.absolute-margin</span>&gt;<span class="selector-tag">div</span> &#123;</span></div><div class="line"><span class="undefined">    position: absolute;</span></div><div class="line"><span class="undefined">    left: 50%;</span></div><div class="line"><span class="undefined">    top: 50%;</span></div><div class="line"><span class="undefined">    margin-left: -51px;</span></div><div class="line"><span class="undefined">    margin-top: -51px;</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box absolute-margin"</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure><blockquote><p>优点：兼容好；<br>缺点：元素固定宽高；</p></blockquote><h2 id="CSS3移位法"><a href="#CSS3移位法" class="headerlink" title="CSS3移位法"></a>CSS3移位法</h2><div class="box absolute-translate"><div></div></div><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="css"><span class="selector-class">.absolute-translate</span>&gt;<span class="selector-tag">div</span> &#123;</span></div><div class="line"><span class="undefined">    position: absolute;</span></div><div class="line"><span class="undefined">    left: 50%;</span></div><div class="line"><span class="undefined">    top: 50%;</span></div><div class="line"><span class="undefined">    transform: translate(-50%, -50%);</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box absolute-translate"</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure><blockquote><p>优点：元素可以不定宽高；<br>缺点：用到CSS3; 会碰到渲染模糊的情况；</p></blockquote><h2 id="margin-auto"><a href="#margin-auto" class="headerlink" title="margin auto"></a>margin auto</h2><p>普通块元素可以用 <code>margin: 0 auto;</code> 实现水平居中，现在用同样的原理来垂直居中</p><div class="box absolute-auto"><div></div></div><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="css"><span class="selector-class">.absolute-auto</span>&gt;<span class="selector-tag">div</span> &#123;</span></div><div class="line"><span class="undefined">    position: absolute;</span></div><div class="line"><span class="undefined">    left: 0;</span></div><div class="line"><span class="undefined">    right: 0;</span></div><div class="line"><span class="undefined">    top: 0;</span></div><div class="line"><span class="undefined">    bottom: 0;</span></div><div class="line"><span class="undefined">    margin: auto;</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box absolute-auto"</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure><blockquote><p>优点：元素可以不定宽高；兼容好；<br>缺点：极限情况下（元素比容器大），元素不居中；</p></blockquote><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><table><thead><tr><th>方法</th><th>脱离文档流</th><th>多行支持</th><th>尺寸变化支持</th><th>兼容性</th><th>使用</th></tr></thead><tbody><tr><td>利用line-height</td><td>✘</td><td>✘</td><td>✔</td><td>all</td><td>常用</td></tr><tr><td>table</td><td>✘</td><td>✔</td><td>✔</td><td>all</td><td>不常用</td></tr><tr><td>vertical-align</td><td>✘</td><td>✔</td><td>✔</td><td>all</td><td><strong>推荐</strong></td></tr><tr><td>flex</td><td>✘</td><td>✔</td><td>✔</td><td>IE10+</td><td><strong>移动端推荐</strong></td></tr><tr><td>margin 负值法</td><td>✔</td><td>✘</td><td>✘</td><td>all</td><td>常用</td></tr><tr><td>flex</td><td>✘</td><td>✔</td><td>✔</td><td>IE10+</td></tr><tr><td>flex</td><td>✘</td><td>✔</td><td>✔</td><td>IE10+</td></tr><tr><td>flex</td><td>✘</td><td>✔</td><td>✔</td><td>IE10+</td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;为了方便代演示，容器 &lt;code&gt;.box&lt;/code&gt; 的样式如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div c
+      
+    
+    </summary>
+    
+      <category term="CSS" scheme="http://blog.whyoop.com/categories/CSS/"/>
+    
+    
+      <category term="垂直居中" scheme="http://blog.whyoop.com/tags/%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/"/>
+    
+  </entry>
+  
+  <entry>
     <title>git 制作增量包（差异包）</title>
     <link href="http://blog.whyoop.com/2017/09/28/git-%E5%88%B6%E4%BD%9C%E5%A2%9E%E9%87%8F%E5%8C%85%EF%BC%88%E5%B7%AE%E5%BC%82%E5%8C%85%EF%BC%89/"/>
     <id>http://blog.whyoop.com/2017/09/28/git-制作增量包（差异包）/</id>
     <published>2017-09-28T08:52:00.000Z</published>
     <updated>2017-09-28T08:58:18.000Z</updated>
     
-    <content type="html"><![CDATA[<p>打增量包无非 “选文件”, “打包” 两个操作</p>
-<h2 id="1-筛选差异文件"><a href="#1-筛选差异文件" class="headerlink" title="1.筛选差异文件"></a>1.筛选差异文件</h2><p><code>git</code> 比较差异当然是 <code>git diff</code> 命令了</p>
-<p>语法如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git diff [options] [&lt;commit&gt;] [--] [&lt;path&gt;…​]</div><div class="line">git diff [options] --cached [&lt;commit&gt;] [--] [&lt;path&gt;…​]</div><div class="line">git diff [options] &lt;commit&gt; &lt;commit&gt; [--] [&lt;path&gt;…​]</div><div class="line">git diff [options] &lt;blob&gt; &lt;blob&gt;</div><div class="line">git diff [options] [--no-index] [--] &lt;path&gt; &lt;path&gt;</div></pre></td></tr></table></figure>
-<p>options 有这么一个参数</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">--name-only  </div><div class="line">    Show only names of changed files.</div></pre></td></tr></table></figure>
-<p>可以试一下, 比较本地 <code>master</code> 和 <code>origin/master</code> 的差异</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git diff master origin/master --name-only</span></div><div class="line">wp/wp-content/themes/alcatel/csr.php</div><div class="line">wp/wp-content/themes/alcatel/service_privacy_policy.php</div></pre></td></tr></table></figure>
-<p>OK 这就是我们需要的</p>
-<h2 id="2-打包"><a href="#2-打包" class="headerlink" title="2.打包"></a>2.打包</h2><p>有了文件列表，打包就好办了</p>
-<p><strong>用 <code>tar</code> 命令打包</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> tar -zcvf diff.tar.gz $(git diff master origin/master --name-only)</span></div></pre></td></tr></table></figure>
-<p><strong>用 <code>zip</code> 命令打包</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> zip -q -r diff.zip $(git diff master origin/master --name-only)</span></div></pre></td></tr></table></figure>
-<p><strong>用 <code>git archive</code> 命令打包</strong></p>
-<blockquote>
-<p>其实最实用的还是直接用git的归档命令打包<br>好处就是不需要额外东西 windows下的 <code>PowerShell</code> 和 <code>git bash</code> 也能用</p>
-</blockquote>
-<p><strong>语法</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">git archive [&lt;options&gt;] &lt;tree-ish&gt; [&lt;path&gt;...]</div><div class="line">git archive --list</div><div class="line">git archive --remote &lt;repo&gt; [--exec &lt;cmd&gt;] [&lt;options&gt;] &lt;tree-ish&gt; [&lt;path&gt;...]</div><div class="line">git archive --remote &lt;repo&gt; [--exec &lt;cmd&gt;] --list</div><div class="line">    </div><div class="line">    --format &lt;fmt&gt;        archive format</div><div class="line">    --prefix &lt;prefix&gt;     prepend prefix to each pathname in the archive</div><div class="line">    -o, --output &lt;file&gt;   write the archive to this file</div><div class="line">    --worktree-attributes</div><div class="line">                          read .gitattributes in working directory</div><div class="line">    -v, --verbose         report archived files on stderr</div><div class="line">    -0                    store only</div><div class="line">    -1                    compress faster</div><div class="line">    -9                    compress better</div><div class="line"></div><div class="line">    -l, --list            list supported archive formats</div><div class="line"></div><div class="line">    --remote &lt;repo&gt;       retrieve the archive from remote repository &lt;repo&gt;</div><div class="line">    --exec &lt;command&gt;      path to the remote git-upload-archive command</div></pre></td></tr></table></figure>
-<blockquote>
-<p><code>archive</code> 命令支持的打包格式可以用 <code>git archive -l</code> 查看<br>正常情况可以省略 <code>--format</code> ,<code>git</code>会根据输出的文件名判断格式 </p>
-</blockquote>
-<p>打包代码如下:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git archive -o diff.zip master $(git diff master origin/master --name-only)</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>linux 还可以用上管道符号</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git archive master $(git diff master origin/master --name-only) | gzip &gt; diff.zip</span></div></pre></td></tr></table></figure>
-<p><strong>注意:如果 <code>diff</code> 命令结果是空 <code>archive</code> 会打包整个项目</strong></p>
-<h2 id="3-常用增量包命令"><a href="#3-常用增量包命令" class="headerlink" title="3.常用增量包命令"></a>3.常用增量包命令</h2><h3 id="当前分支与master差异包"><a href="#当前分支与master差异包" class="headerlink" title="当前分支与master差异包"></a>当前分支与master差异包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git archive -o update.zip HEAD $(git diff master --name-only)</span></div></pre></td></tr></table></figure>
-<h3 id="最后一次commit差异包"><a href="#最后一次commit差异包" class="headerlink" title="最后一次commit差异包"></a>最后一次commit差异包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git archive -o lastcommit.zip HEAD $(git diff HEAD^ --name-only)</span></div></pre></td></tr></table></figure>
-<h3 id="从-x-中提取-x-与-y-的差异文件打包"><a href="#从-x-中提取-x-与-y-的差异文件打包" class="headerlink" title="从 x 中提取 x 与 y 的差异文件打包."></a>从 <code>x</code> 中提取 <code>x</code> 与 <code>y</code> 的差异文件打包.</h3><blockquote>
-<p><code>x</code> , <code>y</code> 可以是 分支, tag, commit</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git archive -o x_y.zip x $(git diff x y --name-only)</span></div></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>打增量包无非 “选文件”, “打包” 两个操作</p><h2 id="1-筛选差异文件"><a href="#1-筛选差异文件" class="headerlink" title="1.筛选差异文件"></a>1.筛选差异文件</h2><p><code>git</code> 比较差异当然是 <code>git diff</code> 命令了</p><p>语法如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git diff [options] [&lt;commit&gt;] [--] [&lt;path&gt;…​]</div><div class="line">git diff [options] --cached [&lt;commit&gt;] [--] [&lt;path&gt;…​]</div><div class="line">git diff [options] &lt;commit&gt; &lt;commit&gt; [--] [&lt;path&gt;…​]</div><div class="line">git diff [options] &lt;blob&gt; &lt;blob&gt;</div><div class="line">git diff [options] [--no-index] [--] &lt;path&gt; &lt;path&gt;</div></pre></td></tr></table></figure><p>options 有这么一个参数</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">--name-only  </div><div class="line">    Show only names of changed files.</div></pre></td></tr></table></figure><p>可以试一下, 比较本地 <code>master</code> 和 <code>origin/master</code> 的差异</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git diff master origin/master --name-only</span></div><div class="line">wp/wp-content/themes/alcatel/csr.php</div><div class="line">wp/wp-content/themes/alcatel/service_privacy_policy.php</div></pre></td></tr></table></figure><p>OK 这就是我们需要的</p><h2 id="2-打包"><a href="#2-打包" class="headerlink" title="2.打包"></a>2.打包</h2><p>有了文件列表，打包就好办了</p><p><strong>用 <code>tar</code> 命令打包</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> tar -zcvf diff.tar.gz $(git diff master origin/master --name-only)</span></div></pre></td></tr></table></figure><p><strong>用 <code>zip</code> 命令打包</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> zip -q -r diff.zip $(git diff master origin/master --name-only)</span></div></pre></td></tr></table></figure><p><strong>用 <code>git archive</code> 命令打包</strong></p><blockquote><p>其实最实用的还是直接用git的归档命令打包<br>好处就是不需要额外东西 windows下的 <code>PowerShell</code> 和 <code>git bash</code> 也能用</p></blockquote><p><strong>语法</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">git archive [&lt;options&gt;] &lt;tree-ish&gt; [&lt;path&gt;...]</div><div class="line">git archive --list</div><div class="line">git archive --remote &lt;repo&gt; [--exec &lt;cmd&gt;] [&lt;options&gt;] &lt;tree-ish&gt; [&lt;path&gt;...]</div><div class="line">git archive --remote &lt;repo&gt; [--exec &lt;cmd&gt;] --list</div><div class="line">    </div><div class="line">    --format &lt;fmt&gt;        archive format</div><div class="line">    --prefix &lt;prefix&gt;     prepend prefix to each pathname in the archive</div><div class="line">    -o, --output &lt;file&gt;   write the archive to this file</div><div class="line">    --worktree-attributes</div><div class="line">                          read .gitattributes in working directory</div><div class="line">    -v, --verbose         report archived files on stderr</div><div class="line">    -0                    store only</div><div class="line">    -1                    compress faster</div><div class="line">    -9                    compress better</div><div class="line"></div><div class="line">    -l, --list            list supported archive formats</div><div class="line"></div><div class="line">    --remote &lt;repo&gt;       retrieve the archive from remote repository &lt;repo&gt;</div><div class="line">    --exec &lt;command&gt;      path to the remote git-upload-archive command</div></pre></td></tr></table></figure><blockquote><p><code>archive</code> 命令支持的打包格式可以用 <code>git archive -l</code> 查看<br>正常情况可以省略 <code>--format</code> ,<code>git</code>会根据输出的文件名判断格式 </p></blockquote><p>打包代码如下:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git archive -o diff.zip master $(git diff master origin/master --name-only)</span></div></pre></td></tr></table></figure><blockquote><p>linux 还可以用上管道符号</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git archive master $(git diff master origin/master --name-only) | gzip &gt; diff.zip</span></div></pre></td></tr></table></figure><p><strong>注意:如果 <code>diff</code> 命令结果是空 <code>archive</code> 会打包整个项目</strong></p><h2 id="3-常用增量包命令"><a href="#3-常用增量包命令" class="headerlink" title="3.常用增量包命令"></a>3.常用增量包命令</h2><h3 id="当前分支与master差异包"><a href="#当前分支与master差异包" class="headerlink" title="当前分支与master差异包"></a>当前分支与master差异包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git archive -o update.zip HEAD $(git diff master --name-only)</span></div></pre></td></tr></table></figure><h3 id="最后一次commit差异包"><a href="#最后一次commit差异包" class="headerlink" title="最后一次commit差异包"></a>最后一次commit差异包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git archive -o lastcommit.zip HEAD $(git diff HEAD^ --name-only)</span></div></pre></td></tr></table></figure><h3 id="从-x-中提取-x-与-y-的差异文件打包"><a href="#从-x-中提取-x-与-y-的差异文件打包" class="headerlink" title="从 x 中提取 x 与 y 的差异文件打包."></a>从 <code>x</code> 中提取 <code>x</code> 与 <code>y</code> 的差异文件打包.</h3><blockquote><p><code>x</code> , <code>y</code> 可以是 分支, tag, commit</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git archive -o x_y.zip x $(git diff x y --name-only)</span></div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -79,56 +71,7 @@
     <published>2017-09-01T07:47:19.000Z</published>
     <updated>2017-09-28T08:50:48.000Z</updated>
     
-    <content type="html"><![CDATA[<p><code>fs-extra</code> 是一个nodejs操作文件的模块，它继承了<code>fs</code>的所有API，并进一步封装了<code>fs</code>的异步API，支持<code>promise</code>返回，还集成了很多常用操作.<br><a id="more"></a></p>
-<h2 id="fs-extra-v4-x"><a href="#fs-extra-v4-x" class="headerlink" title="fs-extra v4.x"></a>fs-extra v4.x</h2><h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><p>异步方法不传<code>callback</code>,都将返回Promise对像；</p>
-<h4 id="copy"><a href="#copy" class="headerlink" title="copy"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/copy.md" target="_blank" rel="external">copy</a></h4><p><code>copy(src, dest, [options, callback])</code> 复制文件/文件夹</p>
-<h4 id="emptyDir"><a href="#emptyDir" class="headerlink" title="emptyDir"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/emptyDir.md" target="_blank" rel="external">emptyDir</a></h4><p><code>emptyDir(dir, [callback])</code> 清空一个目录(删除目录中的所有文件), 如果目录结构不存在则创建它</p>
-<blockquote>
-<p>别名: <code>emptydir()</code></p>
-</blockquote>
-<h4 id="ensureFile"><a href="#ensureFile" class="headerlink" title="ensureFile"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureFile.md" target="_blank" rel="external">ensureFile</a></h4><p><code>ensureFile(file, [callback])</code> 确保文件存在。 如果文件不存在，则创建目录结构及文件</p>
-<blockquote>
-<p>别名: <code>createFile()</code></p>
-</blockquote>
-<h4 id="ensureDir"><a href="#ensureDir" class="headerlink" title="ensureDir"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureDir.md" target="_blank" rel="external">ensureDir</a></h4><ul>
-<li><code>ensureDir(dir, [callback])</code> 确保目录存在。 如果目录结构不存在，则创建它<blockquote>
-<p>别名: <code>mkdirs()</code>, <code>mkdirp()</code></p>
-</blockquote>
-</li>
-</ul>
-<h4 id="ensureLink"><a href="#ensureLink" class="headerlink" title="ensureLink"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureLink.md" target="_blank" rel="external">ensureLink</a></h4><p><code>ensureLink(srcpath, dstpath, [callback])</code> 确保链接(dstpath)存在。如果不存在，则创建它 (硬链)</p>
-<h4 id="ensureSymlink"><a href="#ensureSymlink" class="headerlink" title="ensureSymlink"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureSymlink.md" target="_blank" rel="external">ensureSymlink</a></h4><p><code>ensureSymlink(srcpath, dstpath, [type, callback])</code> 确保符号链接(dstpath)存在。如果不存在，则创建它 (硬键)</p>
-<h4 id="mkdirs"><a href="#mkdirs" class="headerlink" title="mkdirs"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureDir.md" target="_blank" rel="external">mkdirs</a></h4><p>同 <code>ensureDir</code></p>
-<h4 id="move"><a href="#move" class="headerlink" title="move"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/move.md" target="_blank" rel="external">move</a></h4><p><code>move(src, dest, [options, callback])</code> 移动文件或目录，甚至跨设备。</p>
-<h4 id="outputFile"><a href="#outputFile" class="headerlink" title="outputFile"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputFile.md" target="_blank" rel="external">outputFile</a></h4><p><code>outputFile(file, data, [options, callback])</code> 相当 <code>fs.writeFile</code> 方法的增强版，会自动创建目录结构</p>
-<h4 id="outputJson"><a href="#outputJson" class="headerlink" title="outputJson"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputJson.md" target="_blank" rel="external">outputJson</a></h4><p><code>outputJson(file, object, [options, callback])</code> 类似 <code>outputFile</code> 但会自动把object转成JSON字符串输出到文件</p>
-<blockquote>
-<p>别名: <code>outputJSON()</code></p>
-</blockquote>
-<h4 id="pathExists"><a href="#pathExists" class="headerlink" title="pathExists"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/pathExists.md" target="_blank" rel="external">pathExists</a></h4><p><code>pathExists(file[, callback])</code> 检查文件是否存在</p>
-<h4 id="readJson"><a href="#readJson" class="headerlink" title="readJson"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/readJson.md" target="_blank" rel="external">readJson</a></h4><p><code>readJson(file, [options, callback])</code> 读取一个JSON文件，并解析成对像。</p>
-<blockquote>
-<p>别名: <code>readJSON()</code></p>
-</blockquote>
-<h4 id="remove"><a href="#remove" class="headerlink" title="remove"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/remove.md" target="_blank" rel="external">remove</a></h4><p><code>remove(path, [callback])</code> 删除一个文件或目录，会自动递归删除目录内的文件。</p>
-<h4 id="writeJson"><a href="#writeJson" class="headerlink" title="writeJson"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/writeJson.md" target="_blank" rel="external">writeJson</a></h4><p><code>writeJson(file, object, [options, callback])</code> 将对像序列化为JSON字符串写入文件。</p>
-<h3 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h3><ul>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/copy-sync.md" target="_blank" rel="external">copySync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/emptyDir-sync.md" target="_blank" rel="external">emptyDirSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureFile-sync.md" target="_blank" rel="external">ensureFileSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureDir-sync.md" target="_blank" rel="external">ensureDirSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureLink-sync.md" target="_blank" rel="external">ensureLinkSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureSymlink-sync.md" target="_blank" rel="external">ensureSymlinkSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureDir-sync.md" target="_blank" rel="external">mkdirsSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/move-sync.md" target="_blank" rel="external">moveSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputFile-sync.md" target="_blank" rel="external">outputFileSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputJson-sync.md" target="_blank" rel="external">outputJsonSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/pathExists-sync.md" target="_blank" rel="external">pathExistsSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/readJson-sync.md" target="_blank" rel="external">readJsonSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/remove-sync.md" target="_blank" rel="external">removeSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/writeJson-sync.md" target="_blank" rel="external">writeJsonSync</a></li>
-</ul>
-]]></content>
+    <content type="html"><![CDATA[<p><code>fs-extra</code> 是一个nodejs操作文件的模块，它继承了<code>fs</code>的所有API，并进一步封装了<code>fs</code>的异步API，支持<code>promise</code>返回，还集成了很多常用操作.<br><a id="more"></a></p><h2 id="fs-extra-v4-x"><a href="#fs-extra-v4-x" class="headerlink" title="fs-extra v4.x"></a>fs-extra v4.x</h2><h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><p>异步方法不传<code>callback</code>,都将返回Promise对像；</p><h4 id="copy"><a href="#copy" class="headerlink" title="copy"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/copy.md" target="_blank" rel="external">copy</a></h4><p><code>copy(src, dest, [options, callback])</code> 复制文件/文件夹</p><h4 id="emptyDir"><a href="#emptyDir" class="headerlink" title="emptyDir"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/emptyDir.md" target="_blank" rel="external">emptyDir</a></h4><p><code>emptyDir(dir, [callback])</code> 清空一个目录(删除目录中的所有文件), 如果目录结构不存在则创建它</p><blockquote><p>别名: <code>emptydir()</code></p></blockquote><h4 id="ensureFile"><a href="#ensureFile" class="headerlink" title="ensureFile"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureFile.md" target="_blank" rel="external">ensureFile</a></h4><p><code>ensureFile(file, [callback])</code> 确保文件存在。 如果文件不存在，则创建目录结构及文件</p><blockquote><p>别名: <code>createFile()</code></p></blockquote><h4 id="ensureDir"><a href="#ensureDir" class="headerlink" title="ensureDir"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureDir.md" target="_blank" rel="external">ensureDir</a></h4><ul><li><code>ensureDir(dir, [callback])</code> 确保目录存在。 如果目录结构不存在，则创建它<blockquote><p>别名: <code>mkdirs()</code>, <code>mkdirp()</code></p></blockquote></li></ul><h4 id="ensureLink"><a href="#ensureLink" class="headerlink" title="ensureLink"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureLink.md" target="_blank" rel="external">ensureLink</a></h4><p><code>ensureLink(srcpath, dstpath, [callback])</code> 确保链接(dstpath)存在。如果不存在，则创建它 (硬链)</p><h4 id="ensureSymlink"><a href="#ensureSymlink" class="headerlink" title="ensureSymlink"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureSymlink.md" target="_blank" rel="external">ensureSymlink</a></h4><p><code>ensureSymlink(srcpath, dstpath, [type, callback])</code> 确保符号链接(dstpath)存在。如果不存在，则创建它 (硬键)</p><h4 id="mkdirs"><a href="#mkdirs" class="headerlink" title="mkdirs"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureDir.md" target="_blank" rel="external">mkdirs</a></h4><p>同 <code>ensureDir</code></p><h4 id="move"><a href="#move" class="headerlink" title="move"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/move.md" target="_blank" rel="external">move</a></h4><p><code>move(src, dest, [options, callback])</code> 移动文件或目录，甚至跨设备。</p><h4 id="outputFile"><a href="#outputFile" class="headerlink" title="outputFile"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputFile.md" target="_blank" rel="external">outputFile</a></h4><p><code>outputFile(file, data, [options, callback])</code> 相当 <code>fs.writeFile</code> 方法的增强版，会自动创建目录结构</p><h4 id="outputJson"><a href="#outputJson" class="headerlink" title="outputJson"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputJson.md" target="_blank" rel="external">outputJson</a></h4><p><code>outputJson(file, object, [options, callback])</code> 类似 <code>outputFile</code> 但会自动把object转成JSON字符串输出到文件</p><blockquote><p>别名: <code>outputJSON()</code></p></blockquote><h4 id="pathExists"><a href="#pathExists" class="headerlink" title="pathExists"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/pathExists.md" target="_blank" rel="external">pathExists</a></h4><p><code>pathExists(file[, callback])</code> 检查文件是否存在</p><h4 id="readJson"><a href="#readJson" class="headerlink" title="readJson"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/readJson.md" target="_blank" rel="external">readJson</a></h4><p><code>readJson(file, [options, callback])</code> 读取一个JSON文件，并解析成对像。</p><blockquote><p>别名: <code>readJSON()</code></p></blockquote><h4 id="remove"><a href="#remove" class="headerlink" title="remove"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/remove.md" target="_blank" rel="external">remove</a></h4><p><code>remove(path, [callback])</code> 删除一个文件或目录，会自动递归删除目录内的文件。</p><h4 id="writeJson"><a href="#writeJson" class="headerlink" title="writeJson"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/writeJson.md" target="_blank" rel="external">writeJson</a></h4><p><code>writeJson(file, object, [options, callback])</code> 将对像序列化为JSON字符串写入文件。</p><h3 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h3><ul><li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/copy-sync.md" target="_blank" rel="external">copySync</a></li><li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/emptyDir-sync.md" target="_blank" rel="external">emptyDirSync</a></li><li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureFile-sync.md" target="_blank" rel="external">ensureFileSync</a></li><li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureDir-sync.md" target="_blank" rel="external">ensureDirSync</a></li><li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureLink-sync.md" target="_blank" rel="external">ensureLinkSync</a></li><li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureSymlink-sync.md" target="_blank" rel="external">ensureSymlinkSync</a></li><li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureDir-sync.md" target="_blank" rel="external">mkdirsSync</a></li><li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/move-sync.md" target="_blank" rel="external">moveSync</a></li><li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputFile-sync.md" target="_blank" rel="external">outputFileSync</a></li><li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputJson-sync.md" target="_blank" rel="external">outputJsonSync</a></li><li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/pathExists-sync.md" target="_blank" rel="external">pathExistsSync</a></li><li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/readJson-sync.md" target="_blank" rel="external">readJsonSync</a></li><li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/remove-sync.md" target="_blank" rel="external">removeSync</a></li><li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/writeJson-sync.md" target="_blank" rel="external">writeJsonSync</a></li></ul>]]></content>
     
     <summary type="html">
     
@@ -150,183 +93,7 @@
     <published>2017-07-10T11:12:41.000Z</published>
     <updated>2017-07-21T08:22:25.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="初始化-克隆"><a href="#初始化-克隆" class="headerlink" title="初始化/克隆"></a>初始化/克隆</h2><ul>
-<li><code>git init</code> 初始化仓库</li>
-<li><code>git clone &lt;git仓库地址/路径&gt;</code> 克隆<ul>
-<li>ssh: <code>git clone ssh://git.qida.com:11223/clm.git</code></li>
-<li>http: <code>git clone https://github.com/cnwhy/lib-qqwry.git</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="修改和提交"><a href="#修改和提交" class="headerlink" title="修改和提交"></a>修改和提交</h2><h3 id="查看文件状态-比较差异-加入缓存区"><a href="#查看文件状态-比较差异-加入缓存区" class="headerlink" title="查看文件状态/比较差异/加入缓存区"></a>查看文件状态/比较差异/加入缓存区</h3><ul>
-<li><code>git status</code> 显示工作区文件状态</li>
-<li><p><code>git diff</code> 比较当前分支变动</p>
-<ul>
-<li><code>git diff &lt;branch1&gt; &lt;branch2&gt;</code> 比较两个分支</li>
-<li><code>git diff &lt;hash1&gt; &lt;hash2&gt;</code>     比较两个指定hash</li>
-</ul>
-</li>
-<li><p><code>git rm &lt;file&gt;</code> 删除文件,并添加到暂存区</p>
-</li>
-<li><code>git rm -r &lt;folder&gt;</code> 删除文件夹,并添加到暂存区</li>
-<li><p><code>git rm --cached &lt;file&gt;</code> 把文件删除添加到暂存区,但不删除文件.</p>
-</li>
-<li><p><code>git add</code> 将变动添加到暂存区</p>
-<ul>
-<li><code>git add &lt;path&gt;</code> 添加指定路径的所有变动到暂存区, 在仓库根路径下执行<code>git add .</code> == <code>git add --all</code> </li>
-<li><code>git add --all/-A</code> 添加所有变动到暂存区</li>
-<li><code>git add -u</code> 添加修改(modified)和删除(deleted)文件,不包括新(new)的文件</li>
-<li><code>git add -i</code> 交互式操作暂存区</li>
-</ul>
-</li>
-</ul>
-<h3 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h3><ul>
-<li><code>git commit -m &#39;log&#39;</code> 提交缓存区的变动<ul>
-<li><code>git commit -am &#39;log&#39;</code> 添加已经在版本库控制的文件变动到缓存区,并提交</li>
-<li><code>git commit --amend</code> 提交到最后一次commit (不会增加新的commit信息)</li>
-</ul>
-</li>
-</ul>
-<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><h3 id="分支基本操作"><a href="#分支基本操作" class="headerlink" title="分支基本操作"></a>分支基本操作</h3><ul>
-<li><code>git branch</code> 查看本地分支<ul>
-<li><code>-r</code> 查看远程分支</li>
-<li><code>-a</code> 查看所有分支</li>
-<li><code>-m &lt;新分支名&gt;</code> 修改分支名</li>
-<li><code>-d/-D &lt;分支名&gt;</code> 删除/强制删除 本地分支</li>
-</ul>
-</li>
-<li><code>git branch &lt;分支名&gt;</code> 创建新分支 </li>
-<li><code>git checkout &lt;分支名|Tag名&gt;</code> 切换到分支|Tag<ul>
-<li><code>-b &lt;新分支名&gt;</code> 创建并切换到新分支  </li>
-</ul>
-</li>
-</ul>
-<h3 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h3><ul>
-<li><code>git merge &lt;分支名&gt;</code> //把分支合并到本分支<ul>
-<li><code>--squash</code>  不自动提交,用把分支的多个提交合成一个。</li>
-</ul>
-</li>
-<li><code>git rebase &lt;分支名&gt;</code> 衍和分支(分支衍合不会保留合并的日志，不留痕迹),相当于本地修改</li>
-</ul>
-<h3 id="提取commit"><a href="#提取commit" class="headerlink" title="提取commit"></a>提取commit</h3><ul>
-<li><code>git cherry-pick &lt;commit hash&gt;</code> 将别的分支的一个commit拉到本分支</li>
-</ul>
-<h2 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h2><h2 id="源操作"><a href="#源操作" class="headerlink" title="源操作"></a>源操作</h2><ul>
-<li><code>git remote add origin1 &lt;GIT URL&gt;</code> //增加一个名为origin1的源</li>
-<li><code>git remote set-url origin &lt;GIT URL&gt;</code> //修改origin的源地址</li>
-<li><code>git remote remove origin</code> //删除源origin</li>
-</ul>
-<h3 id="关联"><a href="#关联" class="headerlink" title="关联"></a>关联</h3><p>关联分支后 <code>pull</code> , <code>push</code> 等命令操作当前分支可省略 <code>&lt;主机名&gt;/&lt;分支名&gt;</code>.</p>
-<ul>
-<li><code>git branch --set-upstream-to &lt;分支名&gt; &lt;源名&gt;/&lt;分支名&gt;</code> 关联 本地与远程 分支  </li>
-<li><code>git push -u &lt;源名&gt; &lt;分支名&gt;</code> 提交并把当前分支和远程分支关联</li>
-</ul>
-<h3 id="覆盖远程分支"><a href="#覆盖远程分支" class="headerlink" title="覆盖远程分支"></a>覆盖远程分支</h3><ul>
-<li><code>git push -f</code> 强制用本地分支覆盖远程分支</li>
-</ul>
-<h3 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h3><ul>
-<li><code>git push origin :&lt;分支名&gt;</code> 删除本地分支后, 把空分支推送到远程分支，以删除远程端分支</li>
-<li><code>git push origin --delete &lt;分支名&gt;</code> 删除远程分支git 1.7版本后支持</li>
-</ul>
-<h3 id="更新-同步"><a href="#更新-同步" class="headerlink" title="更新/同步"></a>更新/同步</h3><ul>
-<li><code>git fetch</code> 更新更程所有分支的信息,但不影响本地代码<ul>
-<li><code>git fetch -all</code> 同步所有分支信息</li>
-<li><code>git fetch -p</code> 同步分支信息,分同步远程仓库分支,tag删除情况</li>
-</ul>
-</li>
-<li><code>git pull</code> 更新分支 <code>git pull == git fetch + git merge</code></li>
-<li><code>git pull --rebase</code> rebase方式同更新</li>
-<li><code>git pull origin master -f</code> </li>
-</ul>
-<h2 id="Tag"><a href="#Tag" class="headerlink" title="Tag"></a>Tag</h2><ul>
-<li><code>git tag &lt;tagname&gt;</code> 新建tag</li>
-<li><code>git tag -a &lt;tagname&gt; -m &#39;说明&#39;</code> 新建带说明的完整tag</li>
-<li><code>git tag -d &lt;tagname&gt;</code> 删除tag</li>
-<li><code>git push --tags</code> 推送所有本地tag到远程仓库</li>
-<li><code>git push origin --delete tag &lt;tagname&gt;</code> 删除远程端的tag 1.7</li>
-<li><code>git tag --sort=&quot;version:refname&quot;</code> 按版本号排序显示tag</li>
-<li><code>git tag --sort=&quot;version:refname&quot; -l &#39;*.*.*&#39;</code> 增加筛选</li>
-</ul>
-<hr>
-<h2 id="常规提交流程"><a href="#常规提交流程" class="headerlink" title="常规提交流程"></a>常规提交流程</h2><ul>
-<li><code>git status</code></li>
-<li><code>git diff</code> 比较差异</li>
-<li><code>git add 1.txt</code> 把文件添加到git的仓库管理系统中</li>
-<li><code>git add &lt;文件夹&gt;</code> 把文件夹添加到git的仓库管理系统中</li>
-<li><code>git add --all</code> 提交所有修改到暂存</li>
-<li><code>git rm 1.txt</code> 把文件从git的仓库管理系统中移除</li>
-<li><code>git rm -r myFolder</code> 把文件夹从git的仓库管理系统中移除</li>
-<li><code>git commit -m &#39;说明&#39;</code> 提交到仓库(本地)</li>
-<li><code>git push</code> 推送到仓库</li>
-<li><code>git push &lt;主机名&gt; &lt;分支名&gt;</code> //推送到指定远程分支</li>
-<li><code>git push -u &lt;主机名&gt; &lt;分支名&gt;</code> 推送并关联远程分支</li>
-</ul>
-<h2 id="简单提交流程"><a href="#简单提交流程" class="headerlink" title="简单提交流程"></a>简单提交流程</h2><ol>
-<li><code>git pull</code> 同步远程仓库到本地(非必须,如果远程有更新)</li>
-<li><code>git add --all &amp;&amp; git commit -m &#39;提交说明&#39;</code> //添加所有修改并提交,</li>
-<li><code>git push</code> (推送到远程)</li>
-</ol>
-<h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><ul>
-<li><code>git log</code><ul>
-<li><code>-p</code> 提交的祥细内容</li>
-<li><code>-p &lt;file&gt;</code> 指定文件的提交日志</li>
-<li><code>-n</code> 查看最后n次提交的信息</li>
-<li><code>--oneline</code> 简要列出commit记录 </li>
-</ul>
-</li>
-<li><code>git blame &lt;file&gt;</code> 以列表方式查看提交历史</li>
-</ul>
-<h3 id="撤消"><a href="#撤消" class="headerlink" title="撤消"></a>撤消</h3><p>一般 git clean都是配合git reset 使用的  </p>
-<ul>
-<li><code>git checkout .</code>   //还原未提交的修改<ul>
-<li><code>-f</code> 不会删除新增的文件</li>
-</ul>
-</li>
-<li><code>git clean</code> 删除新增,还未add的文件<ul>
-<li><code>-n</code>  显示 将要 删除的 文件 和  目录</li>
-<li><code>-f</code>  删除 文件，</li>
-<li><code>-df</code> 删除 文件 和 目录</li>
-</ul>
-</li>
-<li><code>git reset HEAD 1.text</code> 还原1.text加入的修改</li>
-<li><code>git reset --hard</code> 放弃本地所有修改</li>
-<li><code>git reset --hard &lt;哈希值&gt;</code> 回退到指定版本</li>
-<li><code>git reset --hard HEAD^</code> 放弃本地所有修改，回退到上一个版本</li>
-<li><code>git reset --hard HEAD~2</code> 放弃本地所有修改，回退到上上个版本</li>
-<li><code>git revert</code>  是撤销某一次操作，此次操作之前的commit都会被保留</li>
-</ul>
-<h2 id="本地跟踪忽略"><a href="#本地跟踪忽略" class="headerlink" title="本地跟踪忽略"></a>本地跟踪忽略</h2><ul>
-<li><code>git update-index --assume-unchanged &lt;path&gt;</code>  忽略跟踪</li>
-<li><code>git update-index --no-assume-unchanged &lt;path&gt;</code>  恢复跟踪</li>
-</ul>
-<h2 id="列出文件状态"><a href="#列出文件状态" class="headerlink" title="列出文件状态"></a>列出文件状态</h2><ul>
-<li><code>git ls-files</code> 列出所有已缓存的文件<ul>
-<li><code>-v</code> 用小写显示被<code>assume-unchanged</code>的文件</li>
-</ul>
-</li>
-</ul>
-<h2 id="嵌套仓库"><a href="#嵌套仓库" class="headerlink" title="嵌套仓库"></a>嵌套仓库</h2><ul>
-<li><code>git submodule add &lt;仓库地址&gt; &lt;路径&gt;</code> 添加嵌套仓库</li>
-<li><code>git submodule init</code> 初始化嵌套仓库</li>
-<li><code>git submodule update</code> 更新嵌套仓库</li>
-</ul>
-<hr>
-<h2 id="保存当前状态"><a href="#保存当前状态" class="headerlink" title="保存当前状态"></a>保存当前状态</h2><ul>
-<li><code>git stash</code> 备份当前的工作区的内容，从最近的一次提交中读取相关内容，让工作区保证和上次提交的内容一致。同时，将当前的工作区内容保存到Git栈中。 可多次git stash</li>
-<li><code>git stash pop</code> 从Git栈中读取最近一次保存的内容，恢复工作区的相关内容。</li>
-<li><code>git stash pop stash@{num}</code> 如果有多个工作现场，num是工作现场的编号。使用pop命令恢复的工作现场，其对应的stash 在队列中删除。</li>
-<li><code>git stash apply stash@{num}</code> 除了不在stash队列中删除外其他和<code>git stash pop</code>完全一样。</li>
-<li><code>git stash list</code> 显示Git栈内的所有备份，可以利用这个列表来决定从那个地方恢复。</li>
-<li><code>git stash clear</code> 清空Git栈。 </li>
-</ul>
-<h2 id="取消版本控制"><a href="#取消版本控制" class="headerlink" title="取消版本控制"></a>取消版本控制</h2><ul>
-<li><code>git rm -r -n --cached &lt;path&gt;</code></li>
-</ul>
-<h2 id="git设置"><a href="#git设置" class="headerlink" title="git设置"></a>git设置</h2><ul>
-<li><code>git config --global push.default current</code></li>
-<li><code>git config --global pull.default current</code></li>
-</ul>
-]]></content>
+    <content type="html"><![CDATA[<h2 id="初始化-克隆"><a href="#初始化-克隆" class="headerlink" title="初始化/克隆"></a>初始化/克隆</h2><ul><li><code>git init</code> 初始化仓库</li><li><code>git clone &lt;git仓库地址/路径&gt;</code> 克隆<ul><li>ssh: <code>git clone ssh://git.qida.com:11223/clm.git</code></li><li>http: <code>git clone https://github.com/cnwhy/lib-qqwry.git</code></li></ul></li></ul><h2 id="修改和提交"><a href="#修改和提交" class="headerlink" title="修改和提交"></a>修改和提交</h2><h3 id="查看文件状态-比较差异-加入缓存区"><a href="#查看文件状态-比较差异-加入缓存区" class="headerlink" title="查看文件状态/比较差异/加入缓存区"></a>查看文件状态/比较差异/加入缓存区</h3><ul><li><code>git status</code> 显示工作区文件状态</li><li><p><code>git diff</code> 比较当前分支变动</p><ul><li><code>git diff &lt;branch1&gt; &lt;branch2&gt;</code> 比较两个分支</li><li><code>git diff &lt;hash1&gt; &lt;hash2&gt;</code>     比较两个指定hash</li></ul></li><li><p><code>git rm &lt;file&gt;</code> 删除文件,并添加到暂存区</p></li><li><code>git rm -r &lt;folder&gt;</code> 删除文件夹,并添加到暂存区</li><li><p><code>git rm --cached &lt;file&gt;</code> 把文件删除添加到暂存区,但不删除文件.</p></li><li><p><code>git add</code> 将变动添加到暂存区</p><ul><li><code>git add &lt;path&gt;</code> 添加指定路径的所有变动到暂存区, 在仓库根路径下执行<code>git add .</code> == <code>git add --all</code> </li><li><code>git add --all/-A</code> 添加所有变动到暂存区</li><li><code>git add -u</code> 添加修改(modified)和删除(deleted)文件,不包括新(new)的文件</li><li><code>git add -i</code> 交互式操作暂存区</li></ul></li></ul><h3 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h3><ul><li><code>git commit -m &#39;log&#39;</code> 提交缓存区的变动<ul><li><code>git commit -am &#39;log&#39;</code> 添加已经在版本库控制的文件变动到缓存区,并提交</li><li><code>git commit --amend</code> 提交到最后一次commit (不会增加新的commit信息)</li></ul></li></ul><h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><h3 id="分支基本操作"><a href="#分支基本操作" class="headerlink" title="分支基本操作"></a>分支基本操作</h3><ul><li><code>git branch</code> 查看本地分支<ul><li><code>-r</code> 查看远程分支</li><li><code>-a</code> 查看所有分支</li><li><code>-m &lt;新分支名&gt;</code> 修改分支名</li><li><code>-d/-D &lt;分支名&gt;</code> 删除/强制删除 本地分支</li></ul></li><li><code>git branch &lt;分支名&gt;</code> 创建新分支 </li><li><code>git checkout &lt;分支名|Tag名&gt;</code> 切换到分支|Tag<ul><li><code>-b &lt;新分支名&gt;</code> 创建并切换到新分支  </li></ul></li></ul><h3 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h3><ul><li><code>git merge &lt;分支名&gt;</code> //把分支合并到本分支<ul><li><code>--squash</code>  不自动提交,用把分支的多个提交合成一个。</li></ul></li><li><code>git rebase &lt;分支名&gt;</code> 衍和分支(分支衍合不会保留合并的日志，不留痕迹),相当于本地修改</li></ul><h3 id="提取commit"><a href="#提取commit" class="headerlink" title="提取commit"></a>提取commit</h3><ul><li><code>git cherry-pick &lt;commit hash&gt;</code> 将别的分支的一个commit拉到本分支</li></ul><h2 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h2><h2 id="源操作"><a href="#源操作" class="headerlink" title="源操作"></a>源操作</h2><ul><li><code>git remote add origin1 &lt;GIT URL&gt;</code> //增加一个名为origin1的源</li><li><code>git remote set-url origin &lt;GIT URL&gt;</code> //修改origin的源地址</li><li><code>git remote remove origin</code> //删除源origin</li></ul><h3 id="关联"><a href="#关联" class="headerlink" title="关联"></a>关联</h3><p>关联分支后 <code>pull</code> , <code>push</code> 等命令操作当前分支可省略 <code>&lt;主机名&gt;/&lt;分支名&gt;</code>.</p><ul><li><code>git branch --set-upstream-to &lt;分支名&gt; &lt;源名&gt;/&lt;分支名&gt;</code> 关联 本地与远程 分支  </li><li><code>git push -u &lt;源名&gt; &lt;分支名&gt;</code> 提交并把当前分支和远程分支关联</li></ul><h3 id="覆盖远程分支"><a href="#覆盖远程分支" class="headerlink" title="覆盖远程分支"></a>覆盖远程分支</h3><ul><li><code>git push -f</code> 强制用本地分支覆盖远程分支</li></ul><h3 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h3><ul><li><code>git push origin :&lt;分支名&gt;</code> 删除本地分支后, 把空分支推送到远程分支，以删除远程端分支</li><li><code>git push origin --delete &lt;分支名&gt;</code> 删除远程分支git 1.7版本后支持</li></ul><h3 id="更新-同步"><a href="#更新-同步" class="headerlink" title="更新/同步"></a>更新/同步</h3><ul><li><code>git fetch</code> 更新更程所有分支的信息,但不影响本地代码<ul><li><code>git fetch -all</code> 同步所有分支信息</li><li><code>git fetch -p</code> 同步分支信息,分同步远程仓库分支,tag删除情况</li></ul></li><li><code>git pull</code> 更新分支 <code>git pull == git fetch + git merge</code></li><li><code>git pull --rebase</code> rebase方式同更新</li><li><code>git pull origin master -f</code> </li></ul><h2 id="Tag"><a href="#Tag" class="headerlink" title="Tag"></a>Tag</h2><ul><li><code>git tag &lt;tagname&gt;</code> 新建tag</li><li><code>git tag -a &lt;tagname&gt; -m &#39;说明&#39;</code> 新建带说明的完整tag</li><li><code>git tag -d &lt;tagname&gt;</code> 删除tag</li><li><code>git push --tags</code> 推送所有本地tag到远程仓库</li><li><code>git push origin --delete tag &lt;tagname&gt;</code> 删除远程端的tag 1.7</li><li><code>git tag --sort=&quot;version:refname&quot;</code> 按版本号排序显示tag</li><li><code>git tag --sort=&quot;version:refname&quot; -l &#39;*.*.*&#39;</code> 增加筛选</li></ul><hr><h2 id="常规提交流程"><a href="#常规提交流程" class="headerlink" title="常规提交流程"></a>常规提交流程</h2><ul><li><code>git status</code></li><li><code>git diff</code> 比较差异</li><li><code>git add 1.txt</code> 把文件添加到git的仓库管理系统中</li><li><code>git add &lt;文件夹&gt;</code> 把文件夹添加到git的仓库管理系统中</li><li><code>git add --all</code> 提交所有修改到暂存</li><li><code>git rm 1.txt</code> 把文件从git的仓库管理系统中移除</li><li><code>git rm -r myFolder</code> 把文件夹从git的仓库管理系统中移除</li><li><code>git commit -m &#39;说明&#39;</code> 提交到仓库(本地)</li><li><code>git push</code> 推送到仓库</li><li><code>git push &lt;主机名&gt; &lt;分支名&gt;</code> //推送到指定远程分支</li><li><code>git push -u &lt;主机名&gt; &lt;分支名&gt;</code> 推送并关联远程分支</li></ul><h2 id="简单提交流程"><a href="#简单提交流程" class="headerlink" title="简单提交流程"></a>简单提交流程</h2><ol><li><code>git pull</code> 同步远程仓库到本地(非必须,如果远程有更新)</li><li><code>git add --all &amp;&amp; git commit -m &#39;提交说明&#39;</code> //添加所有修改并提交,</li><li><code>git push</code> (推送到远程)</li></ol><h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><ul><li><code>git log</code><ul><li><code>-p</code> 提交的祥细内容</li><li><code>-p &lt;file&gt;</code> 指定文件的提交日志</li><li><code>-n</code> 查看最后n次提交的信息</li><li><code>--oneline</code> 简要列出commit记录 </li></ul></li><li><code>git blame &lt;file&gt;</code> 以列表方式查看提交历史</li></ul><h3 id="撤消"><a href="#撤消" class="headerlink" title="撤消"></a>撤消</h3><p>一般 git clean都是配合git reset 使用的  </p><ul><li><code>git checkout .</code>   //还原未提交的修改<ul><li><code>-f</code> 不会删除新增的文件</li></ul></li><li><code>git clean</code> 删除新增,还未add的文件<ul><li><code>-n</code>  显示 将要 删除的 文件 和  目录</li><li><code>-f</code>  删除 文件，</li><li><code>-df</code> 删除 文件 和 目录</li></ul></li><li><code>git reset HEAD 1.text</code> 还原1.text加入的修改</li><li><code>git reset --hard</code> 放弃本地所有修改</li><li><code>git reset --hard &lt;哈希值&gt;</code> 回退到指定版本</li><li><code>git reset --hard HEAD^</code> 放弃本地所有修改，回退到上一个版本</li><li><code>git reset --hard HEAD~2</code> 放弃本地所有修改，回退到上上个版本</li><li><code>git revert</code>  是撤销某一次操作，此次操作之前的commit都会被保留</li></ul><h2 id="本地跟踪忽略"><a href="#本地跟踪忽略" class="headerlink" title="本地跟踪忽略"></a>本地跟踪忽略</h2><ul><li><code>git update-index --assume-unchanged &lt;path&gt;</code>  忽略跟踪</li><li><code>git update-index --no-assume-unchanged &lt;path&gt;</code>  恢复跟踪</li></ul><h2 id="列出文件状态"><a href="#列出文件状态" class="headerlink" title="列出文件状态"></a>列出文件状态</h2><ul><li><code>git ls-files</code> 列出所有已缓存的文件<ul><li><code>-v</code> 用小写显示被<code>assume-unchanged</code>的文件</li></ul></li></ul><h2 id="嵌套仓库"><a href="#嵌套仓库" class="headerlink" title="嵌套仓库"></a>嵌套仓库</h2><ul><li><code>git submodule add &lt;仓库地址&gt; &lt;路径&gt;</code> 添加嵌套仓库</li><li><code>git submodule init</code> 初始化嵌套仓库</li><li><code>git submodule update</code> 更新嵌套仓库</li></ul><hr><h2 id="保存当前状态"><a href="#保存当前状态" class="headerlink" title="保存当前状态"></a>保存当前状态</h2><ul><li><code>git stash</code> 备份当前的工作区的内容，从最近的一次提交中读取相关内容，让工作区保证和上次提交的内容一致。同时，将当前的工作区内容保存到Git栈中。 可多次git stash</li><li><code>git stash pop</code> 从Git栈中读取最近一次保存的内容，恢复工作区的相关内容。</li><li><code>git stash pop stash@{num}</code> 如果有多个工作现场，num是工作现场的编号。使用pop命令恢复的工作现场，其对应的stash 在队列中删除。</li><li><code>git stash apply stash@{num}</code> 除了不在stash队列中删除外其他和<code>git stash pop</code>完全一样。</li><li><code>git stash list</code> 显示Git栈内的所有备份，可以利用这个列表来决定从那个地方恢复。</li><li><code>git stash clear</code> 清空Git栈。 </li></ul><h2 id="取消版本控制"><a href="#取消版本控制" class="headerlink" title="取消版本控制"></a>取消版本控制</h2><ul><li><code>git rm -r -n --cached &lt;path&gt;</code></li></ul><h2 id="git设置"><a href="#git设置" class="headerlink" title="git设置"></a>git设置</h2><ul><li><code>git config --global push.default current</code></li><li><code>git config --global pull.default current</code></li></ul>]]></content>
     
     <summary type="html">
     
@@ -348,77 +115,7 @@
     <published>2017-07-10T11:07:09.000Z</published>
     <updated>2017-07-21T07:58:27.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="mysql命令登录"><a href="#mysql命令登录" class="headerlink" title="mysql命令登录"></a>mysql命令登录</h2><p><code>&gt; mysql -uroot</code><br><code>&gt; mysql -h127.0.0.1 -P3306 -uUsername -pPassword</code></p>
-<h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><ul>
-<li><code>-u</code> 用户名</li>
-<li><code>-p</code> 密码</li>
-<li><code>-h</code> 服务器ip/域名</li>
-<li><code>-P</code> 端口,默认3306</li>
-</ul>
-<h2 id="常用查看命令"><a href="#常用查看命令" class="headerlink" title="常用查看命令"></a>常用查看命令</h2><ul>
-<li><code>status;</code> –显示当前状态</li>
-<li><code>show databases;</code> –显示所有数据库</li>
-<li><code>select database();</code> –当前使用的数据库</li>
-<li><code>use databaseName;</code> –更换使用的数据库</li>
-<li><code>show tables;</code> –显示当前数据库的表</li>
-<li><code>show tables from databaseName;</code> –显示指定数据库的表</li>
-<li><code>desc tableName;</code> –显示表结构</li>
-</ul>
-<h2 id="用户-权限-操作"><a href="#用户-权限-操作" class="headerlink" title="用户/权限 操作"></a>用户/权限 操作</h2><p><code>use mysql;</code></p>
-<blockquote>
-<p>先进入<code>mysql</code>数据库方便操作  </p>
-</blockquote>
-<h3 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h3><h4 id="查看用户"><a href="#查看用户" class="headerlink" title="查看用户"></a>查看用户</h4><p><code>select host,user,password from user;</code></p>
-<blockquote>
-<p>显示<code>user</code>表的<code>host,user,password</code>列</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">+-----------------------+------+-------------------------------------------+</div><div class="line">| host                  | user | password                                  |</div><div class="line">+-----------------------+------+-------------------------------------------+</div><div class="line">| localhost             | root |                                           |</div><div class="line">| localhost.localdomain | root |                                           |</div><div class="line">| 127.0.0.1             | root |                                           |</div><div class="line">| localhost             |      |                                           |</div><div class="line">| localhost.localdomain |      |                                           |</div><div class="line">| %                     | jira | *6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9 |</div><div class="line">| localhost             | jira |                                           |</div><div class="line">+-----------------------+------+-------------------------------------------+</div></pre></td></tr></table></figure>
-<h4 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h4><p><code>create user new_user IDENTIFIED by &#39;xxxxx&#39;;</code></p>
-<blockquote>
-<p>identified by 会将纯文本密码加密作为散列值存储<br>默认创建的是远程用户<code>new_user@&#39;%&#39;</code><br><code>%</code> 通配所有IP,<code>localhost</code>不是IP</p>
-</blockquote>
-<p><code>create user new_user@localhost;</code> </p>
-<blockquote>
-<p>创建指定本地用户</p>
-</blockquote>
-<h4 id="修改用户"><a href="#修改用户" class="headerlink" title="修改用户"></a>修改用户</h4><p><code>RENAME USER old_user TO new_user;</code><br><code>RENAME USER &#39;jeffrey&#39;@&#39;localhost&#39; TO &#39;jeff&#39;@&#39;127.0.0.1&#39;;</code></p>
-<blockquote>
-<p>mysql 5之后可以使用，之前需要使用<code>update</code>更新<code>user</code>表</p>
-</blockquote>
-<h4 id="更改密码"><a href="#更改密码" class="headerlink" title="更改密码"></a>更改密码</h4><p><code>set password for root=password(&#39;xxxxxx&#39;);</code><br><code>set password for root@&#39;%&#39;=password(&#39;xxxxxx&#39;);</code><br><code>update mysql.user set password=password(&#39;xxxx&#39;) where user=&#39;root&#39;;</code></p>
-<blockquote>
-<p>改可以直接修改user表中的记录</p>
-</blockquote>
-<h4 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h4><p><code>drop user newuser;</code></p>
-<blockquote>
-<p>mysql5之前删除用户时必须先使用revoke 删除用户权限，然后删除用户，mysql5之后drop 命令可以删除用户的同时删除用户的相关权限</p>
-</blockquote>
-<h3 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h3><h4 id="常用权限说明"><a href="#常用权限说明" class="headerlink" title="常用权限说明"></a>常用权限说明</h4><ul>
-<li><code>all</code> 所有权限;</li>
-<li><code>select</code> , <code>update</code> , <code>delete</code> , <code>insert</code> 普通表操作权限</li>
-<li><code>create</code> , <code>alter</code> , <code>drop</code> 创建、修改、删除 数据表结构权限</li>
-<li><code>references</code> 外键权限 </li>
-<li><code>create temporary</code> 临时表权限</li>
-<li><code>index</code> 索引权限</li>
-<li><code>create view</code> , <code>show view</code> 创建、查看视图权限</li>
-<li><code>create routine</code> , <code>alter routine</code> , <code>execute</code> 创建,更改,执行存储过程权限</li>
-<li><code>lock tables</code> 锁表</li>
-<li><code>create user</code> 创建用户 </li>
-</ul>
-<h4 id="常用角色权限"><a href="#常用角色权限" class="headerlink" title="常用角色权限"></a>常用角色权限</h4><ul>
-<li>普通用户 <code>grant select, insert, update, delete on testdb.* to test_user@&#39;%&#39;</code></li>
-<li>普通开发人员 <code>grant all on testdb to dev@localhost</code></li>
-<li>DBA <code>grant all on *.* to dba@localhost</code></li>
-</ul>
-<h4 id="查看用户权限"><a href="#查看用户权限" class="headerlink" title="查看用户权限"></a>查看用户权限</h4><p><code>show grants for jira;</code>  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">+-----------------------------------------------------------------------------------------------------+</div><div class="line">| Grants for jira@%                                                                                   |</div><div class="line">+-----------------------------------------------------------------------------------------------------+</div><div class="line">| GRANT USAGE ON *.* TO &apos;jira&apos;@&apos;%&apos; IDENTIFIED BY PASSWORD &apos;*6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9&apos; |</div><div class="line">| GRANT ALL PRIVILEGES ON `jira`.* TO &apos;jira&apos;@&apos;%&apos;                                                      |</div><div class="line">+-----------------------------------------------------------------------------------------------------+</div></pre></td></tr></table></figure>
-<h4 id="赋予权限"><a href="#赋予权限" class="headerlink" title="赋予权限"></a>赋予权限</h4><p><code>grant select ON dmc_db.* TO zx_root;</code><br><code>grant all ON dmc_db.* TO zx_root;</code></p>
-<h4 id="回收权限"><a href="#回收权限" class="headerlink" title="回收权限"></a>回收权限</h4><p><code>revoke select on dmc_db.*  from zx_root;</code></p>
-<h4 id="更新权限缓存"><a href="#更新权限缓存" class="headerlink" title="更新权限缓存"></a>更新权限缓存</h4><p><code>flush  privileges ;</code></p>
-<blockquote>
-<p>修改权限后,立即生效(更新权限缓存)</p>
-</blockquote>
-]]></content>
+    <content type="html"><![CDATA[<h2 id="mysql命令登录"><a href="#mysql命令登录" class="headerlink" title="mysql命令登录"></a>mysql命令登录</h2><p><code>&gt; mysql -uroot</code><br><code>&gt; mysql -h127.0.0.1 -P3306 -uUsername -pPassword</code></p><h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><ul><li><code>-u</code> 用户名</li><li><code>-p</code> 密码</li><li><code>-h</code> 服务器ip/域名</li><li><code>-P</code> 端口,默认3306</li></ul><h2 id="常用查看命令"><a href="#常用查看命令" class="headerlink" title="常用查看命令"></a>常用查看命令</h2><ul><li><code>status;</code> –显示当前状态</li><li><code>show databases;</code> –显示所有数据库</li><li><code>select database();</code> –当前使用的数据库</li><li><code>use databaseName;</code> –更换使用的数据库</li><li><code>show tables;</code> –显示当前数据库的表</li><li><code>show tables from databaseName;</code> –显示指定数据库的表</li><li><code>desc tableName;</code> –显示表结构</li></ul><h2 id="用户-权限-操作"><a href="#用户-权限-操作" class="headerlink" title="用户/权限 操作"></a>用户/权限 操作</h2><p><code>use mysql;</code></p><blockquote><p>先进入<code>mysql</code>数据库方便操作  </p></blockquote><h3 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h3><h4 id="查看用户"><a href="#查看用户" class="headerlink" title="查看用户"></a>查看用户</h4><p><code>select host,user,password from user;</code></p><blockquote><p>显示<code>user</code>表的<code>host,user,password</code>列</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">+-----------------------+------+-------------------------------------------+</div><div class="line">| host                  | user | password                                  |</div><div class="line">+-----------------------+------+-------------------------------------------+</div><div class="line">| localhost             | root |                                           |</div><div class="line">| localhost.localdomain | root |                                           |</div><div class="line">| 127.0.0.1             | root |                                           |</div><div class="line">| localhost             |      |                                           |</div><div class="line">| localhost.localdomain |      |                                           |</div><div class="line">| %                     | jira | *6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9 |</div><div class="line">| localhost             | jira |                                           |</div><div class="line">+-----------------------+------+-------------------------------------------+</div></pre></td></tr></table></figure><h4 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h4><p><code>create user new_user IDENTIFIED by &#39;xxxxx&#39;;</code></p><blockquote><p>identified by 会将纯文本密码加密作为散列值存储<br>默认创建的是远程用户<code>new_user@&#39;%&#39;</code><br><code>%</code> 通配所有IP,<code>localhost</code>不是IP</p></blockquote><p><code>create user new_user@localhost;</code> </p><blockquote><p>创建指定本地用户</p></blockquote><h4 id="修改用户"><a href="#修改用户" class="headerlink" title="修改用户"></a>修改用户</h4><p><code>RENAME USER old_user TO new_user;</code><br><code>RENAME USER &#39;jeffrey&#39;@&#39;localhost&#39; TO &#39;jeff&#39;@&#39;127.0.0.1&#39;;</code></p><blockquote><p>mysql 5之后可以使用，之前需要使用<code>update</code>更新<code>user</code>表</p></blockquote><h4 id="更改密码"><a href="#更改密码" class="headerlink" title="更改密码"></a>更改密码</h4><p><code>set password for root=password(&#39;xxxxxx&#39;);</code><br><code>set password for root@&#39;%&#39;=password(&#39;xxxxxx&#39;);</code><br><code>update mysql.user set password=password(&#39;xxxx&#39;) where user=&#39;root&#39;;</code></p><blockquote><p>改可以直接修改user表中的记录</p></blockquote><h4 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h4><p><code>drop user newuser;</code></p><blockquote><p>mysql5之前删除用户时必须先使用revoke 删除用户权限，然后删除用户，mysql5之后drop 命令可以删除用户的同时删除用户的相关权限</p></blockquote><h3 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h3><h4 id="常用权限说明"><a href="#常用权限说明" class="headerlink" title="常用权限说明"></a>常用权限说明</h4><ul><li><code>all</code> 所有权限;</li><li><code>select</code> , <code>update</code> , <code>delete</code> , <code>insert</code> 普通表操作权限</li><li><code>create</code> , <code>alter</code> , <code>drop</code> 创建、修改、删除 数据表结构权限</li><li><code>references</code> 外键权限 </li><li><code>create temporary</code> 临时表权限</li><li><code>index</code> 索引权限</li><li><code>create view</code> , <code>show view</code> 创建、查看视图权限</li><li><code>create routine</code> , <code>alter routine</code> , <code>execute</code> 创建,更改,执行存储过程权限</li><li><code>lock tables</code> 锁表</li><li><code>create user</code> 创建用户 </li></ul><h4 id="常用角色权限"><a href="#常用角色权限" class="headerlink" title="常用角色权限"></a>常用角色权限</h4><ul><li>普通用户 <code>grant select, insert, update, delete on testdb.* to test_user@&#39;%&#39;</code></li><li>普通开发人员 <code>grant all on testdb to dev@localhost</code></li><li>DBA <code>grant all on *.* to dba@localhost</code></li></ul><h4 id="查看用户权限"><a href="#查看用户权限" class="headerlink" title="查看用户权限"></a>查看用户权限</h4><p><code>show grants for jira;</code>  </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">+-----------------------------------------------------------------------------------------------------+</div><div class="line">| Grants for jira@%                                                                                   |</div><div class="line">+-----------------------------------------------------------------------------------------------------+</div><div class="line">| GRANT USAGE ON *.* TO &apos;jira&apos;@&apos;%&apos; IDENTIFIED BY PASSWORD &apos;*6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9&apos; |</div><div class="line">| GRANT ALL PRIVILEGES ON `jira`.* TO &apos;jira&apos;@&apos;%&apos;                                                      |</div><div class="line">+-----------------------------------------------------------------------------------------------------+</div></pre></td></tr></table></figure><h4 id="赋予权限"><a href="#赋予权限" class="headerlink" title="赋予权限"></a>赋予权限</h4><p><code>grant select ON dmc_db.* TO zx_root;</code><br><code>grant all ON dmc_db.* TO zx_root;</code></p><h4 id="回收权限"><a href="#回收权限" class="headerlink" title="回收权限"></a>回收权限</h4><p><code>revoke select on dmc_db.*  from zx_root;</code></p><h4 id="更新权限缓存"><a href="#更新权限缓存" class="headerlink" title="更新权限缓存"></a>更新权限缓存</h4><p><code>flush  privileges ;</code></p><blockquote><p>修改权限后,立即生效(更新权限缓存)</p></blockquote>]]></content>
     
     <summary type="html">
     
@@ -442,16 +139,14 @@
     <published>2017-06-07T11:23:39.000Z</published>
     <updated>2017-07-10T11:04:22.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="配置Hexo的-config-yml"><a href="#配置Hexo的-config-yml" class="headerlink" title="配置Hexo的_config.yml"></a>配置Hexo的_config.yml</h2><blockquote>
-<p><code>index_generator</code> &gt; <code>order_by</code> 改为 <code>-top -date</code></p>
-</blockquote>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attr">index_generator:</span></div><div class="line">  <span class="comment"># path: ''</span></div><div class="line">  <span class="comment"># per_page: 10</span></div><div class="line"><span class="attr">  order_by:</span> <span class="bullet">-top</span> <span class="bullet">-date</span></div></pre></td></tr></table></figure>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>在文章的<code>front-matter</code>中增加<code>top</code>值, <code>top</code>值越大越靠前;</p>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: 置顶文章</div><div class="line">date: 2017-06-07 19:23:39</div><div class="line">tags:</div><div class="line">categories:</div><div class="line"><span class="section">top: 100</span></div><div class="line">---</div><div class="line"><span class="section">## 置顶文章</span></div></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="配置Hexo的-config-yml"><a href="#配置Hexo的-config-yml" class="headerlink" title="配置Hexo的_config.yml"></a>配置Hexo的_config.yml</h2><blockquote><p><code>index_generator</code> &gt; <code>order_by</code> 改为 <code>-top -date</code></p></blockquote><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attr">index_generator:</span></div><div class="line">  <span class="comment"># path: ''</span></div><div class="line">  <span class="comment"># per_page: 10</span></div><div class="line"><span class="attr">  order_by:</span> <span class="bullet">-top</span> <span class="bullet">-date</span></div></pre></td></tr></table></figure><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>在文章的<code>front-matter</code>中增加<code>top</code>值, <code>top</code>值越大越靠前;</p><figure class="highlight md"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: 置顶文章</div><div class="line">date: 2017-06-07 19:23:39</div><div class="line">tags:</div><div class="line">categories:</div><div class="line">top: 100</div><div class="line">---</div><div class="line"><span class="section">## 置顶文章</span></div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;配置Hexo的-config-yml&quot;&gt;&lt;a href=&quot;#配置Hexo的-config-yml&quot; class=&quot;headerlink&quot; title=&quot;配置Hexo的_config.yml&quot;&gt;&lt;/a&gt;配置Hexo的_config.yml&lt;/h2&gt;&lt;blockquo
+      
+      
+        &lt;h2 id=&quot;配置Hexo的-config-yml&quot;&gt;&lt;a href=&quot;#配置Hexo的-config-yml&quot; class=&quot;headerlink&quot; title=&quot;配置Hexo的_config.yml&quot;&gt;&lt;/a&gt;配置Hexo的_config.yml&lt;/h2&gt;&lt;blockquo
+      
     
     </summary>
     
@@ -469,17 +164,15 @@
     <published>2017-06-07T11:15:05.000Z</published>
     <updated>2017-07-21T07:54:35.000Z</updated>
     
-    <content type="html"><![CDATA[<p>开启Hexo可以用插件<code>hexo-generator-feed</code></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-feed --save</div></pre></td></tr></table></figure>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>hexo的_config.yml文件中，添加feed配置</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="attr">feed:</span> </div><div class="line">  <span class="comment">#feed 类型 (atom/rss2)</span></div><div class="line"><span class="attr">  type:</span> <span class="string">atom</span>   </div><div class="line">  <span class="comment">#rss 路径</span></div><div class="line"><span class="attr">  path:</span> <span class="string">/atom.xml</span>  </div><div class="line">  <span class="comment">#在 rss 中最多生成的文章数(0显示所有)</span></div><div class="line"><span class="attr">  limit:</span> <span class="number">10</span></div></pre></td></tr></table></figure>
-<p>在主题目的_config.yml文件中，添加RSS配置<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">rss:</span> <span class="string">/atom.xml</span></div></pre></td></tr></table></figure></p>
-]]></content>
+    <content type="html"><![CDATA[<p>开启Hexo可以用插件<code>hexo-generator-feed</code></p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-feed --save</div></pre></td></tr></table></figure><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>hexo的_config.yml文件中，添加feed配置</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="attr">feed:</span> </div><div class="line">  <span class="comment">#feed 类型 (atom/rss2)</span></div><div class="line"><span class="attr">  type:</span> <span class="string">atom</span>   </div><div class="line">  <span class="comment">#rss 路径</span></div><div class="line"><span class="attr">  path:</span> <span class="string">/atom.xml</span>  </div><div class="line">  <span class="comment">#在 rss 中最多生成的文章数(0显示所有)</span></div><div class="line"><span class="attr">  limit:</span> <span class="number">10</span></div></pre></td></tr></table></figure><p>在主题目的_config.yml文件中，添加RSS配置<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">rss:</span> <span class="string">/atom.xml</span></div></pre></td></tr></table></figure></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;开启Hexo可以用插件&lt;code&gt;hexo-generator-feed&lt;/code&gt;&lt;/p&gt;
+      
+      
+        &lt;p&gt;开启Hexo可以用插件&lt;code&gt;hexo-generator-feed&lt;/code&gt;&lt;/p&gt;
 &lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;figure class=&quot;highlig
+      
     
     </summary>
     
@@ -499,37 +192,7 @@
     <published>2017-06-02T08:51:02.000Z</published>
     <updated>2017-07-21T07:54:21.000Z</updated>
     
-    <content type="html"><![CDATA[<p><code>&lt;!--more--&gt;</code>之前的内容,里的内容会在首页显示, 如果设置了 <code>description</code> 则会优先使用 description<br><a id="more"></a></p>
-<h1 id="H1"><a href="#H1" class="headerlink" title="H1"></a>H1</h1><h2 id="H2"><a href="#H2" class="headerlink" title="H2"></a>H2</h2><h3 id="H3"><a href="#H3" class="headerlink" title="H3"></a>H3</h3><h4 id="H4"><a href="#H4" class="headerlink" title="H4"></a>H4</h4><p>普通文本 , <em>斜体</em> , <strong>加粗</strong> , <code>行内代码</code> , <a href="#">连接</a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//代码块</span></div><div class="line"><span class="keyword">var</span> abc = <span class="number">123</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">x</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> x;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>!引用</p>
-</blockquote>
-<blockquote class="blockquote-center"><p>居中引用</p>
-</blockquote>
-<div class="note class_name"><p>Content (md partial supported) </p>
-</div>
-<ul>
-<li>列表1</li>
-<li>列表2</li>
-<li>列表3<ul>
-<li>列表3-1</li>
-<li>列表3-2</li>
-</ul>
-</li>
-<li>列表4</li>
-</ul>
-<ol>
-<li>列表1</li>
-<li>列表2</li>
-<li>列表3<ol>
-<li>列表3-1</li>
-<li>列表3-2</li>
-</ol>
-</li>
-<li>列表4</li>
-</ol>
-]]></content>
+    <content type="html"><![CDATA[<p><code>&lt;!--more--&gt;</code>之前的内容,里的内容会在首页显示, 如果设置了 <code>description</code> 则会优先使用 description<br><a id="more"></a></p><h1 id="H1"><a href="#H1" class="headerlink" title="H1"></a>H1</h1><h2 id="H2"><a href="#H2" class="headerlink" title="H2"></a>H2</h2><h3 id="H3"><a href="#H3" class="headerlink" title="H3"></a>H3</h3><h4 id="H4"><a href="#H4" class="headerlink" title="H4"></a>H4</h4><p>普通文本 , <em>斜体</em> , <strong>加粗</strong> , <code>行内代码</code> , <a href="#">连接</a></p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//代码块</span></div><div class="line"><span class="keyword">var</span> abc = <span class="number">123</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">x</span>)</span>&#123;</div><div class="line"><span class="keyword">return</span> x;</div><div class="line">&#125;</div></pre></td></tr></table></figure><blockquote><p>!引用</p></blockquote><blockquote class="blockquote-center"><p>居中引用</p></blockquote><div class="note class_name"><p>Content (md partial supported) </p></div><ul><li>列表1</li><li>列表2</li><li>列表3<ul><li>列表3-1</li><li>列表3-2</li></ul></li><li>列表4</li></ul><ol><li>列表1</li><li>列表2</li><li>列表3<ol><li>列表3-1</li><li>列表3-2</li></ol></li><li>列表4</li></ol>]]></content>
     
     <summary type="html">
     
