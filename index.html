@@ -387,7 +387,6 @@
         
           
             <p>为了方便代演示，容器 <code>.box</code> 的样式如下：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#999</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.box</span>&gt;<span class="selector-tag">div</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">90px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">90px</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#000</span>;</div><div class="line">    <span class="attribute">transition</span>: all <span class="number">0.3s</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.box</span>&gt;<span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">150px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">150px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <style>
     .box {
         border: 1px solid #999;
@@ -501,6 +500,8 @@
         grid-template-rows: auto;
         justify-items: center;
         align-items: center;
+        justify-self: center;
+        align-self: center;
     }
 
     .grid>div {
@@ -508,6 +509,7 @@
     }
 </style>
 
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#999</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.box</span>&gt;<span class="selector-tag">div</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">90px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">90px</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#000</span>;</div><div class="line">    <span class="attribute">transition</span>: all <span class="number">0.3s</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.box</span>&gt;<span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">150px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">150px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h1 id="不脱离文档流"><a href="#不脱离文档流" class="headerlink" title="不脱离文档流"></a>不脱离文档流</h1><h2 id="利用line-height"><a href="#利用line-height" class="headerlink" title="利用line-height"></a>利用line-height</h2><p>此方法关键是把<strong>行高设置成和容器高度相同</strong></p>
 <div class="box line-height">aaaaa</div>
 
