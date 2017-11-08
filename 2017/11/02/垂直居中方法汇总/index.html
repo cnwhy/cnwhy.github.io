@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="空谷幽兰">
 <meta property="og:description" content="为了方便代码演示，容器 .box 的样式如下：      .box {         border: 1px solid #999;         height: 200px;         width: 300px;         position: relative;     }      .box&amp;gt;div {         width: 90px;         height:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-08T02:14:28.000Z">
+<meta property="og:updated_time" content="2017-11-08T05:16:01.716Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="垂直居中方法汇总">
 <meta name="twitter:description" content="为了方便代码演示，容器 .box 的样式如下：      .box {         border: 1px solid #999;         height: 200px;         width: 300px;         position: relative;     }      .box&amp;gt;div {         width: 90px;         height:">
@@ -531,21 +531,21 @@
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="css"><span class="selector-class">.flex</span> &#123;</span></div><div class="line"><span class="undefined">    display: flex;</span></div><div class="line"><span class="undefined">    flex-wrap: wrap;</span></div><div class="line"><span class="undefined">    justify-content: center;</span></div><div class="line"><span class="undefined">    align-items: center;</span></div><div class="line"><span class="undefined">    align-content: center;</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="css"><span class="selector-class">.flex</span>&gt;<span class="selector-tag">div</span> &#123;</span></div><div class="line"><span class="undefined">    width: 50px;</span></div><div class="line"><span class="undefined">    height: 50px;</span></div><div class="line"><span class="undefined">    margin: 5px;</span></div><div class="line"><span class="undefined">    display: inline-flex;</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="css"><span class="selector-class">.flex</span>&gt;<span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span></div><div class="line"><span class="undefined">    width: 60px;</span></div><div class="line"><span class="undefined">    height: 60px;</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box flex"</span>&gt;</span></div><div class="line">    1111</div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"height:80px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <blockquote>
-<p>优点：支持多行；<br>缺点：兼容IE10才支持flex布局</p>
+<p>优点：支持多行，flex布局是一种趋势，并有很多新特性；<br>缺点：兼容IE10才支持flex布局</p>
 </blockquote>
-<h2 id="grid-布局"><a href="#grid-布局" class="headerlink" title="grid 布局"></a>grid 布局</h2><p>一种网格思维的新布局方式, 垂直居中同样没问题</p>
+<h2 id="grid-布局"><a href="#grid-布局" class="headerlink" title="grid 布局"></a>grid 布局</h2><p>一种网格思维的新布局方式, 垂直居中同样没问题, <code>grid</code> 还处理草案阶段</p>
 <div class="box grid"><div></div></div>
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="css"><span class="selector-class">.grid</span> &#123;</span></div><div class="line"><span class="undefined">    display: grid;</span></div><div class="line"><span class="undefined">    grid-template-columns: auto;</span></div><div class="line"><span class="undefined">    grid-template-rows: auto;</span></div><div class="line"><span class="undefined">    justify-items: center;</span></div><div class="line"><span class="undefined">    align-items: center;</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box grid"</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <blockquote>
-<p>优点：支持多行；<br>缺点：兼容IE10才支持flex布局</p>
+<p>优点：支持多行，并有很多新特性；<br>缺点：grid，</p>
 </blockquote>
-<h1 id="脱离文档流"><a href="#脱离文档流" class="headerlink" title="脱离文档流"></a>脱离文档流</h1><p>这里只演示 <code>absolute</code> 定位的元素，同样适用 <code>fixed</code> 定位的元素  </p>
+<h1 id="脱离文档流"><a href="#脱离文档流" class="headerlink" title="脱离文档流"></a>脱离文档流</h1><p>这里只演示 <code>absolute</code> 定位的元素，同样适用 <code>fixed</code> 定位的元素</p>
 <h2 id="margin负值"><a href="#margin负值" class="headerlink" title="margin负值"></a>margin负值</h2><div class="box absolute-margin"><div></div></div>
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="css"><span class="selector-class">.absolute-margin</span>&gt;<span class="selector-tag">div</span> &#123;</span></div><div class="line"><span class="undefined">    position: absolute;</span></div><div class="line"><span class="undefined">    left: 50%;</span></div><div class="line"><span class="undefined">    top: 50%;</span></div><div class="line"><span class="undefined">    margin-left: -51px;</span></div><div class="line"><span class="undefined">    margin-top: -51px;</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box absolute-margin"</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <blockquote>
-<p>优点：兼容好；<br>缺点：元素固定宽高；</p>
+<p>优点：兼容好；<br>缺点：元素需要固定尺寸；</p>
 </blockquote>
 <h2 id="CSS3移位法"><a href="#CSS3移位法" class="headerlink" title="CSS3移位法"></a>CSS3移位法</h2><div class="box absolute-translate"><div></div></div>
 
@@ -553,7 +553,7 @@
 <blockquote>
 <p>优点：元素可以不定宽高；<br>缺点：用到CSS3; 会碰到渲染模糊的情况；</p>
 </blockquote>
-<h2 id="margin-auto"><a href="#margin-auto" class="headerlink" title="margin auto"></a>margin auto</h2><p>普通块元素可以用 <code>margin: 0 auto;</code> 实现水平居中，现在用同样的原理来垂直居中</p>
+<h2 id="margin-auto"><a href="#margin-auto" class="headerlink" title="margin auto"></a>margin auto</h2><p>普通块元素可以用 <code>margin: 0 auto;</code> 实现水平居中，现在用同样的原理来垂直居中，因为要配 <code>right</code> <code>bottom</code>，所以不支持IE6</p>
 <div class="box absolute-auto"><div></div></div>
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="css"><span class="selector-class">.absolute-auto</span>&gt;<span class="selector-tag">div</span> &#123;</span></div><div class="line"><span class="undefined">    position: absolute;</span></div><div class="line"><span class="undefined">    left: 0;</span></div><div class="line"><span class="undefined">    right: 0;</span></div><div class="line"><span class="undefined">    top: 0;</span></div><div class="line"><span class="undefined">    bottom: 0;</span></div><div class="line"><span class="undefined">    margin: auto;</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box absolute-auto"</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -602,7 +602,7 @@
 <td>✔</td>
 <td>✔</td>
 <td>IE10+</td>
-<td><strong>移动端推荐</strong></td>
+<td><strong>推荐</strong></td>
 </tr>
 <tr>
 <td>grid</td>
@@ -618,7 +618,7 @@
 <td>✘</td>
 <td>✘</td>
 <td>all</td>
-<td>常用</td>
+<td>常用</td>
 </tr>
 <tr>
 <td>CSS3移位法</td>
