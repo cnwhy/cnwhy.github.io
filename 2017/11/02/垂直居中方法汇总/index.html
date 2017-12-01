@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="空谷幽兰">
 <meta property="og:description" content="CSS布局经常需要居中，水平居中还好，垂直居中稍显麻烦，这里只做总结了一些方法，仅供参考。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-27T11:20:35.000Z">
+<meta property="og:updated_time" content="2017-12-01T09:13:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="垂直居中方法汇总">
 <meta name="twitter:description" content="CSS布局经常需要居中，水平居中还好，垂直居中稍显麻烦，这里只做总结了一些方法，仅供参考。">
@@ -558,14 +558,14 @@
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="css"><span class="selector-class">.absolute-translate</span>&gt;<span class="selector-tag">div</span> &#123;</span></div><div class="line"><span class="undefined">    position: absolute;</span></div><div class="line"><span class="undefined">    left: 50%;</span></div><div class="line"><span class="undefined">    top: 50%;</span></div><div class="line"><span class="undefined">    transform: translate(-50%, -50%);</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box absolute-translate"</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <blockquote>
-<p>优点：元素可以不定宽高；<br>缺点：用到CSS3; 会碰到渲染模糊的情况；</p>
+<p>优点：元素可以不定宽高；<br>缺点：用到CSS3；可能会碰到渲染模糊的情况；</p>
 </blockquote>
 <h2 id="margin-auto"><a href="#margin-auto" class="headerlink" title="margin auto"></a>margin auto</h2><p>普通块元素可以用 <code>margin: 0 auto;</code> 实现水平居中，现在用同样的原理来垂直居中，因为要配 <code>right</code> <code>bottom</code>，所以不支持IE6</p>
 <div class="box absolute-auto"><div></div></div>
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="css"><span class="selector-class">.absolute-auto</span>&gt;<span class="selector-tag">div</span> &#123;</span></div><div class="line"><span class="undefined">    position: absolute;</span></div><div class="line"><span class="undefined">    left: 0;</span></div><div class="line"><span class="undefined">    right: 0;</span></div><div class="line"><span class="undefined">    top: 0;</span></div><div class="line"><span class="undefined">    bottom: 0;</span></div><div class="line"><span class="undefined">    margin: auto;</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box absolute-auto"</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <blockquote>
-<p>优点：元素可以不定宽高；兼容好；<br>缺点：极限情况下（元素比容器大），元素不居中；</p>
+<p>优点：居中效果，兼容好；<br>缺点：需要标明尺寸，不支持被内容撑大的容器；极限情况下（元素比容器大时），元素不居中；</p>
 </blockquote>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><table>
 <thead>
