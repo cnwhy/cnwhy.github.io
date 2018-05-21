@@ -5,9 +5,9 @@
   <subtitle>小隐于野，大隐于市，神隐于网络</subtitle>
   <link href="//atom.xml" rel="self"/>
   
-  <link href="http://blog.whyoop.com/"/>
-  <updated>2018-05-02T08:03:48.104Z</updated>
-  <id>http://blog.whyoop.com/</id>
+  <link href="https://blog.whyoop.com/"/>
+  <updated>2018-05-15T09:48:04.150Z</updated>
+  <id>https://blog.whyoop.com/</id>
   
   <author>
     <name>cnwhy</name>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>javascript 一个很小的GBK库(gbk,gb2312)</title>
-    <link href="http://blog.whyoop.com/2018/05/02/gbk-js/"/>
-    <id>http://blog.whyoop.com/2018/05/02/gbk-js/</id>
+    <link href="https://blog.whyoop.com/2018/05/02/gbk-js/"/>
+    <id>https://blog.whyoop.com/2018/05/02/gbk-js/</id>
     <published>2018-05-02T06:45:52.000Z</published>
-    <updated>2018-05-02T08:03:48.104Z</updated>
+    <updated>2018-05-15T09:48:04.150Z</updated>
     
     <content type="html"><![CDATA[<p>现在的新项目应该很少再使用 <code>gbk</code> 或 <code>gb2312</code> 了, 但还是有不少老项目在使用;<br>而新项目免不了要与老项目有一些”沟通”;<br>这样的项目, 尤其是一些web项目, 常常需要考虑到底是前端引一个GBK库, 还是在服务端处理GBK的问题, 因为web端使用GBK库一般会比较大, 而在服务端处理又有些麻烦;<br>如果有一个超小的GBK库就方便了;<br><a id="more"></a></p><h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址:"></a>项目地址:</h2><p><a href="https://github.com/cnwhy/GBK.js" target="_blank" rel="external">https://github.com/cnwhy/GBK.js</a>  </p><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ul><li>就是比一般的GBK库要小, 主要是改进了之前网上流传的一个GBK库, 大概50几K, 改进后的库31k, 而正常的GBK编码表就要到200k了;</li><li>增加了 <code>GRI</code> 相关的函数;</li><li>项目中包含了压缩GBK编码表整套方案,方便自行优化,生成更小的库文件.</li></ul><h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h3 id="GBK-encode-string-解码GBK为一个字节数组"><a href="#GBK-encode-string-解码GBK为一个字节数组" class="headerlink" title="GBK.encode({string}) 解码GBK为一个字节数组"></a>GBK.encode({string}) 解码GBK为一个字节数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GBK.encode(&apos;时顺地?abc地&apos;)</div><div class="line">&gt; [ 202, 177, 203, 179, 181, 216, 63, 97, 98, 99, 181, 216 ]</div></pre></td></tr></table></figure><h3 id="GBK-decode-BbyteArry-解码GBK编码的字节数组-返回字符串"><a href="#GBK-decode-BbyteArry-解码GBK编码的字节数组-返回字符串" class="headerlink" title="GBK.decode({BbyteArry}) 解码GBK编码的字节数组 返回字符串"></a>GBK.decode({BbyteArry}) 解码GBK编码的字节数组 返回字符串</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GBK.decode([ 202, 177, 203, 179, 181, 216, 63, 97, 98, 99, 181, 216 ])</div><div class="line">&gt; 时顺地?abc地;</div></pre></td></tr></table></figure><h3 id="URI相关函数"><a href="#URI相关函数" class="headerlink" title="URI相关函数"></a>URI相关函数</h3><h4 id="GBK-URI-encodeURI-String-转换规则和-encodeURI-函数一至"><a href="#GBK-URI-encodeURI-String-转换规则和-encodeURI-函数一至" class="headerlink" title="GBK.URI.encodeURI({String})  转换规则和 encodeURI 函数一至"></a>GBK.URI.encodeURI({String})  转换规则和 <code>encodeURI</code> 函数一至</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GBK.URI.encodeURI(&apos;https://abc.com/?kk=abv&amp;bb=火车头#top&apos;)</div><div class="line">&gt; https://abc.com/?kk=abv&amp;bb=%BB%F0%B3%B5%CD%B7#top</div></pre></td></tr></table></figure><h4 id="GBK-URI-decodeURI-String-转换规则和-decodeURI-函数一至"><a href="#GBK-URI-decodeURI-String-转换规则和-decodeURI-函数一至" class="headerlink" title="GBK.URI.decodeURI({String})  转换规则和 decodeURI 函数一至"></a>GBK.URI.decodeURI({String})  转换规则和 <code>decodeURI</code> 函数一至</h4><h4 id="GBK-URI-encodeURIComponent-String-转换规则和-encodeURIComponent-函数一至"><a href="#GBK-URI-encodeURIComponent-String-转换规则和-encodeURIComponent-函数一至" class="headerlink" title="GBK.URI.encodeURIComponent({String})  转换规则和 encodeURIComponent 函数一至"></a>GBK.URI.encodeURIComponent({String})  转换规则和 <code>encodeURIComponent</code> 函数一至</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GBK.URI.encodeURIComponent(&apos;https://abc.com/?kk=abv&amp;bb=火车头#top&apos;)</div><div class="line">&gt; https%3A%2F%2Fabc.com%2F%3Fkk%3Dabv%26bb%3D%BB%F0%B3%B5%CD%B7%23top</div></pre></td></tr></table></figure><h4 id="GBK-URI-decodeURIComponent-String-转换规则和-decodeURIComponent-函数一至"><a href="#GBK-URI-decodeURIComponent-String-转换规则和-decodeURIComponent-函数一至" class="headerlink" title="GBK.URI.decodeURIComponent({String})  转换规则和 decodeURIComponent 函数一至"></a>GBK.URI.decodeURIComponent({String})  转换规则和 <code>decodeURIComponent</code> 函数一至</h4>]]></content>
     
@@ -32,16 +32,16 @@
     </summary>
     
     
-      <category term="gbk" scheme="http://blog.whyoop.com/tags/gbk/"/>
+      <category term="gbk" scheme="https://blog.whyoop.com/tags/gbk/"/>
     
-      <category term="gb2312" scheme="http://blog.whyoop.com/tags/gb2312/"/>
+      <category term="gb2312" scheme="https://blog.whyoop.com/tags/gb2312/"/>
     
   </entry>
   
   <entry>
     <title>垂直居中方法汇总</title>
-    <link href="http://blog.whyoop.com/2017/11/02/%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/"/>
-    <id>http://blog.whyoop.com/2017/11/02/垂直居中方法汇总/</id>
+    <link href="https://blog.whyoop.com/2017/11/02/%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/"/>
+    <id>https://blog.whyoop.com/2017/11/02/垂直居中方法汇总/</id>
     <published>2017-11-01T16:34:43.000Z</published>
     <updated>2017-12-01T09:13:27.000Z</updated>
     
@@ -53,21 +53,21 @@
     
     </summary>
     
-      <category term="CSS" scheme="http://blog.whyoop.com/categories/CSS/"/>
+      <category term="CSS" scheme="https://blog.whyoop.com/categories/CSS/"/>
     
     
-      <category term="垂直居中" scheme="http://blog.whyoop.com/tags/%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/"/>
+      <category term="垂直居中" scheme="https://blog.whyoop.com/tags/%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/"/>
     
   </entry>
   
   <entry>
     <title>git 制作增量包（差异包）</title>
-    <link href="http://blog.whyoop.com/2017/09/28/git-%E5%88%B6%E4%BD%9C%E5%A2%9E%E9%87%8F%E5%8C%85%EF%BC%88%E5%B7%AE%E5%BC%82%E5%8C%85%EF%BC%89/"/>
-    <id>http://blog.whyoop.com/2017/09/28/git-制作增量包（差异包）/</id>
+    <link href="https://blog.whyoop.com/2017/09/28/git-%E5%88%B6%E4%BD%9C%E5%A2%9E%E9%87%8F%E5%8C%85%EF%BC%88%E5%B7%AE%E5%BC%82%E5%8C%85%EF%BC%89/"/>
+    <id>https://blog.whyoop.com/2017/09/28/git-制作增量包（差异包）/</id>
     <published>2017-09-28T08:52:00.000Z</published>
     <updated>2017-09-28T08:58:18.000Z</updated>
     
-    <content type="html"><![CDATA[<p>打增量包无非 “选文件”, “打包” 两个操作</p><h2 id="1-筛选差异文件"><a href="#1-筛选差异文件" class="headerlink" title="1.筛选差异文件"></a>1.筛选差异文件</h2><p><code>git</code> 比较差异当然是 <code>git diff</code> 命令了</p><p>语法如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git diff [options] [&lt;commit&gt;] [--] [&lt;path&gt;…​]</div><div class="line">git diff [options] --cached [&lt;commit&gt;] [--] [&lt;path&gt;…​]</div><div class="line">git diff [options] &lt;commit&gt; &lt;commit&gt; [--] [&lt;path&gt;…​]</div><div class="line">git diff [options] &lt;blob&gt; &lt;blob&gt;</div><div class="line">git diff [options] [--no-index] [--] &lt;path&gt; &lt;path&gt;</div></pre></td></tr></table></figure><p>options 有这么一个参数</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">--name-only  </div><div class="line">    Show only names of changed files.</div></pre></td></tr></table></figure><p>可以试一下, 比较本地 <code>master</code> 和 <code>origin/master</code> 的差异</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> git diff master origin/master --name-only</div><div class="line">wp/wp-content/themes/alcatel/csr.php</div><div class="line">wp/wp-content/themes/alcatel/service_privacy_policy.php</div></pre></td></tr></table></figure><p>OK 这就是我们需要的</p><h2 id="2-打包"><a href="#2-打包" class="headerlink" title="2.打包"></a>2.打包</h2><p>有了文件列表，打包就好办了</p><p><strong>用 <code>tar</code> 命令打包</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> tar -zcvf diff.tar.gz $(git diff master origin/master --name-only)</div></pre></td></tr></table></figure><p><strong>用 <code>zip</code> 命令打包</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> zip -q -r diff.zip $(git diff master origin/master --name-only)</div></pre></td></tr></table></figure><p><strong>用 <code>git archive</code> 命令打包</strong></p><blockquote><p>其实最实用的还是直接用git的归档命令打包<br>好处就是不需要额外东西 windows下的 <code>PowerShell</code> 和 <code>git bash</code> 也能用</p></blockquote><p><strong>语法</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">git archive [&lt;options&gt;] &lt;tree-ish&gt; [&lt;path&gt;...]</div><div class="line">git archive --list</div><div class="line">git archive --remote &lt;repo&gt; [--exec &lt;cmd&gt;] [&lt;options&gt;] &lt;tree-ish&gt; [&lt;path&gt;...]</div><div class="line">git archive --remote &lt;repo&gt; [--exec &lt;cmd&gt;] --list</div><div class="line">    </div><div class="line">    --format &lt;fmt&gt;        archive format</div><div class="line">    --prefix &lt;prefix&gt;     prepend prefix to each pathname in the archive</div><div class="line">    -o, --output &lt;file&gt;   write the archive to this file</div><div class="line">    --worktree-attributes</div><div class="line">                          read .gitattributes in working directory</div><div class="line">    -v, --verbose         report archived files on stderr</div><div class="line">    -0                    store only</div><div class="line">    -1                    compress faster</div><div class="line">    -9                    compress better</div><div class="line"></div><div class="line">    -l, --list            list supported archive formats</div><div class="line"></div><div class="line">    --remote &lt;repo&gt;       retrieve the archive from remote repository &lt;repo&gt;</div><div class="line">    --exec &lt;command&gt;      path to the remote git-upload-archive command</div></pre></td></tr></table></figure><blockquote><p><code>archive</code> 命令支持的打包格式可以用 <code>git archive -l</code> 查看<br>正常情况可以省略 <code>--format</code> ,<code>git</code>会根据输出的文件名判断格式 </p></blockquote><p>打包代码如下:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> git archive -o diff.zip master $(git diff master origin/master --name-only)</div></pre></td></tr></table></figure><blockquote><p>linux 还可以用上管道符号</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> git archive master $(git diff master origin/master --name-only) | gzip &gt; diff.zip</div></pre></td></tr></table></figure><p><strong>注意:如果 <code>diff</code> 命令结果是空 <code>archive</code> 会打包整个项目</strong></p><h2 id="3-常用增量包命令"><a href="#3-常用增量包命令" class="headerlink" title="3.常用增量包命令"></a>3.常用增量包命令</h2><h3 id="当前分支与master差异包"><a href="#当前分支与master差异包" class="headerlink" title="当前分支与master差异包"></a>当前分支与master差异包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> git archive -o update.zip HEAD $(git diff master --name-only)</div></pre></td></tr></table></figure><h3 id="最后一次commit差异包"><a href="#最后一次commit差异包" class="headerlink" title="最后一次commit差异包"></a>最后一次commit差异包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> git archive -o lastcommit.zip HEAD $(git diff HEAD^ --name-only)</div></pre></td></tr></table></figure><h3 id="从-x-中提取-x-与-y-的差异文件打包"><a href="#从-x-中提取-x-与-y-的差异文件打包" class="headerlink" title="从 x 中提取 x 与 y 的差异文件打包."></a>从 <code>x</code> 中提取 <code>x</code> 与 <code>y</code> 的差异文件打包.</h3><blockquote><p><code>x</code> , <code>y</code> 可以是 分支, tag, commit</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> git archive -o x_y.zip x $(git diff x y --name-only)</div></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>打增量包无非 “选文件”, “打包” 两个操作</p><h2 id="1-筛选差异文件"><a href="#1-筛选差异文件" class="headerlink" title="1.筛选差异文件"></a>1.筛选差异文件</h2><p><code>git</code> 比较差异当然是 <code>git diff</code> 命令了</p><p>语法如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git diff [options] [&lt;commit&gt;] [--] [&lt;path&gt;…​]</div><div class="line">git diff [options] --cached [&lt;commit&gt;] [--] [&lt;path&gt;…​]</div><div class="line">git diff [options] &lt;commit&gt; &lt;commit&gt; [--] [&lt;path&gt;…​]</div><div class="line">git diff [options] &lt;blob&gt; &lt;blob&gt;</div><div class="line">git diff [options] [--no-index] [--] &lt;path&gt; &lt;path&gt;</div></pre></td></tr></table></figure><p>options 有这么一个参数</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">--name-only  </div><div class="line">    Show only names of changed files.</div></pre></td></tr></table></figure><p>可以试一下, 比较本地 <code>master</code> 和 <code>origin/master</code> 的差异</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git diff master origin/master --name-only</span></div><div class="line">wp/wp-content/themes/alcatel/csr.php</div><div class="line">wp/wp-content/themes/alcatel/service_privacy_policy.php</div></pre></td></tr></table></figure><p>OK 这就是我们需要的</p><h2 id="2-打包"><a href="#2-打包" class="headerlink" title="2.打包"></a>2.打包</h2><p>有了文件列表，打包就好办了</p><p><strong>用 <code>tar</code> 命令打包</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> tar -zcvf diff.tar.gz $(git diff master origin/master --name-only)</span></div></pre></td></tr></table></figure><p><strong>用 <code>zip</code> 命令打包</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> zip -q -r diff.zip $(git diff master origin/master --name-only)</span></div></pre></td></tr></table></figure><p><strong>用 <code>git archive</code> 命令打包</strong></p><blockquote><p>其实最实用的还是直接用git的归档命令打包<br>好处就是不需要额外东西 windows下的 <code>PowerShell</code> 和 <code>git bash</code> 也能用</p></blockquote><p><strong>语法</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">git archive [&lt;options&gt;] &lt;tree-ish&gt; [&lt;path&gt;...]</div><div class="line">git archive --list</div><div class="line">git archive --remote &lt;repo&gt; [--exec &lt;cmd&gt;] [&lt;options&gt;] &lt;tree-ish&gt; [&lt;path&gt;...]</div><div class="line">git archive --remote &lt;repo&gt; [--exec &lt;cmd&gt;] --list</div><div class="line">    </div><div class="line">    --format &lt;fmt&gt;        archive format</div><div class="line">    --prefix &lt;prefix&gt;     prepend prefix to each pathname in the archive</div><div class="line">    -o, --output &lt;file&gt;   write the archive to this file</div><div class="line">    --worktree-attributes</div><div class="line">                          read .gitattributes in working directory</div><div class="line">    -v, --verbose         report archived files on stderr</div><div class="line">    -0                    store only</div><div class="line">    -1                    compress faster</div><div class="line">    -9                    compress better</div><div class="line"></div><div class="line">    -l, --list            list supported archive formats</div><div class="line"></div><div class="line">    --remote &lt;repo&gt;       retrieve the archive from remote repository &lt;repo&gt;</div><div class="line">    --exec &lt;command&gt;      path to the remote git-upload-archive command</div></pre></td></tr></table></figure><blockquote><p><code>archive</code> 命令支持的打包格式可以用 <code>git archive -l</code> 查看<br>正常情况可以省略 <code>--format</code> ,<code>git</code>会根据输出的文件名判断格式 </p></blockquote><p>打包代码如下:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git archive -o diff.zip master $(git diff master origin/master --name-only)</span></div></pre></td></tr></table></figure><blockquote><p>linux 还可以用上管道符号</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git archive master $(git diff master origin/master --name-only) | gzip &gt; diff.zip</span></div></pre></td></tr></table></figure><p><strong>注意:如果 <code>diff</code> 命令结果是空 <code>archive</code> 会打包整个项目</strong></p><h2 id="3-常用增量包命令"><a href="#3-常用增量包命令" class="headerlink" title="3.常用增量包命令"></a>3.常用增量包命令</h2><h3 id="当前分支与master差异包"><a href="#当前分支与master差异包" class="headerlink" title="当前分支与master差异包"></a>当前分支与master差异包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git archive -o update.zip HEAD $(git diff master --name-only)</span></div></pre></td></tr></table></figure><h3 id="最后一次commit差异包"><a href="#最后一次commit差异包" class="headerlink" title="最后一次commit差异包"></a>最后一次commit差异包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git archive -o lastcommit.zip HEAD $(git diff HEAD^ --name-only)</span></div></pre></td></tr></table></figure><h3 id="从-x-中提取-x-与-y-的差异文件打包"><a href="#从-x-中提取-x-与-y-的差异文件打包" class="headerlink" title="从 x 中提取 x 与 y 的差异文件打包."></a>从 <code>x</code> 中提取 <code>x</code> 与 <code>y</code> 的差异文件打包.</h3><blockquote><p><code>x</code> , <code>y</code> 可以是 分支, tag, commit</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git archive -o x_y.zip x $(git diff x y --name-only)</span></div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -75,17 +75,17 @@
     
     </summary>
     
-      <category term="常用整理" scheme="http://blog.whyoop.com/categories/%E5%B8%B8%E7%94%A8%E6%95%B4%E7%90%86/"/>
+      <category term="常用整理" scheme="https://blog.whyoop.com/categories/%E5%B8%B8%E7%94%A8%E6%95%B4%E7%90%86/"/>
     
     
-      <category term="git" scheme="http://blog.whyoop.com/tags/git/"/>
+      <category term="git" scheme="https://blog.whyoop.com/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>fs-extra模块简要使用说明</title>
-    <link href="http://blog.whyoop.com/2017/09/01/fs-extra%E7%AE%80%E8%A6%81%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/"/>
-    <id>http://blog.whyoop.com/2017/09/01/fs-extra简要使用说明/</id>
+    <link href="https://blog.whyoop.com/2017/09/01/fs-extra%E7%AE%80%E8%A6%81%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/"/>
+    <id>https://blog.whyoop.com/2017/09/01/fs-extra简要使用说明/</id>
     <published>2017-09-01T07:47:19.000Z</published>
     <updated>2018-05-02T08:06:00.728Z</updated>
     
@@ -97,17 +97,17 @@
     
     </summary>
     
-      <category term="api" scheme="http://blog.whyoop.com/categories/api/"/>
+      <category term="api" scheme="https://blog.whyoop.com/categories/api/"/>
     
     
-      <category term="nodejs" scheme="http://blog.whyoop.com/tags/nodejs/"/>
+      <category term="nodejs" scheme="https://blog.whyoop.com/tags/nodejs/"/>
     
   </entry>
   
   <entry>
     <title>git常用命令整理</title>
-    <link href="http://blog.whyoop.com/2017/07/10/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/"/>
-    <id>http://blog.whyoop.com/2017/07/10/git常用命令整理/</id>
+    <link href="https://blog.whyoop.com/2017/07/10/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/"/>
+    <id>https://blog.whyoop.com/2017/07/10/git常用命令整理/</id>
     <published>2017-07-10T11:12:41.000Z</published>
     <updated>2017-12-01T08:57:24.000Z</updated>
     
@@ -119,17 +119,17 @@
     
     </summary>
     
-      <category term="常用整理" scheme="http://blog.whyoop.com/categories/%E5%B8%B8%E7%94%A8%E6%95%B4%E7%90%86/"/>
+      <category term="常用整理" scheme="https://blog.whyoop.com/categories/%E5%B8%B8%E7%94%A8%E6%95%B4%E7%90%86/"/>
     
     
-      <category term="git" scheme="http://blog.whyoop.com/tags/git/"/>
+      <category term="git" scheme="https://blog.whyoop.com/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>mysql常用命令整理</title>
-    <link href="http://blog.whyoop.com/2017/07/10/mysql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/"/>
-    <id>http://blog.whyoop.com/2017/07/10/mysql常用命令整理/</id>
+    <link href="https://blog.whyoop.com/2017/07/10/mysql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/"/>
+    <id>https://blog.whyoop.com/2017/07/10/mysql常用命令整理/</id>
     <published>2017-07-10T11:07:09.000Z</published>
     <updated>2017-07-21T07:58:27.000Z</updated>
     
@@ -141,19 +141,19 @@
     
     </summary>
     
-      <category term="常用整理" scheme="http://blog.whyoop.com/categories/%E5%B8%B8%E7%94%A8%E6%95%B4%E7%90%86/"/>
+      <category term="常用整理" scheme="https://blog.whyoop.com/categories/%E5%B8%B8%E7%94%A8%E6%95%B4%E7%90%86/"/>
     
     
-      <category term="mysql" scheme="http://blog.whyoop.com/tags/mysql/"/>
+      <category term="mysql" scheme="https://blog.whyoop.com/tags/mysql/"/>
     
-      <category term="数据库" scheme="http://blog.whyoop.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="https://blog.whyoop.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
   <entry>
     <title>Hexo开启置顶功能</title>
-    <link href="http://blog.whyoop.com/2017/06/07/Hexo%E5%BC%80%E5%90%AF%E7%BD%AE%E9%A1%B6%E5%8A%9F%E8%83%BD/"/>
-    <id>http://blog.whyoop.com/2017/06/07/Hexo开启置顶功能/</id>
+    <link href="https://blog.whyoop.com/2017/06/07/Hexo%E5%BC%80%E5%90%AF%E7%BD%AE%E9%A1%B6%E5%8A%9F%E8%83%BD/"/>
+    <id>https://blog.whyoop.com/2017/06/07/Hexo开启置顶功能/</id>
     <published>2017-06-07T11:23:39.000Z</published>
     <updated>2017-07-10T11:04:22.000Z</updated>
     
@@ -168,17 +168,17 @@
     
     </summary>
     
-      <category term="Hexo" scheme="http://blog.whyoop.com/categories/Hexo/"/>
+      <category term="Hexo" scheme="https://blog.whyoop.com/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="http://blog.whyoop.com/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://blog.whyoop.com/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Hexo开启RSS</title>
-    <link href="http://blog.whyoop.com/2017/06/07/Hexo%E5%BC%80%E5%90%AFRSS/"/>
-    <id>http://blog.whyoop.com/2017/06/07/Hexo开启RSS/</id>
+    <link href="https://blog.whyoop.com/2017/06/07/Hexo%E5%BC%80%E5%90%AFRSS/"/>
+    <id>https://blog.whyoop.com/2017/06/07/Hexo开启RSS/</id>
     <published>2017-06-07T11:15:05.000Z</published>
     <updated>2017-07-21T07:54:35.000Z</updated>
     
@@ -194,19 +194,19 @@
     
     </summary>
     
-      <category term="Hexo" scheme="http://blog.whyoop.com/categories/Hexo/"/>
+      <category term="Hexo" scheme="https://blog.whyoop.com/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="http://blog.whyoop.com/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://blog.whyoop.com/tags/Hexo/"/>
     
-      <category term="RSS" scheme="http://blog.whyoop.com/tags/RSS/"/>
+      <category term="RSS" scheme="https://blog.whyoop.com/tags/RSS/"/>
     
   </entry>
   
   <entry>
     <title>hello word</title>
-    <link href="http://blog.whyoop.com/2017/06/02/hello-word/"/>
-    <id>http://blog.whyoop.com/2017/06/02/hello-word/</id>
+    <link href="https://blog.whyoop.com/2017/06/02/hello-word/"/>
+    <id>https://blog.whyoop.com/2017/06/02/hello-word/</id>
     <published>2017-06-02T08:51:02.000Z</published>
     <updated>2017-07-21T07:54:21.000Z</updated>
     
@@ -218,12 +218,12 @@
     
     </summary>
     
-      <category term="Hexo" scheme="http://blog.whyoop.com/categories/Hexo/"/>
+      <category term="Hexo" scheme="https://blog.whyoop.com/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="http://blog.whyoop.com/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://blog.whyoop.com/tags/Hexo/"/>
     
-      <category term="test" scheme="http://blog.whyoop.com/tags/test/"/>
+      <category term="test" scheme="https://blog.whyoop.com/tags/test/"/>
     
   </entry>
   
