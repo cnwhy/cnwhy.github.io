@@ -6,7 +6,7 @@
   <link href="//atom.xml" rel="self"/>
   
   <link href="https://blog.whyoop.com/"/>
-  <updated>2018-05-15T09:48:04.150Z</updated>
+  <updated>2018-06-14T16:00:42.990Z</updated>
   <id>https://blog.whyoop.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>nodejs 子进模块 child_process 笔记</title>
+    <link href="https://blog.whyoop.com/2018/05/24/child-process/"/>
+    <id>https://blog.whyoop.com/2018/05/24/child-process/</id>
+    <published>2018-05-24T09:11:48.000Z</published>
+    <updated>2018-06-14T16:00:42.990Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>child_process</code> 是 <code>Master-worker</code> 主从模式的多进程架构, 每个进程都有自己的区域, 通过监听<code>message</code> 和 <code>send</code> 事件实现消息传递达到资源共享.<br><code>cluster</code> <code>child_process</code><br><a id="more"></a><br><code>child_process</code> nodejs 线程控制的基础模块 </p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;child_process&lt;/code&gt; 是 &lt;code&gt;Master-worker&lt;/code&gt; 主从模式的多进程架构, 每个进程都有自己的区域, 通过监听&lt;code&gt;message&lt;/code&gt; 和 &lt;code&gt;send&lt;/code&gt; 事件实现消息传递达到资源共享.&lt;br&gt;&lt;code&gt;cluster&lt;/code&gt; &lt;code&gt;child_process&lt;/code&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>javascript 一个很小的GBK库(gbk,gb2312)</title>

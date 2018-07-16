@@ -1265,7 +1265,7 @@ pre .javascript .function {
   opacity: 0;
 }
 .posts-expand {
-  padding-top: 40px;
+  padding-top: 0px;
 }
 @media (max-width: 767px) {
   .posts-expand {
@@ -1608,8 +1608,7 @@ pre .javascript .function {
 }
 .posts-expand .post-eof {
   display: block;
-  margin: 80px auto 60px;
-  width: 8%;
+  margin: 30px auto 50px;
   height: 1px;
   background: #ccc;
   text-align: center;
@@ -1837,7 +1836,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3e7720;
+  background: #fff;
 }
 .links-of-blogroll {
   font-size: 13px;
