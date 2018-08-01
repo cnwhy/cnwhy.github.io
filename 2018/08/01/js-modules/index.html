@@ -98,18 +98,18 @@
 
 
 
-  <meta name="description" content="fs-extra 是一个nodejs操作文件的模块，它继承了fs的所有API，并进一步封装了fs的异步API，支持promise返回，还集成了很多常用操作.">
-<meta name="keywords" content="nodejs">
+  <meta name="description" content="前端组件的模块化己发展了很久 这篇文章将对 iife amd cmd cjs umd 和 es6 做一个介绍">
+<meta name="keywords" content="模块化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="fs-extra模块简要使用说明">
-<meta property="og:url" content="https://blog.whyoop.com/2017/09/01/fs-extra简要使用说明/index.html">
+<meta property="og:title" content="前端模块化标准对比 iife amd cmd cjs umd es6">
+<meta property="og:url" content="https://blog.whyoop.com/2018/08/01/js-modules/index.html">
 <meta property="og:site_name" content="空谷幽兰">
-<meta property="og:description" content="fs-extra 是一个nodejs操作文件的模块，它继承了fs的所有API，并进一步封装了fs的异步API，支持promise返回，还集成了很多常用操作.">
+<meta property="og:description" content="前端组件的模块化己发展了很久 这篇文章将对 iife amd cmd cjs umd 和 es6 做一个介绍">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-01T07:39:22.337Z">
+<meta property="og:updated_time" content="2018-08-01T07:39:22.344Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="fs-extra模块简要使用说明">
-<meta name="twitter:description" content="fs-extra 是一个nodejs操作文件的模块，它继承了fs的所有API，并进一步封装了fs的异步API，支持promise返回，还集成了很多常用操作.">
+<meta name="twitter:title" content="前端模块化标准对比 iife amd cmd cjs umd es6">
+<meta name="twitter:description" content="前端组件的模块化己发展了很久 这篇文章将对 iife amd cmd cjs umd 和 es6 做一个介绍">
 
 
 
@@ -118,7 +118,7 @@
 
 
 
-  <link rel="canonical" href="https://blog.whyoop.com/2017/09/01/fs-extra简要使用说明/"/>
+  <link rel="canonical" href="https://blog.whyoop.com/2018/08/01/js-modules/"/>
 
 
 
@@ -128,7 +128,7 @@
   };
 </script>
 
-  <title>fs-extra模块简要使用说明 | 空谷幽兰</title>
+  <title>前端模块化标准对比 iife amd cmd cjs umd es6 | 空谷幽兰</title>
   
 
 
@@ -302,7 +302,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.whyoop.com/2017/09/01/fs-extra简要使用说明/">
+    <link itemprop="mainEntityOfPage" href="https://blog.whyoop.com/2018/08/01/js-modules/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="cnwhy">
@@ -319,7 +319,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">fs-extra模块简要使用说明
+          <h1 class="post-title" itemprop="name headline">前端模块化标准对比 iife amd cmd cjs umd es6
               
             
           </h1>
@@ -344,24 +344,12 @@
                 
               
 
-              <time title="创建时间：2017-09-01 15:47:19" itemprop="dateCreated datePublished" datetime="2017-09-01T15:47:19+08:00">2017-09-01</time>
+              <time title="创建时间：2018-08-01 10:46:07 / 修改时间：15:39:22" itemprop="dateCreated datePublished" datetime="2018-08-01T10:46:07+08:00">2018-08-01</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-01 15:39:22" itemprop="dateModified" datetime="2018-08-01T15:39:22+08:00">2018-08-01</time>
               
             
           </span>
@@ -378,7 +366,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/api/" itemprop="url" rel="index"><span itemprop="name">api</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/常用整理/" itemprop="url" rel="index"><span itemprop="name">常用整理</span></a></span>
 
                 
                 
@@ -393,10 +381,10 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/09/01/fs-extra简要使用说明/#comments" itemprop="discussionUrl">
+                <a href="/2018/08/01/js-modules/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/09/01/fs-extra简要使用说明/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/08/01/js-modules/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -424,55 +412,70 @@
       
 
       
-        <p><code>fs-extra</code> 是一个nodejs操作文件的模块，它继承了<code>fs</code>的所有API，并进一步封装了<code>fs</code>的异步API，支持<code>promise</code>返回，还集成了很多常用操作.<br><a id="more"></a></p>
-<h2 id="fs-extra-v4-x"><a href="#fs-extra-v4-x" class="headerlink" title="fs-extra v4.x"></a>fs-extra v4.x</h2><h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><p>异步方法不传<code>callback</code>,都将返回Promise对像；</p>
-<h4 id="copy"><a href="#copy" class="headerlink" title="copy"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/copy.md" target="_blank" rel="external">copy</a></h4><p><code>copy(src, dest, [options, callback])</code> 复制文件/文件夹</p>
-<h4 id="emptyDir"><a href="#emptyDir" class="headerlink" title="emptyDir"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/emptyDir.md" target="_blank" rel="external">emptyDir</a></h4><p><code>emptyDir(dir, [callback])</code> 清空一个目录(删除目录中的所有文件), 如果目录结构不存在则创建它</p>
+        <blockquote>
+<p>前端组件的模块化己发展了很久 这篇文章将对 <code>iife</code> <code>amd</code> <code>cmd</code> <code>cjs</code> <code>umd</code> 和 <code>es6</code> 做一个介绍<br><a id="more"></a></p>
+<h2 id="IIFE"><a href="#IIFE" class="headerlink" title="IIFE"></a>IIFE</h2><p><code>IIFE</code> 其实在大家应该都用过,只不过没想到还有个名字;<br><code>IIFE</code> 标准简单说就是执行一个匿名函数, 模块代码放入匿名函数中, 隔离变量作用域,内存释放等问题;<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">global</span>)</span>&#123;</div><div class="line">    <span class="comment">// code</span></div><div class="line">&#125;)(<span class="keyword">this</span>);</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="AMD-和-CMD"><a href="#AMD-和-CMD" class="headerlink" title="AMD 和 CMD"></a>AMD 和 CMD</h2><p>介绍 <code>AMD</code> 不得不说 <a href="http://requirejs.org/" target="_blank" rel="external">RequireJS</a>, 它的出现解决了模块依赖的问题, 使得前端模块化进程加速发展, <code>AMD</code> 规范其实是<code>RequireJS</code>出来之后再提出来的.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">define([<span class="string">'module1'</span>,<span class="string">'module2'</span>],<span class="function"><span class="keyword">function</span>(<span class="params">m1,m2</span>)</span>&#123;</div><div class="line">    <span class="comment">//code</span></div><div class="line"></div><div class="line">    <span class="comment">//懒加载</span></div><div class="line">    <span class="built_in">require</span>([<span class="string">'module3'</span>],<span class="function"><span class="keyword">function</span>(<span class="params">m3</span>)</span>&#123;&#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p><code>SeaJS</code>最初以 <code>懒加载</code> 以及支持 <code>CSS</code> 等特点吸引了很多用户, 提出了 <code>CMD</code> 规范. 但在 <code>RequireJS</code> 也支持这些特性之后, 渐渐淡出;<br>虽然 <code>SeaJS</code> 没有明显的缺点,但浏览器端领域统标准未尝不一件好事;<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</div><div class="line">    <span class="comment">//依赖</span></div><div class="line">    <span class="keyword">var</span> m1 = <span class="built_in">require</span>(<span class="string">'module1'</span>);</div><div class="line">    <span class="keyword">var</span> m2 = <span class="built_in">require</span>(<span class="string">'module1'</span>);</div><div class="line">    <span class="comment">//懒加载</span></div><div class="line">    <span class="built_in">require</span>.async(<span class="string">'module2'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">m2</span>)</span>&#123;</div><div class="line"></div><div class="line">    &#125;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h2 id="CJS"><a href="#CJS" class="headerlink" title="CJS"></a>CJS</h2><p><code>CJS</code> 其实应该叫 <code>CommonJS</code>;<br><code>CommonJS</code>是<code>nodejs</code>也就是服务器端广泛使用的模块化机制。该规范的主要内容是，模块必须通过 <code>module.exports</code> 导出对外的变量或接口，通过 <code>require()</code> 来导入其他模块的输出到当前模块作用域中。<br><code>CommonJS</code> 中的模块加载是同步的, 不适合在浏览器中使用;<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> m1 = <span class="built_in">require</span>(<span class="string">'module1'</span>);</div><div class="line"><span class="comment">//code</span></div><div class="line"><span class="built_in">module</span>.exports = &#123;&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="UMD"><a href="#UMD" class="headerlink" title="UMD"></a>UMD</h2><p><code>UMD</code> 其实不是什么标准, 可以看成是 <code>IIFE</code> <code>amd</code> + <code>cjs</code> 的兼容版.<br>也就是一个js文件, 可以用 <code>script</code> 标签引用加载, 用 <code>RequireJS</code> 加载, 也可以在 <code>node</code> 当成 <code>CommonJS</code> 模块加载;<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">global, factory</span>) </span>&#123;</div><div class="line">	<span class="keyword">typeof</span> exports === <span class="string">'object'</span> &amp;&amp; <span class="keyword">typeof</span> <span class="built_in">module</span> !== <span class="string">'undefined'</span> ? <span class="built_in">module</span>.exports = factory() :</div><div class="line">	<span class="keyword">typeof</span> define === <span class="string">'function'</span> &amp;&amp; define.amd ? define(factory) :</div><div class="line">	(global.GBK = factory());</div><div class="line">&#125;(<span class="keyword">this</span>, (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//code</span></div><div class="line">    <span class="keyword">return</span> obj;</div><div class="line">&#125;)));</div></pre></td></tr></table></figure></p>
 <blockquote>
-<p>别名: <code>emptydir()</code></p>
+<p>如果还想兼容 <code>CMD</code> 判断一下 <code>define.cmd</code> 即可;</p>
 </blockquote>
-<h4 id="ensureFile"><a href="#ensureFile" class="headerlink" title="ensureFile"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureFile.md" target="_blank" rel="external">ensureFile</a></h4><p><code>ensureFile(file, [callback])</code> 确保文件存在。 如果文件不存在，则创建目录结构及文件</p>
-<blockquote>
-<p>别名: <code>createFile()</code></p>
+<h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><p><code>ES6</code> 模块其实是 <strong>ECMAScript 2015 标准</strong> 在语言层面上,实现了模块功能;<br><code>ES6</code> 而且实现得相当简单，<code>import</code> 引入 <code>export</code> 导出.<br><code>ES6</code> 模块的设计思想是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。<br>现在许多打包工具利用 <code>ES6</code> 的特点, 按需提取代码, 打出的包更加精简.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//按需加载依赖</span></div><div class="line"><span class="keyword">import</span> &#123; stat, exists, readFile &#125; <span class="keyword">from</span> <span class="string">'fs'</span>;</div><div class="line"></div><div class="line"><span class="comment">//暴露接口</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> obj; <span class="comment">// 默认对外接口</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">var</span> foo = <span class="string">'str'</span>; <span class="comment">// 名称为`foo`的对外接口</span></div></pre></td></tr></table></figure></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
+<p><code>iife</code> 的方便 会让其长期存在<br><code>adm</code> 在浏览器端还是霸主阶段<br>在服务端 <code>es6</code> 标准化取代 <code>cjs</code> 是一种趋势, 但<code>cjs</code>票准的庞大类库,会让它地位难以取代.</p>
 </blockquote>
-<h4 id="ensureDir"><a href="#ensureDir" class="headerlink" title="ensureDir"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureDir.md" target="_blank" rel="external">ensureDir</a></h4><ul>
-<li><code>ensureDir(dir, [callback])</code> 确保目录存在。 如果目录结构不存在，则创建它<blockquote>
-<p>别名: <code>mkdirs()</code>, <code>mkdirp()</code></p>
-</blockquote>
-</li>
-</ul>
-<h4 id="ensureLink"><a href="#ensureLink" class="headerlink" title="ensureLink"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureLink.md" target="_blank" rel="external">ensureLink</a></h4><p><code>ensureLink(srcpath, dstpath, [callback])</code> 确保链接(dstpath)存在。如果不存在，则创建它 (硬链)</p>
-<h4 id="ensureSymlink"><a href="#ensureSymlink" class="headerlink" title="ensureSymlink"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureSymlink.md" target="_blank" rel="external">ensureSymlink</a></h4><p><code>ensureSymlink(srcpath, dstpath, [type, callback])</code> 确保符号链接(dstpath)存在。如果不存在，则创建它 (硬键)</p>
-<h4 id="mkdirs"><a href="#mkdirs" class="headerlink" title="mkdirs"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureDir.md" target="_blank" rel="external">mkdirs</a></h4><p>同 <code>ensureDir</code></p>
-<h4 id="move"><a href="#move" class="headerlink" title="move"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/move.md" target="_blank" rel="external">move</a></h4><p><code>move(src, dest, [options, callback])</code> 移动文件或目录，甚至跨设备。</p>
-<h4 id="outputFile"><a href="#outputFile" class="headerlink" title="outputFile"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputFile.md" target="_blank" rel="external">outputFile</a></h4><p><code>outputFile(file, data, [options, callback])</code> 相当 <code>fs.writeFile</code> 方法的增强版，会自动创建目录结构</p>
-<h4 id="outputJson"><a href="#outputJson" class="headerlink" title="outputJson"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputJson.md" target="_blank" rel="external">outputJson</a></h4><p><code>outputJson(file, object, [options, callback])</code> 类似 <code>outputFile</code> 但会自动把object转成JSON字符串输出到文件</p>
-<blockquote>
-<p>别名: <code>outputJSON()</code></p>
-</blockquote>
-<h4 id="pathExists"><a href="#pathExists" class="headerlink" title="pathExists"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/pathExists.md" target="_blank" rel="external">pathExists</a></h4><p><code>pathExists(file[, callback])</code> 检查文件是否存在</p>
-<h4 id="readJson"><a href="#readJson" class="headerlink" title="readJson"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/readJson.md" target="_blank" rel="external">readJson</a></h4><p><code>readJson(file, [options, callback])</code> 读取一个JSON文件，并解析成对像。</p>
-<blockquote>
-<p>别名: <code>readJSON()</code></p>
-</blockquote>
-<h4 id="remove"><a href="#remove" class="headerlink" title="remove"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/remove.md" target="_blank" rel="external">remove</a></h4><p><code>remove(path, [callback])</code> 删除一个文件或目录，会自动递归删除目录内的文件。</p>
-<h4 id="writeJson"><a href="#writeJson" class="headerlink" title="writeJson"></a><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/writeJson.md" target="_blank" rel="external">writeJson</a></h4><p><code>writeJson(file, object, [options, callback])</code> 将对像序列化为JSON字符串写入文件。</p>
-<h3 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h3><ul>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/copy-sync.md" target="_blank" rel="external">copySync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/emptyDir-sync.md" target="_blank" rel="external">emptyDirSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureFile-sync.md" target="_blank" rel="external">ensureFileSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureDir-sync.md" target="_blank" rel="external">ensureDirSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureLink-sync.md" target="_blank" rel="external">ensureLinkSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureSymlink-sync.md" target="_blank" rel="external">ensureSymlinkSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/ensureDir-sync.md" target="_blank" rel="external">mkdirsSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/move-sync.md" target="_blank" rel="external">moveSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputFile-sync.md" target="_blank" rel="external">outputFileSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputJson-sync.md" target="_blank" rel="external">outputJsonSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/pathExists-sync.md" target="_blank" rel="external">pathExistsSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/readJson-sync.md" target="_blank" rel="external">readJsonSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/remove-sync.md" target="_blank" rel="external">removeSync</a></li>
-<li><a href="https://github.com/jprichardson/node-fs-extra/blob/master/docs/writeJson-sync.md" target="_blank" rel="external">writeJsonSync</a></li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>标准</th>
+<th>变量问题</th>
+<th>依赖</th>
+<th>动态/懒 加载</th>
+<th>静态分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>iife</td>
+<td>✔</td>
+<td>✘</td>
+<td>✘      </td>
+<td>✘</td>
+</tr>
+<tr>
+<td>amd</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔      </td>
+<td>✘</td>
+</tr>
+<tr>
+<td>cmd</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔      </td>
+<td>✘</td>
+</tr>
+<tr>
+<td>cjs</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔      </td>
+<td>✘</td>
+</tr>
+<tr>
+<td>es6</td>
+<td>✔</td>
+<td>✔</td>
+<td>✘      </td>
+<td>✔</td>
+</tr>
+</tbody>
+</table>
+<h2 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a>延伸</h2><p><code>stylejs</code> 加载器可以加载上述所有标准的模块<br><code>rollup</code> 可以把<code>es6</code>/<code>cjs</code> 打包成各种标准的文件.</p>
 
       
     </div>
@@ -493,7 +496,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/nodejs/" rel="tag"># nodejs</a>
+            <a href="/tags/模块化/" rel="tag"># 模块化</a>
           
         </div>
       
@@ -506,8 +509,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/10/git常用命令整理/" rel="next" title="git常用命令整理">
-                <i class="fa fa-chevron-left"></i> git常用命令整理
+              <a href="/2018/05/02/gbk-js/" rel="next" title="javascript 一个很小的GBK库(gbk,gb2312)">
+                <i class="fa fa-chevron-left"></i> javascript 一个很小的GBK库(gbk,gb2312)
               </a>
             
           </div>
@@ -515,10 +518,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/28/git-制作增量包（差异包）/" rel="prev" title="git 制作增量包（差异包）">
-                git 制作增量包（差异包） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -719,7 +718,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#fs-extra-v4-x"><span class="nav-number">1.</span> <span class="nav-text">fs-extra v4.x</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#异步"><span class="nav-number">1.1.</span> <span class="nav-text">异步</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#copy"><span class="nav-number">1.1.1.</span> <span class="nav-text">copy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emptyDir"><span class="nav-number">1.1.2.</span> <span class="nav-text">emptyDir</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ensureFile"><span class="nav-number">1.1.3.</span> <span class="nav-text">ensureFile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ensureDir"><span class="nav-number">1.1.4.</span> <span class="nav-text">ensureDir</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ensureLink"><span class="nav-number">1.1.5.</span> <span class="nav-text">ensureLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ensureSymlink"><span class="nav-number">1.1.6.</span> <span class="nav-text">ensureSymlink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mkdirs"><span class="nav-number">1.1.7.</span> <span class="nav-text">mkdirs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#move"><span class="nav-number">1.1.8.</span> <span class="nav-text">move</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#outputFile"><span class="nav-number">1.1.9.</span> <span class="nav-text">outputFile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#outputJson"><span class="nav-number">1.1.10.</span> <span class="nav-text">outputJson</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pathExists"><span class="nav-number">1.1.11.</span> <span class="nav-text">pathExists</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#readJson"><span class="nav-number">1.1.12.</span> <span class="nav-text">readJson</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#remove"><span class="nav-number">1.1.13.</span> <span class="nav-text">remove</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#writeJson"><span class="nav-number">1.1.14.</span> <span class="nav-text">writeJson</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同步"><span class="nav-number">1.2.</span> <span class="nav-text">同步</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#IIFE"><span class="nav-number">1.</span> <span class="nav-text">IIFE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AMD-和-CMD"><span class="nav-number">2.</span> <span class="nav-text">AMD 和 CMD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CJS"><span class="nav-number">3.</span> <span class="nav-text">CJS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UMD"><span class="nav-number">4.</span> <span class="nav-text">UMD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6"><span class="nav-number">5.</span> <span class="nav-text">ES6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#延伸"><span class="nav-number">7.</span> <span class="nav-text">延伸</span></a></li></ol></div>
             
 
           </div>
@@ -874,9 +873,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'https://blog.whyoop.com/2017/09/01/fs-extra简要使用说明/';
-        this.page.identifier = '2017/09/01/fs-extra简要使用说明/';
-        this.page.title = 'fs-extra模块简要使用说明';
+        this.page.url = 'https://blog.whyoop.com/2018/08/01/js-modules/';
+        this.page.identifier = '2018/08/01/js-modules/';
+        this.page.title = '前端模块化标准对比 iife amd cmd cjs umd es6';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
