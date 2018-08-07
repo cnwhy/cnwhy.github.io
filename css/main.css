@@ -1836,7 +1836,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8c0630;
+  background: #42ff12;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2807,6 +2807,9 @@ ul.breadcrumb li+li:last-child {
   right: auto;
   bottom: auto;
   -webkit-transform: none;
+}
+.sidebar .adbox {
+  padding-top: 15px;
 }
 .sidebar-inner {
   box-sizing: border-box;
