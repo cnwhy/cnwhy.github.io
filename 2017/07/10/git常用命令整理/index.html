@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="空谷幽兰">
 <meta property="og:description" content="记录一些git的常用操作">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-01T07:39:22.342Z">
+<meta property="og:updated_time" content="2018-08-09T06:25:51.908Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git常用命令整理">
 <meta name="twitter:description" content="记录一些git的常用操作">
@@ -370,7 +370,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-01 15:39:22" itemprop="dateModified" datetime="2018-08-01T15:39:22+08:00">2018-08-01</time>
+                <time title="修改时间：2018-08-09 14:25:51" itemprop="dateModified" datetime="2018-08-09T14:25:51+08:00">2018-08-09</time>
               
             
           </span>
@@ -436,21 +436,6 @@
 
       
         
-
-<div class="adbox">
-<ins class="adsbygoogle"
-    style="display:block; true"
-    data-ad-client="ca-pub-8851564673191712"
-    data-ad-slot="9994154101"
-    data-ad-format="fluid"
-
-    data-ad-layout="in-article"
-
-    data-full-width-responsive="true"></ins>
-<script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
 
 
         <h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><h3 id="三个基本区域"><a href="#三个基本区域" class="headerlink" title="三个基本区域"></a>三个基本区域</h3><p><code>Staged Snapshot</code> : <code>index</code> , <code>暂存区</code> , <code>索引</code><br><code>Working Directory</code> : <code>工作区</code><br><code>Commit History</code> : <code>commit 历史</code> , <code>版本库</code></p>
@@ -594,10 +579,15 @@
 </li>
 <li><code>git reset --hard &lt;哈希值&gt;</code> 回退到指定版本 </li>
 <li><code>git reset --hard HEAD^</code> 回退到上一个commit</li>
-<li><p><code>git reset --hard ORIG_HEAD</code> 放弃本地所有修改，回退到上一次(合并等)操作前的版本</p>
+<li><code>git reset --hard HEAD~2</code> 放弃本地所有修改，回退到上上个commit</li>
+<li><code>git reset --hard HEAD@{1}</code> 放弃本地所有修改，回退到HEAD前一次指向的commit <ul>
+<li><code>git reflog</code> 显示 HEAD 移动路径</li>
+</ul>
 </li>
-<li><p><code>git revert &lt;commit id&gt;</code>  用一个新commit撤销commit操作，此次操作之前的commit都会被保留</p>
-</li>
+<li><code>git reset --hard ORIG_HEAD</code> 放弃本地所有修改，回退到上一次(合并等)操作前的版本</li>
+</ul>
+<ul>
+<li><code>git revert &lt;commit id&gt;</code>  用一个新commit撤销commit操作，此次操作之前的commit都会被保留</li>
 </ul>
 <h2 id="本地跟踪忽略"><a href="#本地跟踪忽略" class="headerlink" title="本地跟踪忽略"></a>本地跟踪忽略</h2><ul>
 <li><code>git update-index --assume-unchanged &lt;path&gt;</code>  忽略跟踪</li>
