@@ -310,6 +310,261 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.whyoop.com/2019/01/02/属性遍历汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="cnwhy">
+      <meta itemprop="description" content="小学文化，中学思想，大学流氓<br/>误入码界，浑噩多年">
+      <meta itemprop="image" content="//s.gravatar.com/avatar/0ce29bbbd3c6d01441a493be87e04bc8?s=200">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="空谷幽兰">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/02/属性遍历汇总/" itemprop="url">
+                  javascript对像之属性遍历
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-02 15:47:22" itemprop="dateCreated datePublished" datetime="2019-01-02T15:47:22+08:00">2019-01-02</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-03 20:10:37" itemprop="dateModified" datetime="2019-01-03T20:10:37+08:00">2019-01-03</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/常用整理/" itemprop="url" rel="index"><span itemprop="name">常用整理</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/02/属性遍历汇总/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/01/02/属性遍历汇总/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<h2 id="属性遍历-检查"><a href="#属性遍历-检查" class="headerlink" title="属性遍历/检查"></a>属性遍历/检查</h2><table>
+<thead>
+<tr>
+<th>语法/运算符</th>
+<th>普通属性</th>
+<th>原型链</th>
+<th>不可枚举</th>
+<th>Symbol</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>in</code></td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>会检查对像属性及其原型链</td>
+</tr>
+<tr>
+<td><code>for...in</code></td>
+<td>✔</td>
+<td>✔</td>
+<td>✘</td>
+<td>✘</td>
+<td>会访问原型链</td>
+</tr>
+<tr>
+<td>Object.keys(obj)</td>
+<td>✔</td>
+<td>✘</td>
+<td>✘</td>
+<td>✘</td>
+<td><code>[name1,name2]</code></td>
+</tr>
+<tr>
+<td>Object.getOwnPropertyNames(obj)</td>
+<td>✔</td>
+<td>✘</td>
+<td>✔</td>
+<td>✘</td>
+<td>会列出不可枚举属性</td>
+</tr>
+<tr>
+<td>Object.getOwnPropertySymbols(obj)</td>
+<td>✘</td>
+<td>✘</td>
+<td>✘</td>
+<td>✔</td>
+<td></td>
+</tr>
+<tr>
+<td>Reflect.ownKeys(obj)</td>
+<td>✔</td>
+<td>✘</td>
+<td>✔</td>
+<td>✔</td>
+<td></td>
+</tr>
+<tr>
+<td>Object.entries(obj)</td>
+<td>✔</td>
+<td>✘</td>
+<td>✘</td>
+<td>✘</td>
+<td>规则同<code>keys</code><br><code>[[name1,value1],[name2,value2]]</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>“普通属性” 指可枚举的自有属性<br><code>__proto__</code> 非常特殊,常见JS引擎下除了 <code>in</code> 运算符都不会检出</p>
+</blockquote>
+<h2 id="附-属性描述符说明"><a href="#附-属性描述符说明" class="headerlink" title="附:属性描述符说明"></a>附:属性描述符说明</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="string">"configurable"</span>: <span class="literal">false</span>, <span class="comment">//为 true 时，该属性描述符才能够被改变，同时该属性也能从对应的对象上被删除。默认为 false。</span></div><div class="line">	<span class="string">"enumerable"</span>: <span class="literal">false</span>,   <span class="comment">//为true时，该属性才能够出现在对象的枚举属性中。默认为 false。</span></div><div class="line"><span class="comment">//数据描述符同时具有以下可选键值：</span></div><div class="line">	<span class="string">"value"</span>: <span class="literal">undefined</span>, <span class="comment">//该属性对应的值。可以是任何有效的 JavaScript 值（数值，对象，函数等）。默认为 undefined。</span></div><div class="line">	<span class="string">"writable"</span>: <span class="literal">false</span>,  <span class="comment">//为true时，value才能被赋值运算符改变。默认为 false。</span></div><div class="line"><span class="comment">//存取描述符同时具有以下可选键值：</span></div><div class="line">	<span class="string">"get"</span>: <span class="literal">undefined</span>, <span class="comment">//一个给属性提供 getter 的方法，默认为 undefined。</span></div><div class="line">	<span class="string">"set"</span>: <span class="literal">undefined</span>, <span class="comment">//一个给属性提供 setter 的方法，默认为 undefined。</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.whyoop.com/2018/12/07/javascript-this/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -373,11 +628,29 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-12 18:43:23" itemprop="dateModified" datetime="2018-12-12T18:43:23+08:00">2018-12-12</time>
+                <time title="修改时间：2019-01-03 11:13:16" itemprop="dateModified" datetime="2019-01-03T11:13:16+08:00">2019-01-03</time>
               
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -542,7 +815,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-10 17:13:39" itemprop="dateModified" datetime="2018-12-10T17:13:39+08:00">2018-12-10</time>
+                <time title="修改时间：2019-01-03 11:01:20" itemprop="dateModified" datetime="2019-01-03T11:01:20+08:00">2019-01-03</time>
               
             
           </span>
@@ -560,6 +833,13 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/常用整理/" itemprop="url" rel="index"><span itemprop="name">常用整理</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/常用整理/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
 
                 
                 
@@ -730,11 +1010,29 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-01 15:39:22" itemprop="dateModified" datetime="2018-08-01T15:39:22+08:00">2018-08-01</time>
+                <time title="修改时间：2019-01-03 11:10:47" itemprop="dateModified" datetime="2019-01-03T11:10:47+08:00">2019-01-03</time>
               
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/My-project/" itemprop="url" rel="index"><span itemprop="name">My project</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -898,7 +1196,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-01 15:39:22" itemprop="dateModified" datetime="2018-08-01T15:39:22+08:00">2018-08-01</time>
+                <time title="修改时间：2019-01-03 20:10:43" itemprop="dateModified" datetime="2019-01-03T20:10:43+08:00">2019-01-03</time>
               
             
           </span>
@@ -915,7 +1213,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/常用整理/" itemprop="url" rel="index"><span itemprop="name">常用整理</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/常用整理/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
 
                 
                 
@@ -1067,12 +1372,24 @@
                 
               
 
-              <time title="创建时间：2017-09-28 16:52:00 / 修改时间：16:58:18" itemprop="dateCreated datePublished" datetime="2017-09-28T16:52:00+08:00">2017-09-28</time>
+              <time title="创建时间：2017-09-28 16:52:00" itemprop="dateCreated datePublished" datetime="2017-09-28T16:52:00+08:00">2017-09-28</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-03 20:13:10" itemprop="dateModified" datetime="2019-01-03T20:13:10+08:00">2019-01-03</time>
               
             
           </span>
@@ -1090,6 +1407,13 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/常用整理/" itemprop="url" rel="index"><span itemprop="name">常用整理</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/常用整理/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
 
                 
                 
@@ -1444,7 +1768,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-09 14:25:51" itemprop="dateModified" datetime="2018-08-09T14:25:51+08:00">2018-08-09</time>
+                <time title="修改时间：2019-01-03 20:11:41" itemprop="dateModified" datetime="2019-01-03T20:11:41+08:00">2019-01-03</time>
               
             
           </span>
@@ -1630,7 +1954,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2017-07-21 15:58:27" itemprop="dateModified" datetime="2017-07-21T15:58:27+08:00">2017-07-21</time>
+                <time title="修改时间：2019-01-03 20:10:51" itemprop="dateModified" datetime="2019-01-03T20:10:51+08:00">2019-01-03</time>
               
             
           </span>
@@ -1925,192 +2249,6 @@
 
 
     
-      
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.whyoop.com/2017/06/07/Hexo开启RSS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="cnwhy">
-      <meta itemprop="description" content="小学文化，中学思想，大学流氓<br/>误入码界，浑噩多年">
-      <meta itemprop="image" content="//s.gravatar.com/avatar/0ce29bbbd3c6d01441a493be87e04bc8?s=200">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="空谷幽兰">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/07/Hexo开启RSS/" itemprop="url">
-                  Hexo开启RSS
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-06-07 19:15:05" itemprop="dateCreated datePublished" datetime="2017-06-07T19:15:05+08:00">2017-06-07</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2017-07-21 15:54:35" itemprop="dateModified" datetime="2017-07-21T15:54:35+08:00">2017-07-21</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/06/07/Hexo开启RSS/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/07/Hexo开启RSS/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>开启Hexo可以用插件<code>hexo-generator-feed</code></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-feed --save</div></pre></td></tr></table></figure>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>hexo的_config.yml文件中，添加feed配置</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="attr">feed:</span> </div><div class="line">  <span class="comment">#feed 类型 (atom/rss2)</span></div><div class="line"><span class="attr">  type:</span> <span class="string">atom</span>   </div><div class="line">  <span class="comment">#rss 路径</span></div><div class="line"><span class="attr">  path:</span> <span class="string">/atom.xml</span>  </div><div class="line">  <span class="comment">#在 rss 中最多生成的文章数(0显示所有)</span></div><div class="line"><span class="attr">  limit:</span> <span class="number">10</span></div></pre></td></tr></table></figure>
-<p>在主题目的_config.yml文件中，添加RSS配置<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">rss:</span> <span class="string">/atom.xml</span></div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2162,7 +2300,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2183,7 +2321,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2220,7 +2366,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2296,7 +2446,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
