@@ -404,18 +404,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/09/28/git-制作增量包（差异包）/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/09/28/git-制作增量包（差异包）/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -452,13 +440,13 @@
 <p>options 有这么一个参数</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">--name-only  </div><div class="line">    Show only names of changed files.</div></pre></td></tr></table></figure>
 <p>可以试一下, 比较本地 <code>master</code> 和 <code>origin/master</code> 的差异</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> git diff master origin/master --name-only</div><div class="line">wp/wp-content/themes/alcatel/csr.php</div><div class="line">wp/wp-content/themes/alcatel/service_privacy_policy.php</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git diff master origin/master --name-only</span></div><div class="line">wp/wp-content/themes/alcatel/csr.php</div><div class="line">wp/wp-content/themes/alcatel/service_privacy_policy.php</div></pre></td></tr></table></figure>
 <p>OK 这就是我们需要的</p>
 <h2 id="2-打包"><a href="#2-打包" class="headerlink" title="2.打包"></a>2.打包</h2><p>有了文件列表，打包就好办了</p>
 <p><strong>用 <code>tar</code> 命令打包</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> tar -zcvf diff.tar.gz $(git diff master origin/master --name-only)</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> tar -zcvf diff.tar.gz $(git diff master origin/master --name-only)</span></div></pre></td></tr></table></figure>
 <p><strong>用 <code>zip</code> 命令打包</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> zip -q -r diff.zip $(git diff master origin/master --name-only)</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> zip -q -r diff.zip $(git diff master origin/master --name-only)</span></div></pre></td></tr></table></figure>
 <p><strong>用 <code>git archive</code> 命令打包</strong></p>
 <blockquote>
 <p>其实最实用的还是直接用git的归档命令打包<br>好处就是不需要额外东西 windows下的 <code>PowerShell</code> 和 <code>git bash</code> 也能用</p>
@@ -469,18 +457,18 @@
 <p><code>archive</code> 命令支持的打包格式可以用 <code>git archive -l</code> 查看<br>正常情况可以省略 <code>--format</code> ,<code>git</code>会根据输出的文件名判断格式 </p>
 </blockquote>
 <p>打包代码如下:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> git archive -o diff.zip master $(git diff master origin/master --name-only)</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git archive -o diff.zip master $(git diff master origin/master --name-only)</span></div></pre></td></tr></table></figure>
 <blockquote>
 <p>linux 还可以用上管道符号</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> git archive master $(git diff master origin/master --name-only) | gzip &gt; diff.zip</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git archive master $(git diff master origin/master --name-only) | gzip &gt; diff.zip</span></div></pre></td></tr></table></figure>
 <p><strong>注意:如果 <code>diff</code> 命令结果是空 <code>archive</code> 会打包整个项目</strong></p>
-<h2 id="3-常用增量包命令"><a href="#3-常用增量包命令" class="headerlink" title="3.常用增量包命令"></a>3.常用增量包命令</h2><h3 id="当前分支与master差异包"><a href="#当前分支与master差异包" class="headerlink" title="当前分支与master差异包"></a>当前分支与master差异包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> git archive -o update.zip HEAD $(git diff master --name-only)</div></pre></td></tr></table></figure>
-<h3 id="最后一次commit差异包"><a href="#最后一次commit差异包" class="headerlink" title="最后一次commit差异包"></a>最后一次commit差异包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> git archive -o lastcommit.zip HEAD $(git diff HEAD^ --name-only)</div></pre></td></tr></table></figure>
+<h2 id="3-常用增量包命令"><a href="#3-常用增量包命令" class="headerlink" title="3.常用增量包命令"></a>3.常用增量包命令</h2><h3 id="当前分支与master差异包"><a href="#当前分支与master差异包" class="headerlink" title="当前分支与master差异包"></a>当前分支与master差异包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git archive -o update.zip HEAD $(git diff master --name-only)</span></div></pre></td></tr></table></figure>
+<h3 id="最后一次commit差异包"><a href="#最后一次commit差异包" class="headerlink" title="最后一次commit差异包"></a>最后一次commit差异包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git archive -o lastcommit.zip HEAD $(git diff HEAD^ --name-only)</span></div></pre></td></tr></table></figure>
 <h3 id="从-x-中提取-x-与-y-的差异文件打包"><a href="#从-x-中提取-x-与-y-的差异文件打包" class="headerlink" title="从 x 中提取 x 与 y 的差异文件打包."></a>从 <code>x</code> 中提取 <code>x</code> 与 <code>y</code> 的差异文件打包.</h3><blockquote>
 <p><code>x</code> , <code>y</code> 可以是 分支, tag, commit</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> git archive -o x_y.zip x $(git diff x y --name-only)</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> git archive -o x_y.zip x $(git diff x y --name-only)</span></div></pre></td></tr></table></figure>
       
     </div>
 
@@ -570,16 +558,6 @@
           
 
   
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    </div>
-
-  
 
 
 
@@ -631,7 +609,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -643,8 +621,6 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
-                    
-                      
                     
                       
                     
@@ -701,7 +677,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -927,31 +905,6 @@
 
   
 
-  
-    <script id="dsq-count-scr" src="https://cnwhy.disqus.com/count.js" async></script>
-  
-
-  
-    <script type="text/javascript">
-      var disqus_config = function () {
-        this.page.url = 'https://blog.whyoop.com/2017/09/28/git-制作增量包（差异包）/';
-        this.page.identifier = '2017/09/28/git-制作增量包（差异包）/';
-        this.page.title = 'git 制作增量包（差异包）';
-        };
-      function loadComments () {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://cnwhy.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      }
-      
-        loadComments();
-      
-    </script>
-  
-
-
-
 
 
 	
@@ -963,6 +916,10 @@
   
 
 
+
+
+
+  
 
 
 
