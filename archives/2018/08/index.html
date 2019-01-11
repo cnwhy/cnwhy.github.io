@@ -15,23 +15,9 @@
 <html class="theme-next pisces" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="theme-color" content="#222"/>
 
 
 
@@ -54,15 +40,13 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
 
 
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
 
-
+<link rel="stylesheet" href="/css/main.css?v=6.7.0"/>
 
 
 
@@ -70,12 +54,16 @@
 
 
 
-<script type="text/javascript" id="hexo.configurations">
+
+
+
+
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '6.3.0',
+    version: '6.7.0',
     sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
     fastclick: false,
@@ -111,7 +99,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="空谷幽兰" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="空谷幽兰" type="application/atom+xml"/>
 
 
 
@@ -120,7 +108,7 @@
 
 
 
-<script type="text/javascript" id="page.configurations">
+<script id="page.configurations">
   CONFIG.page = {
     sidebar: "",
   };
@@ -132,14 +120,16 @@
 
 
 
-<script async src="//www.googletagmanager.com/gtag/js?id=UA-122367285-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="//www.googletagmanager.com/gtag/js?id=UA-122367285-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-122367285-1');
+  </script>
 
-  gtag('config', 'UA-122367285-1');
-</script>
+
+
 
 
 
@@ -150,36 +140,35 @@
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({
-          google_ad_client: "ca-pub-8851564673191712",
+          google_ad_client: "UA-122367285-1",
           enable_page_level_ads: true
      });
 </script>
 
 
+
   <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
 </noscript>
 
@@ -197,7 +186,7 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
@@ -211,6 +200,7 @@
       
         <p class="site-subtitle">小隐于野，大隐于市，神隐于网络</p>
       
+    
     
   </div>
 
@@ -234,32 +224,68 @@
         
           
           <li class="menu-item menu-item-home">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-categories">
-    <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-archives menu-item-active">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-tags">
-    <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
   </li>
 
       
@@ -352,18 +378,18 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2018/08/01/js-modules/" itemprop="url">
-              
-                <span itemprop="name">前端模块化标准对比 iife amd cmd cjs umd es6</span>
-              
-            </a>
+          <a class="post-title-link" href="/2018/08/01/js-modules/" itemprop="url">
+            
+              <span itemprop="name">前端模块化标准对比 iife amd cmd cjs umd es6</span>
+            
+          </a>
         
       </h2>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
               datetime="2018-08-01T10:46:07+08:00"
-              content="2018-08-01" >
+              content="2018-08-01">
           08-01
         </time>
       </div>
@@ -408,13 +434,9 @@
 
       
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="//s.gravatar.com/avatar/0ce29bbbd3c6d01441a493be87e04bc8?s=200"
-                alt="cnwhy" />
             
               <p class="site-author-name" itemprop="name">cnwhy</p>
               <p class="site-description motion-element" itemprop="description">小学文化，中学思想，大学流氓<br/>误入码界，浑噩多年</p>
@@ -515,22 +537,7 @@
           
 
           
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/cnwhy" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="mailto:w.why@163.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  
-                </span>
-              
-            </div>
-          
 
-          
           
 
           
@@ -542,7 +549,7 @@
           
 
         </div>
-      </section>
+      </div>
 
       
 
@@ -552,7 +559,7 @@
 <div class="adbox">
 <ins class="adsbygoogle"
     style="display:block; false"
-    data-ad-client="ca-pub-8851564673191712"
+    data-ad-client="UA-122367285-1"
     data-ad-slot="5611221815"
     data-ad-format="auto"
 
@@ -592,8 +599,6 @@
 
 
 
-
-
         
 
 
@@ -601,10 +606,8 @@
 
 
 
-
-
   <div style="display: none;">
-    <script src="//s95.cnzz.com/z_stat.php?id=2175629&web_id=2175629" language="JavaScript"></script>
+    <script src="//s95.cnzz.com/z_stat.php?id=2175629&web_id=2175629"></script>
   </div>
 
 
@@ -622,11 +625,14 @@
 
     
 
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -658,27 +664,21 @@
 
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+  <script src="/js/src/utils.js?v=6.7.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+  <script src="/js/src/motion.js?v=6.7.0"></script>
 
 
 
@@ -686,9 +686,9 @@
   
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+  <script src="/js/src/affix.js?v=6.7.0"></script>
 
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
 
 
 
@@ -697,33 +697,11 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
 
 
 
   
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
 
 
 
@@ -743,6 +721,11 @@
   
 
   
+
+  
+
+  
+
   
 
   
