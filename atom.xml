@@ -6,7 +6,7 @@
   <link href="//atom.xml" rel="self"/>
   
   <link href="https://blog.whyoop.com/"/>
-  <updated>2019-02-18T07:57:40.410Z</updated>
+  <updated>2019-02-22T11:46:04.437Z</updated>
   <id>https://blog.whyoop.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://blog.whyoop.com/2019/02/15/js-Equality-rule/"/>
     <id>https://blog.whyoop.com/2019/02/15/js-Equality-rule/</id>
     <published>2019-02-15T09:19:23.000Z</published>
-    <updated>2019-02-18T07:57:40.410Z</updated>
+    <updated>2019-02-22T11:46:04.437Z</updated>
     
-    <content type="html"><![CDATA[<p>javascript中的 <code>非严格等号(==)</code>运算符对于不同数据类型的比较, 会对运算符两边进行 <strong>隐式转换</strong>, 这篇文章将总结一下, 以便应对项(mian)目(shi)中的奇怪现象.<br><a id="more"></a></p><h2 id="非严格等号比较规则"><a href="#非严格等号比较规则" class="headerlink" title="非严格等号比较规则"></a>非严格等号比较规则</h2><p>javascript 使用 <a href="http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3" target="_blank" rel="noopener">Abstract Equality Comparison Algorithm</a> 规则进行比较</p><p><strong>总结如下:</strong><br>|    | 比较场景 | 结果 | 说明<br>| – | –      | –  | –<br>1 | 两边类型相同 | 同全等(===)规则 | (值类型)类型相同,值相等为true; (引用类型)引用同一对像才为true;<br>2 | <code>null</code> 与 <code>undefined</code> | <code>true</code> |<br>3 | <code>Number</code> 与 <code>String</code> | number == <code>toNumber(string)</code> | 0 == “”  //true <br> “01” == 1 //true<br>4 | <code>Boolean</code> 与 <code>(any)</code> | <code>toNumber(bool)</code> == (any) | true == 1 //true <br> false == 0 // true <br> false == ‘’ // true<br>5 | <code>String or Number</code>    与 <code>Object</code>| x == <code>toPrimitive(object)</code> | “[object Object]” == {} // true <br> 1 == {valueOf : function(){ return “1” }} //true<br>6 | 其它情况 | <code>false</code> | 0 == null <br> “” == undefined <br> undefined == {}</p><blockquote><p>toPrimitive 规则:<br>优先调用对像的 <code>valueOf</code> 方法转换;<br>如果对像没有 <code>valueOf</code> 方法, 或者 <code>valueOf</code> 方法返回的值不是原数据类型,<br>则调用 <code>toString</code> 方法转换;</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<p>javascript中的 <code>非严格等号(==)</code>运算符对于不同数据类型的比较, 会对运算符两边进行 <strong>隐式转换</strong>, 这篇文章将总结一下, 以便应对项(mian)目(shi)中的奇怪现象.<br><a id="more"></a></p><h2 id="非严格等号比较规则"><a href="#非严格等号比较规则" class="headerlink" title="非严格等号比较规则"></a>非严格等号比较规则</h2><p>javascript 使用 <a href="http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3" target="_blank" rel="noopener">Abstract Equality Comparison Algorithm</a> 规则进行比较</p><p><strong>总结如下:</strong></p><table><thead><tr><th>-</th><th>比较场景</th><th>结果</th><th>说明</th></tr></thead><tbody><tr><td>1</td><td>两边类型相同</td><td>同全等(===)规则</td><td>(值类型)类型相同,值相等为true;<br>(引用类型)引用同一对像才为true;</td></tr><tr><td>2</td><td><code>null</code> 与 <code>undefined</code></td><td><code>true</code></td><td></td></tr><tr><td>3</td><td><code>Number</code> 与 <code>String</code></td><td>number == <code>toNumber(string)</code></td><td><code>0 == &quot;&quot;</code>  //true <br> <code>&quot;01&quot; == 1</code> //true</td></tr><tr><td>4</td><td><code>Boolean</code> 与 <code>(any)</code></td><td><code>toNumber(bool)</code> == (any)</td><td><code>true == 1</code> //true <br> <code>false == 0</code> // true <br> <code>false == &#39;&#39;</code> // true</td></tr><tr><td>5</td><td><code>String</code> / <code>Number</code>    与 <code>Object</code></td><td>x == <code>toPrimitive(object)</code></td><td><code>&quot;[object Object]&quot; == {}</code> // true <br> <code>1 == {valueOf : function(){ return &quot;1&quot; }}</code> //true</td></tr><tr><td>6</td><td>其它情况</td><td><code>false</code></td><td><code>0 == null</code> <br> <code>&quot;&quot; == undefined</code> <br> <code>undefined == {}</code></td></tr></tbody></table><blockquote><p>toPrimitive 规则:<br>优先调用对像的 <code>valueOf</code> 方法转换;<br>如果对像没有 <code>valueOf</code> 方法, 或者 <code>valueOf</code> 方法返回的值不是原数据类型,<br>则调用 <code>toString</code> 方法转换;</p></blockquote>]]></content>
     
     <summary type="html">
     
@@ -39,9 +39,9 @@
     <link href="https://blog.whyoop.com/2019/02/15/js-Errors/"/>
     <id>https://blog.whyoop.com/2019/02/15/js-Errors/</id>
     <published>2019-02-15T05:48:39.000Z</published>
-    <updated>2019-02-18T07:59:32.244Z</updated>
+    <updated>2019-02-22T11:48:03.699Z</updated>
     
-    <content type="html"><![CDATA[<table><thead><tr><th style="text-align:right">ErrorClass</th><th>exp</th><th>abc</th></tr></thead><tbody><tr><td style="text-align:right"><code>Error</code></td><td>错误类</td><td>以下错误类型均继承此类</td></tr><tr><td style="text-align:right"><code>EvalError</code></td><td>eval 函数错误</td><td>此异常不再会被JavaScript抛出，但是<code>EvalError</code>对象仍然保持兼容性.</td></tr><tr><td style="text-align:right"><code>InternalError</code></td><td>JavaScript引擎内部的错误</td><td>非标准错误</td></tr><tr><td style="text-align:right"><code>RangeError</code></td><td>数值变量或参数超出其有效范围</td><td></td></tr><tr><td style="text-align:right"><code>ReferenceError</code></td><td>无效引用</td></tr><tr><td style="text-align:right"><code>SyntaxError</code></td><td>语法错误</td></tr><tr><td style="text-align:right"><code>TypeError</code></td><td>变量或参数不属于有效类型</td></tr><tr><td style="text-align:right"><code>URIError</code></td><td>全局URI处理函数而产生地板</td></tr></tbody></table>]]></content>
+    <content type="html"><![CDATA[<table><thead><tr><th style="text-align:right">ErrorClass</th><th>说明</th><th>补充</th></tr></thead><tbody><tr><td style="text-align:right"><code>Error</code></td><td>错误类</td><td>以下错误类型均继承此类</td></tr><tr><td style="text-align:right"><code>EvalError</code></td><td>eval 函数错误</td><td>此异常不再会被JavaScript抛出，但是<code>EvalError</code>对象仍然保持兼容性.</td></tr><tr><td style="text-align:right"><code>InternalError</code></td><td>JavaScript引擎内部的错误</td><td>非标准错误</td></tr><tr><td style="text-align:right"><code>RangeError</code></td><td>数值变量或参数超出其有效范围</td><td></td></tr><tr><td style="text-align:right"><code>ReferenceError</code></td><td>无效引用</td><td></td></tr><tr><td style="text-align:right"><code>SyntaxError</code></td><td>语法错误</td><td></td></tr><tr><td style="text-align:right"><code>TypeError</code></td><td>变量或参数不属于有效类型</td><td></td></tr><tr><td style="text-align:right"><code>URIError</code></td><td>全局URI处理函数而产生地板</td><td></td></tr></tbody></table>]]></content>
     
     <summary type="html">
     
