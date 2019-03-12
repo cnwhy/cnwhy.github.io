@@ -6,7 +6,7 @@
   <link href="//atom.xml" rel="self"/>
   
   <link href="https://blog.whyoop.com/"/>
-  <updated>2019-02-22T11:46:04.437Z</updated>
+  <updated>2019-03-12T11:22:04.073Z</updated>
   <id>https://blog.whyoop.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一行代码解决 termtosvg录制的SVG 对中文显示不友好的问题</title>
+    <link href="https://blog.whyoop.com/2019/03/12/termtosvg-fix/"/>
+    <id>https://blog.whyoop.com/2019/03/12/termtosvg-fix/</id>
+    <published>2019-03-12T09:30:52.000Z</published>
+    <updated>2019-03-12T11:22:04.073Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/nbedos/termtosvg" target="_blank" rel="noopener">termtosvg</a> 是一个可以把终端会话录制成SVG动画的工具, 非常有想法的一个项目;<br>不过使用的时候发现 如果有中文字符, 显示的时候会有点问题, 文字被挤到了一起;<br><a id="more"></a><br>比如:<br><img src="./cli.svg" alt="img"></p><p>这么好无的东西,不支持中文 不能忍;<br>捣鼓半天 找到一个 可以转成正常的角本, 不过作者弄成一个框架的插件. 用起来有点麻烦.  </p><p>索性重新写了个: <a href="https://gist.github.com/cnwhy/7cad3be853a188823c077df1182f6b1a" target="_blank" rel="noopener">https://gist.github.com/cnwhy/7cad3be853a188823c077df1182f6b1a</a>  </p><p>用法很简单,如果你用node,一行代码的事:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx https://gist.github.com/cnwhy/7cad3be853a188823c077df1182f6b1a &lt;svgfile&gt;</span><br></pre></td></tr></table></figure><p>这是转完后的效果:<br><img src="./convert-cli.svg" alt="img"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://github.com/nbedos/termtosvg&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;termtosvg&lt;/a&gt; 是一个可以把终端会话录制成SVG动画的工具, 非常有想法的一个项目;&lt;br&gt;不过使用的时候发现 如果有中文字符, 显示的时候会有点问题, 文字被挤到了一起;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="My project" scheme="https://blog.whyoop.com/categories/My-project/"/>
+    
+    
+      <category term="termtosvg" scheme="https://blog.whyoop.com/tags/termtosvg/"/>
+    
+      <category term="中文" scheme="https://blog.whyoop.com/tags/%E4%B8%AD%E6%96%87/"/>
+    
+  </entry>
   
   <entry>
     <title>javascript中 非严格等号(==)运算符的比较规则</title>
